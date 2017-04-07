@@ -1,0 +1,45 @@
+﻿{
+  "Engine": {
+
+    "IndexesSection": {
+      "add": {
+        "indexes": {
+          "add": [
+            {
+              "_name": "indexalias1",
+              "_location": "http://localhost:8983/solr/appleseed-public",
+              "_type": "Solr",
+              "_collectionName": "appleseed-public"
+            }
+          ]
+        },
+        "_name": "My Index"
+      }
+    },
+    "rssIndexServiceSection": {
+      "add": {
+        "Websites": {
+          "add": {
+            "_name": "Featured",
+            "_siteMapUrl": "",
+            "_indexPath": "{indexalias1}"
+          }
+        },
+        "_name": "My RSS Feeds"
+      }
+    },
+    "WebsiteIndexServiceSection": {
+      "add": {
+        "Websites": {
+          "add": {
+            "_name": "Anant Corporation",
+            "_siteMapUrl": "http://anant.us/sitemap.axd",
+            "_indexPath": "{indexalias1}"
+          }
+        },
+        "_name": "My Sitemaps"
+      }
+    },
+    "_environment": "Production"
+  }
+}

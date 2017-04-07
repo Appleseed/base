@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D5E78361-25B0-4C70-92C8-B49B718C8B77}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Appleseed.Base.Data</RootNamespace>
+    <AssemblyName>Appleseed.Base.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=2.1.2.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.3.2.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\packages\Common.Logging.Core.3.2.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySql.Data.6.9.8\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NLog.4.2.3\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NReadability, Version=1.4.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReadability.1.4.9\lib\NReadability.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SgmlReaderDll, Version=1.8.8.30578, Culture=neutral, PublicKeyToken=46b2db9ca481831b, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReadability.1.4.9\lib\SgmlReaderDll.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\BaseCollectionItemData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\BaseCollectionItem.cs" />
+    <Compile Include="Repository\Contracts\IInMemoryRepository.cs" />
+    <Compile Include="Repository\Contracts\ILuceneRepository.cs" />
+    <Compile Include="Repository\Contracts\IMySqlRepository.cs" />
+    <Compile Include="Repository\Contracts\IRepository.cs" />
+    <Compile Include="Repository\Contracts\ISqlRepository.cs" />
+    <Compile Include="Repository\InMemoryCollectionItemQueue.cs" />
+    <Compile Include="Repository\InMemoryRepository.cs" />
+    <Compile Include="Repository\LuceneRepository.cs" />
+    <Compile Include="Repository\MySqlRepository.cs" />
+    <Compile Include="Repository\SqlRepository.cs" />
+    <Compile Include="Service\LuceneService.cs" />
+    <Compile Include="Service\RepositoryService.cs" />
+    <Compile Include="Service\Rest.cs" />
+    <Compile Include="Service\WebPageDataService.cs" />
+    <Compile Include="Model\BaseCollectionItemObject.cs" />
+    <Compile Include="Queue\BaseCollectionItemQueue.cs" />
+    <Compile Include="Queue\IBaseMessageQueue.cs" />
+    <Compile Include="Utility\Constants.cs" />
+    <Compile Include="Utility\ObjectCopier.cs" />
+    <Compile Include="Utility\QueueSection.cs" />
+    <Compile Include="Utility\Serializer.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Clients\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Appleseed.Services.Base.Model\Appleseed.Services.Base.Model.csproj">
+      <Project>{CD4BD7B9-A019-4FC5-A1BB-CD6CE2DA987B}</Project>
+      <Name>Appleseed.Services.Base.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+</Project>

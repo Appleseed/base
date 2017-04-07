@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6483a2d8-15a9-4919-b8f0-e2767e2799f9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:51011/PortalServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PortalService.wsdl" MetadataType="Wsdl" ID="caf6ab84-63b9-4726-9b79-6e5725ebe6cb" SourceId="1" SourceUrl="http://localhost:51011/PortalServices.svc?wsdl" />
+    <MetadataFile FileName="PortalServices.disco" MetadataType="Disco" ID="4486442d-3f51-47bb-81ca-7949b4e29611" SourceId="1" SourceUrl="http://localhost:51011/PortalServices.svc?disco" />
+    <MetadataFile FileName="PortalServices.xsd" MetadataType="Schema" ID="7bb27ae2-7bf9-4a7f-8912-0b1f7708bd3d" SourceId="1" SourceUrl="http://localhost:51011/PortalServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="PortalServices1.xsd" MetadataType="Schema" ID="a2f0bb0b-a7e6-4768-8878-b263e35d384a" SourceId="1" SourceUrl="http://localhost:51011/PortalServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="PortalServices2.xsd" MetadataType="Schema" ID="92db2fae-19c4-4f53-963d-b961306fc271" SourceId="1" SourceUrl="http://localhost:51011/PortalServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="PortalServices3.xsd" MetadataType="Schema" ID="331a5385-a8a3-4a87-b2e3-d324385e0192" SourceId="1" SourceUrl="http://localhost:51011/PortalServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="PortalServices4.xsd" MetadataType="Schema" ID="b3afbdb1-8cf2-4f09-b7a8-73831e139d62" SourceId="1" SourceUrl="http://localhost:51011/PortalServices.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

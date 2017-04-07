@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Appleseed.Services.Web.Api.Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Appleseed.Services.Web.Api.Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:51011/PortalServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Role" nillable="true" type="tns:Role" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRole" nillable="true" type="tns:ArrayOfRole" />
+  <xs:complexType name="Role">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Role" nillable="true" type="tns:Role" />
+  <xs:complexType name="BaseEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UniqueGUID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseEntity" nillable="true" type="tns:BaseEntity" />
+</xs:schema>

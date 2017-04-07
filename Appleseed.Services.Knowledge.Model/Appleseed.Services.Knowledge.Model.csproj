@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Appleseed.Services.Knowledge.Model</RootNamespace>
+    <AssemblyName>Appleseed.Services.Knowledge.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>3d3f00d6</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Neo4jClient, Version=1.0.0.662, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Neo4jClient.1.0.0.662\lib\net40\Neo4jClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IO, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.10\lib\net40\System.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Illumination\Models\IlluminationResult.cs" />
+    <Compile Include="Illumination\Services\AlchemyIlluminator\AlchemyAPI.cs" />
+    <Compile Include="Illumination\Services\AlchemyIlluminator\AlchemyAPI_BaseParams.cs" />
+    <Compile Include="Illumination\Services\AlchemyIlluminator\AlchemyAPI_CategoryParams.cs" />
+    <Compile Include="Illumination\Services\AlchemyIlluminator\AlchemyAPI_ConceptParams.cs" />
+    <Compile Include="Illumination\Services\AlchemyIlluminator\AlchemyAPI_ConstraintQueryParams.cs" />
+    <Compile Include="Illumination\Services\AlchemyIlluminator\AlchemyAPI_EntityParams.cs" />
+    <Compile Include="Illumination\Services\AlchemyIlluminator\AlchemyAPI_KeywordParams.cs" />
+    <Compile Include="Illumination\Services\AlchemyIlluminator\AlchemyAPI_LanguageParams.cs" />
+    <Compile Include="Illumination\Services\AlchemyIlluminator\AlchemyAPI_RelationParams.cs" />
+    <Compile Include="Illumination\Services\AlchemyIlluminator\AlchemyAPI_TargetedSentimentParams.cs" />
+    <Compile Include="Illumination\Services\AlchemyIlluminator\AlchemyAPI_TextParams.cs" />
+    <Compile Include="Illumination\Services\AlchemyIlluminator\AlchemyIIluminationService.cs" />
+    <Compile Include="Illumination\Services\IIlluminationService.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\CalaisDotNet.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Documents\CalaisJsonDocument.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Documents\CalaisMicroFormatsDocument.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Documents\CalaisRdfDocument.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Documents\CalaisRdfDocumentDescription.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Documents\CalaisSimpleDocument.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Documents\CalaisSimpleDocumentDescription.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Entities\CalaisRdfEntity.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Entities\CalaisRdfRelationship.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Entities\CalaisRdfResourceInstance.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Entities\CalaisSimpleEntity.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Entities\CalaisSimpleSocialTag.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Entities\CalaisSimpleTopic.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Enums\CalaisInputFormat.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Enums\CalaisOutputFormat.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Enums\CalaisRdfEntitySubType.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Enums\CalaisRdfEntityType.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Enums\CalaisRdfRelationshipType.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Enums\CalaisSimpleEntityType.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Enums\CalaisSimpleEventType.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Helpers\Enum.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Helpers\ObjectFactory.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Helpers\Predicates.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Helpers\StringEnum.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Helpers\StringLibrary.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Interfaces\ICalaisDocument.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\Interfaces\ICalaisRdfEntity.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\CalaisIlluminationService.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\WebService\IlluminationServiceProxy.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\WebService\IlluminationWebServiceException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。启用“NuGet 程序包还原”可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

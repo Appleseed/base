@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PortalService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:51011/PortalServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:51011/PortalServices.svc?xsd=xsd3" />
+      <xsd:import schemaLocation="http://localhost:51011/PortalServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:51011/PortalServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Appleseed.Services.Web.Api" />
+      <xsd:import schemaLocation="http://localhost:51011/PortalServices.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Appleseed.Services.Web.Api.Entity" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPortalServices_ValidateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUser" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_ValidateUser_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_ValidateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetUsers_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoles" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetRoles_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_CreateUser_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_CreateRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRole" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_CreateRole_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_CreateRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_AddUserToRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserToRole" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_AddUserToRole_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_AddUserToRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserToRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_RemoveUserFromRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserFromRole" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_RemoveUserFromRole_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_RemoveUserFromRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserFromRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_AddUserToPortal_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserToPortal" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_AddUserToPortal_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_AddUserToPortal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserToPortalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_RemoveUserFromPortal_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserFromPortal" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_RemoveUserFromPortal_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_RemoveUserFromPortal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserFromPortalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetPages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPages" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetPages_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetPages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_CreatePageInPortal_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePageInPortal" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_CreatePageInPortal_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_CreatePageInPortal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePageInPortalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetModulesOnPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModulesOnPage" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetModulesOnPage_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetModulesOnPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModulesOnPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetAllInstalledModules_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInstalledModules" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetAllInstalledModules_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetAllInstalledModules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllInstalledModulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_UnInstallModule_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnInstallModule" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_UnInstallModule_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_UnInstallModule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnInstallModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_AddModuleToPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddModuleToPage" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_AddModuleToPage_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_AddModuleToPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddModuleToPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_UpdateModuleInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateModuleInfo" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_UpdateModuleInfo_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_UpdateModuleInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateModuleInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_EditModuleData_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditModuleData" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_EditModuleData_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_EditModuleData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditModuleDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetPortals_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPortals" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetPortals_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_GetPortals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPortalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_CreatePortal_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePortal" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_CreatePortal_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_CreatePortal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePortalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_ChangePortalSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePortalSettings" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_ChangePortalSettings_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_ChangePortalSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePortalSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_RemovePortal_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePortal" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_RemovePortal_InputMessage_Headers">
+    <wsdl:part name="AuthHeader" element="AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="IPortalServices_RemovePortal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePortalResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPortalServices">
+    <wsdl:operation name="ValidateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/ValidateUser" message="tns:IPortalServices_ValidateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/ValidateUserResponse" message="tns:IPortalServices_ValidateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/GetUsers" message="tns:IPortalServices_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/GetUsersResponse" message="tns:IPortalServices_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/GetRoles" message="tns:IPortalServices_GetRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/GetRolesResponse" message="tns:IPortalServices_GetRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/CreateUser" message="tns:IPortalServices_CreateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/CreateUserResponse" message="tns:IPortalServices_CreateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/CreateRole" message="tns:IPortalServices_CreateRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/CreateRoleResponse" message="tns:IPortalServices_CreateRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/AddUserToRole" message="tns:IPortalServices_AddUserToRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/AddUserToRoleResponse" message="tns:IPortalServices_AddUserToRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserFromRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/RemoveUserFromRole" message="tns:IPortalServices_RemoveUserFromRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/RemoveUserFromRoleResponse" message="tns:IPortalServices_RemoveUserFromRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToPortal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/AddUserToPortal" message="tns:IPortalServices_AddUserToPortal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/AddUserToPortalResponse" message="tns:IPortalServices_AddUserToPortal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserFromPortal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/RemoveUserFromPortal" message="tns:IPortalServices_RemoveUserFromPortal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/RemoveUserFromPortalResponse" message="tns:IPortalServices_RemoveUserFromPortal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/GetPages" message="tns:IPortalServices_GetPages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/GetPagesResponse" message="tns:IPortalServices_GetPages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePageInPortal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/CreatePageInPortal" message="tns:IPortalServices_CreatePageInPortal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/CreatePageInPortalResponse" message="tns:IPortalServices_CreatePageInPortal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModulesOnPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/GetModulesOnPage" message="tns:IPortalServices_GetModulesOnPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/GetModulesOnPageResponse" message="tns:IPortalServices_GetModulesOnPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInstalledModules">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/GetAllInstalledModules" message="tns:IPortalServices_GetAllInstalledModules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/GetAllInstalledModulesResponse" message="tns:IPortalServices_GetAllInstalledModules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnInstallModule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/UnInstallModule" message="tns:IPortalServices_UnInstallModule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/UnInstallModuleResponse" message="tns:IPortalServices_UnInstallModule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddModuleToPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/AddModuleToPage" message="tns:IPortalServices_AddModuleToPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/AddModuleToPageResponse" message="tns:IPortalServices_AddModuleToPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModuleInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/UpdateModuleInfo" message="tns:IPortalServices_UpdateModuleInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/UpdateModuleInfoResponse" message="tns:IPortalServices_UpdateModuleInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditModuleData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/EditModuleData" message="tns:IPortalServices_EditModuleData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/EditModuleDataResponse" message="tns:IPortalServices_EditModuleData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPortals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/GetPortals" message="tns:IPortalServices_GetPortals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/GetPortalsResponse" message="tns:IPortalServices_GetPortals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePortal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/CreatePortal" message="tns:IPortalServices_CreatePortal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/CreatePortalResponse" message="tns:IPortalServices_CreatePortal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePortalSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/ChangePortalSettings" message="tns:IPortalServices_ChangePortalSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/ChangePortalSettingsResponse" message="tns:IPortalServices_ChangePortalSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePortal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPortalServices/RemovePortal" message="tns:IPortalServices_RemovePortal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPortalServices/RemovePortalResponse" message="tns:IPortalServices_RemovePortal_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPortalServices" type="tns:IPortalServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidateUser">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_ValidateUser_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_GetUsers_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoles">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/GetRoles" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_GetRoles_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_CreateUser_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRole">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/CreateRole" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_CreateRole_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToRole">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/AddUserToRole" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_AddUserToRole_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserFromRole">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/RemoveUserFromRole" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_RemoveUserFromRole_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToPortal">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/AddUserToPortal" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_AddUserToPortal_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserFromPortal">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/RemoveUserFromPortal" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_RemoveUserFromPortal_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPages">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/GetPages" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_GetPages_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePageInPortal">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/CreatePageInPortal" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_CreatePageInPortal_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModulesOnPage">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/GetModulesOnPage" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_GetModulesOnPage_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllInstalledModules">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/GetAllInstalledModules" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_GetAllInstalledModules_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnInstallModule">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/UnInstallModule" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_UnInstallModule_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddModuleToPage">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/AddModuleToPage" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_AddModuleToPage_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateModuleInfo">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/UpdateModuleInfo" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_UpdateModuleInfo_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditModuleData">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/EditModuleData" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_EditModuleData_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortals">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/GetPortals" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_GetPortals_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePortal">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/CreatePortal" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_CreatePortal_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePortalSettings">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/ChangePortalSettings" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_ChangePortalSettings_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePortal">
+      <soap:operation soapAction="http://tempuri.org/IPortalServices/RemovePortal" style="document" />
+      <wsdl:input>
+        <soap:header message="tns:IPortalServices_RemovePortal_InputMessage_Headers" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PortalService">
+    <wsdl:port name="BasicHttpBinding_IPortalServices" binding="tns:BasicHttpBinding_IPortalServices">
+      <soap:address location="http://localhost:51011/PortalServices.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

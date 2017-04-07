@@ -1,0 +1,26 @@
+﻿<Engine>
+  <Process Name="Indexes" Section="indexes" ConfigClass="" Class="Appleseed.Services.Search.Console.MethodEngine,Appleseed.Services.Search.Console"
+           MethodName="RunIndexService" Enabled="true" SortOrder="1" />
+  <Process Name="queues" Section="queues" ConfigClass="" Class="Appleseed.Services.Search.Console.MethodEngine,Appleseed.Services.Search.Console"
+           MethodName="RunQueuesService" Enabled="false" SortOrder="2" />
+  <Process Name="illuminators" Section="illuminators" ConfigClass="" Class="Appleseed.Services.Search.Console.MethodEngine,Appleseed.Services.Search.Console"
+           MethodName="RunIlluminatorsService" Enabled="false" SortOrder="3" />
+  <Process Name="graphDBs" Section="graphDBs" ConfigClass="" Class="Appleseed.Services.Search.Console.MethodEngine,Appleseed.Services.Search.Console"
+           MethodName="RunGraphDBsService" Enabled="false" SortOrder="4" />
+  <Process Name="webcrawlIndexService" Section="websiteIndexService" ConfigClass="Appleseed.Services.Base.Engine.Configuration.WebsiteIndexServiceSection,Appleseed.Services.Base.Engine" Class="Appleseed.Services.Search.Console.MethodEngine,Appleseed.Services.Search.Console"
+           MethodName="RunWebContentIndexService" Enabled="false" SortOrder="5" />
+  <Process Name="rssIndexService" Section="rssIndexService" ConfigClass="Appleseed.Services.Base.Engine.Configuration.WebsiteIndexServiceSection,Appleseed.Services.Base.Engine" Class="Appleseed.Services.Search.Console.MethodEngine,Appleseed.Services.Search.Console"
+           MethodName="RunRssContentIndexService" Enabled="true" SortOrder="6" />
+  <Process Name="webcrawlIndexService" Section="webcrawlIndexService" ConfigClass="Appleseed.Services.Base.Engine.Configuration.WebCrawlIndexServiceSection,Appleseed.Services.Base.Engine" Class="Appleseed.Services.Search.Console.MethodEngine,Appleseed.Services.Search.Console"
+           MethodName="RunWebCrawlerIndexService" Enabled="false" SortOrder="7" />
+  <Process Name="dbFileIndexService" Section="dbFileIndexService" ConfigClass="Appleseed.Services.Base.Engine.Configuration.DbFileIndexServiceSection,Appleseed.Services.Base.Engine" Class="Appleseed.Services.Search.Console.MethodEngine,Appleseed.Services.Search.Console"
+           MethodName="RundbFileIndexService" Enabled="false" SortOrder="8" />
+  <Process Name="dropboxCloudFileIndexService" Section="dropboxCloudFileIndexService" ConfigClass="Appleseed.Services.Base.Engine.Configuration.DropBoxCloudFileIndexServiceSection,Appleseed.Services.Base.Engine" Class="Appleseed.Services.Search.Console.MethodEngine,Appleseed.Services.Search.Console"
+           MethodName="RunDropboxIndexService" Enabled="false" SortOrder="9" />
+  <Process Name="nutshellCRMApi" Section="nutshellCRMApiCrawlerIndexService" ConfigClass="Appleseed.Services.Base.Engine.Configuration.NutshellCRMApiCrawlerIndexServiceSection,Appleseed.Services.Base.Engine" Class="Appleseed.Services.Search.Console.MethodEngine,Appleseed.Services.Search.Console"
+           MethodName="RunNutshellIndexService" Enabled="false" SortOrder="10" />
+  <Process Name="crunchbaseApiCrawlerIndexService" Section="crunchbaseApiCrawlerIndexService" ConfigClass="Appleseed.Services.Base.Engine.Configuration.CrunchBaseApiCrawlerIndexServiceSection,Appleseed.Services.Base.Engine" Class="Appleseed.Services.Search.Console.MethodEngine,Appleseed.Services.Search.Console"
+           MethodName="RunCrunchBaseIndexService" Enabled="false" SortOrder="11" />
+  <Process Name="taggingService" Section="taggingService" ConfigClass="Appleseed.Services.Base.Engine.Configuration.TagServiceSection,Appleseed.Services.Base.Engine" Class="Appleseed.Services.Search.Console.MethodEngine,Appleseed.Services.Search.Console"
+           MethodName="RunTaggingService" Enabled="false" SortOrder="12" />
+</Engine>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Engine environment="test">
+  <CrunchBaseApiCrawlerIndexServiceSection>
+    <add name="test">
+      <Websites>
+        <!--<add name="CrunchBase" apiUrl="http://api.crunchbase.com/v/2/" apiKey="XXXXXX" indexPath="{indexalias1}" connectionString="server=localhost;Trusted_Connection=yes;database=DATABASE" tableName="as_Cache_BaseItemCollection" itemsCollected="33" />-->
+      </Websites>
+    </add>
+  </CrunchBaseApiCrawlerIndexServiceSection>
+  <DbFileIndexServiceSection>
+    <add name="test">
+      <Files>
+        <!--<add name="Files" indexPath="{indexalias1}" connectionString="server=localhost;Trusted_Connection=yes;database=DATABASE" tableName="as_Cache_BaseItemCollection" />-->
+      </Files>
+    </add>
+  </DbFileIndexServiceSection>
+  <DropBoxCloudFileIndexServiceSection>
+    <add name="test">
+      <Websites>
+        <!--<add name="DropBox" appKey="XXXXXX" appSecret="XXXXXX" token="XXXXXX" tokenSecret="XXXXXX" filesPath="C:\Projects\Anant\KonoTree_Files" connectionString="server=localhost;Trusted_Connection=yes;database=DATABASE" tableName="as_Cache_BaseItemCollection" queueName="{queuealias1}" userAgent="{userAgent1}" />-->
+      </Websites>
+    </add>
+  </DropBoxCloudFileIndexServiceSection>
+  <GraphDBsSection>
+    <add name="test">
+      <GraphDBs>
+        <!-- Processor/GraphDB - These are different organizers . Currently supported :
+          - RavenDB
+          - Neo4j 
+        -->
+        <!--<add name="graphDB1" location="C:\Projects\Anant\graphDB1" type="Neo4j" uri="http://localhost:7474/db/data" />-->
+        <!--<add name="nosqlDB1" location="C:\Projects\Anant\nosqlDB1" type="RavenDB" uri="http://localhost:27017" />-->
+      </GraphDBs>
+    </add>
+  </GraphDBsSection>
+  <IlluminatorsSection>
+    <add name="test">
+      <illuminators>
+        <!--<add name="Alchemy1" type="Alchemy" apiKey="XXXXXX" />-->
+      </illuminators>
+    </add>
+  </IlluminatorsSection>
+  <IndexesSection>
+    <add name="test">
+      <indexes>
+        <!-- TODO: Below indexes are not currently used by ; Console is currently looking in search.console/app.config --> 
+        <!--<add name="indexalias1" location="C:\Services\Appleseed.Search\Data\public" type="Lucene.NET" collectionName="" />-->
+        <!--<add name="indexalias2" location="C:\Services\Appleseed.Search\Data\private" type="Lucene.NET" collectionName="" />-->
+        <!--<add name="indexalias3" location="C:\Services\Appleseed.Search\Data\konotree.default.com" type="Lucene.NET" collectionName="" />-->
+        <!--<add name="indexalias4" location="http://localhost:9200/collectionname" type="ElasticSearch" collectionName="" />-->
+        <add name="indexalias5" location="http://localhost:8983/solr/appleseed-public" type="Solr" collectionName="appleseed-public" />
+      </indexes>
+    </add>
+  </IndexesSection>
+  <NutshellCRMApiCrawlerIndexServiceSection>
+    <add name="test">
+      <Websites>
+        <!--<add name="Nutshell" apiUrl="https://app.nutshell.com/api/v1/json" apiKey="XXXXXX" apiUserEmail="EMAIL@EMAIL.COM" indexPath="{indexalias1}" connectionString="server=.\SQLEXPRESS;Trusted_Connection=yes;database=DATABASE" tableName="as_Cache_BaseItemCollection" />-->
+      </Websites>
+    </add>
+  </NutshellCRMApiCrawlerIndexServiceSection>
+  <QueuesIndexServiceSection>
+    <add name="test">
+      <Queues>
+        <!--<add name="queuealias1" connectionString="" queueName="queueName1" type="InMemory" />-->
+      </Queues>
+    </add>
+  </QueuesIndexServiceSection>
+  <rssIndexServiceSection>
+    <add name="test">
+      <Websites>
+        <add name="Blog" siteMapUrl="https://blog.anant.us/feed/" indexPath="{indexalias5}" />
+      </Websites>
+    </add>
+  </rssIndexServiceSection>
+  <TagServiceSection>
+    <add name="test">
+      <Sites>
+        <!--<add name="Tags" url="http://URL.COM/" portalId="0" connectionString="server=localhost;uid=;pwd=;Trusted_Connection=yes;database=DATABASE" />-->
+      </Sites>
+    </add>
+  </TagServiceSection>
+  <WebCrawlIndexServiceSection>
+    <add name="test">
+      <Websites>
+        <!--<add name="Webcrawl" siteMapUrl="http://anant.co/" crawlDepth="100" indexPath="{indexalias5}" connectionString="server=localhost;Trusted_Connection=yes;database=DATABASE" tableName="as_Cache_BaseItemCollection" />-->
+      </Websites>
+    </add>
+  </WebCrawlIndexServiceSection>
+  <WebsiteIndexServiceSection>
+    <add name="test">
+      <Websites>
+        <add name="Anant Corporation" siteMapUrl="http://anant.us/sitemap.axd" indexPath="{indexalias5}" />
+      </Websites>
+    </add>
+  </WebsiteIndexServiceSection>
+</Engine>

@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C40B3388-6770-45EA-8234-55C7029EF69C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Appleseed.Services.Web.Api</RootNamespace>
+    <AssemblyName>Appleseed.Services.Web.Api</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Appleseed">
+      <HintPath>..\..\..\appleseed-externals\Appleseed.dll</HintPath>
+    </Reference>
+    <Reference Include="Appleseed.Core">
+      <HintPath>..\..\..\appleseed-externals\Appleseed.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Appleseed.Framework">
+      <HintPath>..\..\..\appleseed-externals\Appleseed.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Appleseed.Framework.Core">
+      <HintPath>..\..\..\appleseed-externals\Appleseed.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Appleseed.Framework.Providers.AppleseedMembershipProvider">
+      <HintPath>..\..\..\appleseed-externals\Appleseed.Framework.Providers.AppleseedMembershipProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Appleseed.Framework.Providers.AppleseedRoleProvider">
+      <HintPath>..\..\..\appleseed-externals\Appleseed.Framework.Providers.AppleseedRoleProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Appleseed.Framework.Providers.AppleseedSiteMapProvider">
+      <HintPath>..\..\..\appleseed-externals\Appleseed.Framework.Providers.AppleseedSiteMapProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Appleseed.Framework.Providers.AppleseedSqlMembershipProvider">
+      <HintPath>..\..\..\appleseed-externals\Appleseed.Framework.Providers.AppleseedSqlMembershipProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Appleseed.Framework.Providers.AppleseedSqlRoleProvider">
+      <HintPath>..\..\..\appleseed-externals\Appleseed.Framework.Providers.AppleseedSqlRoleProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Appleseed.Framework.Providers.AppleseedSqlSiteMapProvider">
+      <HintPath>..\..\..\appleseed-externals\Appleseed.Framework.Providers.AppleseedSqlSiteMapProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Appleseed.Framework.Providers.AppleseedSqlTableProfileProvider">
+      <HintPath>..\..\..\appleseed-externals\Appleseed.Framework.Providers.AppleseedSqlTableProfileProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.2.1.2\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.NLog">
+      <HintPath>..\packages\Common.Logging.NLog.2.0.0\lib\2.0\Common.Logging.NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog, Version=2.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NLog.2.1.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WCFExtras, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\appleseed-externals\WCFExtras.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PortalServices.svc" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthHeader.cs" />
+    <Compile Include="CmEnvironment.cs" />
+    <Compile Include="Entity\BaseEntity.cs" />
+    <Compile Include="Entity\Module.cs" />
+    <Compile Include="Entity\Page.cs" />
+    <Compile Include="Entity\Portal.cs" />
+    <Compile Include="Entity\Role.cs" />
+    <Compile Include="Entity\User.cs" />
+    <Compile Include="PortalServices.svc.cs">
+      <DependentUpon>PortalServices.svc</DependentUpon>
+    </Compile>
+    <Compile Include="IPortalServices.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="logs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Appleseed.Portal.Core\Appleseed.Portal.Core.csproj">
+      <Project>{41fbf338-8934-49c9-aaa9-c56e1bee5b73}</Project>
+      <Name>Appleseed.Portal.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Appleseed.Portal.Database\Appleseed.Portal.Database.csproj">
+      <Project>{835f8e56-7cd7-4f23-abc9-96529963e5fa}</Project>
+      <Name>Appleseed.Portal.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Appleseed.Portal.Domain\Appleseed.Portal.Domain.csproj">
+      <Project>{88ef0ebc-8112-4dfa-83d0-76e0681e2813}</Project>
+      <Name>Appleseed.Portal.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NLog.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51011</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
