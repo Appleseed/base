@@ -83,7 +83,7 @@
   <WebCrawlIndexServiceSection>
     <add name="test">
       <Websites>
-        <!--<add name="Webcrawl" siteMapUrl="http://anant.co/" crawlDepth="100" indexPath="{indexalias5}" connectionString="server=localhost;Trusted_Connection=yes;database=DATABASE" tableName="as_Cache_BaseItemCollection" />-->
+        <!--<add name="Webcrawl" siteMapUrl="http://domain.co/" crawlDepth="100" indexPath="{indexalias5}" connectionString="server=localhost;Trusted_Connection=yes;database=DATABASE" tableName="as_Cache_BaseItemCollection" />-->
       </Websites>
     </add>
   </WebCrawlIndexServiceSection>
