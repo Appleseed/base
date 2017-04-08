@@ -69,7 +69,7 @@
   <rssIndexServiceSection>
     <add name="test">
       <Websites>
-        <add name="Blog" siteMapUrl="https://blog.anant.us/feed/" indexPath="{indexalias5}" />
+        <add name="Blog" siteMapUrl="https://blog.domain.us/feed/" indexPath="{indexalias5}" />
       </Websites>
     </add>
   </rssIndexServiceSection>
@@ -90,7 +90,7 @@
   <WebsiteIndexServiceSection>
     <add name="test">
       <Websites>
-        <add name="Anant Corporation" siteMapUrl="http://anant.us/sitemap.axd" indexPath="{indexalias5}" />
+        <add name="My Site " siteMapUrl="http://domain.com/sitemap.axd" indexPath="{indexalias5}" />
       </Websites>
     </add>
   </WebsiteIndexServiceSection>
