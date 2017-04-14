@@ -4,17 +4,17 @@
     using System.Collections.Generic;
     using System.Configuration;
 
-    /*
-    public class IndexesSection : CfgNode
+    
+    public class IndexesSectionCfg : CfgNode
     {
         [Cfg(required = true, ignoreCase = true)]
         public string Name { get; set; }
 
         [Cfg(required = false, ignoreCase = true)]
-        public List<IndexesElement> Indexes { get; set; }
+        public List<IndexesElementCfg> Indexes { get; set; }
     }
 
-    public class IndexesElement : CfgNode
+    public class IndexesElementCfg : CfgNode
     {
         [Cfg(required = false, ignoreCase = true)]
         public string Name { get; set; }
@@ -27,7 +27,7 @@
 
         [Cfg(required = false, ignoreCase = true)]
         public string CollectionItem { get; set; }
-    }*/
+    }
 
     /* TODO: Refactor to give the classes above access to the engine.map.xml config in Search.Console/config, then remove the below classes */
 
