@@ -33,7 +33,7 @@ namespace Appleseed.Services.Search.Console.helpers
             {
                 var id = row["id"];
                 var name = row["_name"];
-                //Console.WriteLine(id.ToString() + name.ToString());
+                //System.Console.WriteLine(id.ToString() + name.ToString());
             }*/
 
             var engines = session.Execute("select * from engines");
@@ -42,7 +42,7 @@ namespace Appleseed.Services.Search.Console.helpers
                 var id = row["id"];
                 var name = row["_name"];
                 var typeId = row["_typeid"];
-                //Console.WriteLine(id.ToString() + name.ToString() + typeId.ToString());
+                //System.Console.WriteLine(id.ToString() + name.ToString() + typeId.ToString());
             }*/
 
             var engineItems = session.Execute("select * from engine_items");
@@ -55,7 +55,7 @@ namespace Appleseed.Services.Search.Console.helpers
                 var type = (row["_type"] ?? "").ToString();
                 var collectionName = (row["_collectionname"] ?? "").ToString();
                 var indexPath = (row["_indexpath"] ?? "").ToString();
-                System.Console.WriteLine(id + name + engineId + locationUrl + type + collectionName + indexPath);
+                //System.Console.WriteLine(id + name + engineId + locationUrl + type + collectionName + indexPath);
 
                 //var engineName = session.Execute("select _name from engines where id = " + engineId + " limit 1").ToString();
 
