@@ -57,6 +57,9 @@
       <HintPath>..\packages\C5.2.2.4822.42600\lib\portable-win+net40+sl40+wp+Xbox40\C5.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Cassandra">
+      <HintPath>..\packages\CassandraCSharpDriver.3.0.0\lib\net40\Cassandra.dll</HintPath>
+    </Reference>
     <Reference Include="CfgNet, Version=0.7.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Cfg-NET.0.7.4\lib\CfgNet.dll</HintPath>
       <Private>True</Private>

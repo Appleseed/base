@@ -91,6 +91,9 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Cassandra">
+      <HintPath>..\packages\CassandraCSharpDriver.3.0.0\lib\net40\Cassandra.dll</HintPath>
+    </Reference>
     <Reference Include="CfgNet, Version=0.7.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Cfg-NET.0.7.4\lib\CfgNet.dll</HintPath>
       <Private>True</Private>
