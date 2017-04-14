@@ -17,7 +17,7 @@
 
         private readonly ILog logger;
 
-        public RssContentIndexService(ILog logger, WebsiteToIndexElement source, string rssUrl)
+        public RssContentIndexService(ILog logger, rssIndexElement source, string rssUrl)
         {
             if (logger == null)
             {

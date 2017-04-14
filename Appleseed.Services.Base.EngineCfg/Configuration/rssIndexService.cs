@@ -12,7 +12,7 @@ namespace Appleseed.Services.Base.Engine.Configuration
         public string Name { get; set; }
 
         [Cfg(required = false, ignoreCase = true)]
-        public List<WebsiteToIndexElement> Websites { get; set; }
+        public List<rssIndexElement> Websites { get; set; }
     }
 
     /// <summary>

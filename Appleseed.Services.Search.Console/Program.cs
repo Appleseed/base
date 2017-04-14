@@ -3,6 +3,7 @@
     using Appleseed.Services.Base.Engine.Configuration;
     using Appleseed.Services.Base.Engine.Services.Impl;
     using Appleseed.Services.Core.Helpers;
+    using Cassandra;
     using Common.Logging;
     using helpers;
     using System;
@@ -33,10 +34,10 @@
             try
             {
                 Console.WriteLine("Starting Service Process");
-               /* PreCheck("IndexesSection");
-                CheckSolrStatus();
-                TimeWait();*/
-           
+                /* PreCheck("IndexesSection");
+                 CheckSolrStatus();
+                 TimeWait();*/
+
                 ServiceThread = new Thread(ExecuteEngineProcesses) { Name = "Run Service Thread" };
                 WatcherThread = new Thread(ChangeWatcher) { Name = "Run Watcher Thread" };
                 ServiceThread.Start();
@@ -76,8 +77,18 @@
 
         private static void ExecuteEngineProcesses()
         {
-            string xml = File.ReadAllText(Constant.EngineFileName);
-            Engine config = new Engine(xml);
+            var configSource = ConfigurationManager.AppSettings["ReadConfigFrom"];
+            Engine config;
+            if (configSource == "datastax" || configSource == "cassandra")
+            {
+                config = CassandraToClass.GetCassandraConfig();
+            }
+            else
+            {
+                string xml = File.ReadAllText(Constant.EngineFileName);
+                config = new Engine(xml);
+            }
+
             //Console.ReadKey();
             List<helpers.Process> processList = helpers.XMLtoClass.GetEngineConfiguration();
             //Configuration externalConfig = helpers.XMLtoClass.GetExternalConfig();
@@ -89,9 +100,11 @@
 
                 MethodInvoke(process.Class, process.MethodName, config);
             }
-
+            
             ExitProgram();
         }
+
+
 
         private static void ChangeWatcher()
         {
@@ -404,7 +417,7 @@
 
         private static void RunRssContentIndexService()
         {
-            var indexServiceConfig = ConfigurationManager.GetSection("rssIndexService") as WebsiteIndexServiceSection;
+            var indexServiceConfig = ConfigurationManager.GetSection("rssIndexService") as rssIndexServiceSection;
 
             if (indexServiceConfig != null)
             {
@@ -415,7 +428,7 @@
                 }
 
                 Logger.Info("BEGIN RSS INDEXING");
-                foreach (WebsiteToIndexElement source in indexServiceConfig.Websites)
+                foreach (rssIndexElement source in indexServiceConfig.Websites)
                 {
                     Logger.Info("SITE: " + source.Name);
 

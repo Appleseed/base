@@ -288,6 +288,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="helpers\Constant.cs" />
+    <Compile Include="helpers\CassandraToClass.cs" />
     <Compile Include="helpers\MethodEngine.cs" />
     <Compile Include="helpers\Process.cs" />
     <Compile Include="helpers\XMLtoClass.cs" />

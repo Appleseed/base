@@ -177,7 +177,7 @@ namespace Appleseed.Services.Search.Console
                 }
 
                 Logger.Info("BEGIN RSS INDEXING");
-                foreach (WebsiteToIndexElement source in indexServiceConfig.Websites)
+                foreach (rssIndexElement source in indexServiceConfig.Websites)
                 {
                     Logger.Info("SITE: " + source.Name);
 

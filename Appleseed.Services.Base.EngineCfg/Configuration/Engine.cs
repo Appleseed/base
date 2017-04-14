@@ -7,7 +7,12 @@ using System.Text;
 namespace Appleseed.Services.Base.Engine.Configuration
 {
     public class Engine : CfgNode
-    {
+    { 
+        public Engine()
+        {
+
+        }
+
         public Engine(string xml)
         {
             this.Load(xml);
@@ -30,6 +35,9 @@ namespace Appleseed.Services.Base.Engine.Configuration
 
         [Cfg(required = false, ignoreCase = true)]
         public List<IndexesSection> IndexesSection { get; set; }
+
+        [Cfg(required = false, ignoreCase = true)]
+        public List<IndexesSectionCfg> IndexesSectionCfg { get; set; }
 
         [Cfg(required = false, ignoreCase = true)]
         public List<NutshellCRMApiCrawlerIndexServiceSection> NutshellCRMApiCrawlerIndexServiceSection { get; set; }
