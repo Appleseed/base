@@ -5,6 +5,7 @@ using Cassandra;
 using Common.Logging;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,8 +18,10 @@ namespace Appleseed.Services.Search.Console.helpers
         public static Engine GetCassandraConfig()
         {
             var config = new Engine();
+            var appConfigSource = ConfigurationManager.AppSettings["CassandraUrl"];
+            var appConfigSourcePort = Convert.ToInt32(ConfigurationManager.AppSettings["CassandraPort"]);
 
-            Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
+            Cluster cluster = Cluster.Builder().WithPort(appConfigSourcePort).AddContactPoint(appConfigSource).Build();
             ISession session = cluster.Connect("appleseed_search_engines");
 
             var indexesSection = new IndexesSectionCfg();
