@@ -35,62 +35,57 @@ namespace Appleseed.Services.Search.Console.helpers
                 var websiteIndexesElementsList = new List<WebsiteToIndexElement>();
 
                 var engineTypes = session.Execute("select * from engine_types");
-                /*foreach (var row in engineTypes)
+                foreach (var typeRow in engineTypes)
                 {
-                    var id = row["id"];
-                    var name = row["_name"];
-                    //System.Console.WriteLine(id.ToString() + name.ToString());
-                }*/
-
-                var engines = session.Execute("select * from engines");
-                /*foreach (var row in engines)
-                {
-                    var id = row["id"];
-                    var name = row["_name"];
-                    var typeId = row["_typeid"];
-                    //System.Console.WriteLine(id.ToString() + name.ToString() + typeId.ToString());
-                }*/
-
-                var engineItems = session.Execute("select * from engine_items");
-                foreach (var row in engineItems)
-                {
-                    var id = (row["id"] ?? "").ToString();
-                    var name = (row["_name"] ?? "").ToString();
-                    var engineId = (row["_engineid"] ?? "").ToString();
-                    var locationUrl = (row["_locationurl"] ?? "").ToString();
-                    var type = (row["_type"] ?? "").ToString();
-                    var collectionName = (row["_collectionname"] ?? "").ToString();
-                    var indexPath = (row["_indexpath"] ?? "").ToString();
-                    //System.Console.WriteLine(id + name + engineId + locationUrl + type + collectionName + indexPath);
-
-                    //var engineName = session.Execute("select _name from engines where id = " + engineId + " limit 1").ToString();
-
-                    switch (engineId)
+                    //var typeId = typeRow.GetColumn("id").Index;
+                    //var typeIds = typeRow[typeId];
+                    var typeId = typeRow["id"];
+                    var typeName = typeRow["_name"];
+                    var engines = session.Execute("select * from engines where \"_typeid\" = " + typeId + " ALLOW FILTERING");
+                    foreach (var engineRow in engines)
                     {
-                        case "1":
-                            var indexElement = new IndexesElementCfg();
-                            indexElement.Name = name;
-                            indexElement.Location = locationUrl;
-                            indexElement.Type = type;
-                            indexElement.CollectionItem = collectionName;
-                            indexesElementsList.Add(indexElement);
-                            break;
-                        case "2":
-                            var rss = new rssIndexElement();
-                            rss.Name = name;
-                            rss.SiteMapUrl = locationUrl;
-                            rss.IndexPath = indexPath;
-                            rssIndexesElementsList.Add(rss);
-                            break;
-                        case "3":
-                            var website = new WebsiteToIndexElement();
-                            website.Name = name;
-                            website.SiteMapUrl = locationUrl;
-                            website.IndexPath = indexPath;
-                            websiteIndexesElementsList.Add(website);
-                            break;
-                        default:
-                            break;
+                        var engineId = typeRow["id"];
+                        //var engineName = engineRow["_name"];
+                        var engineTypeId = engineRow["_typeid"];
+                        var engineItems = session.Execute("select * from engine_items where \"_engineid\" = " + engineId + " ALLOW FILTERING");
+                        foreach (var itemRow in engineItems)
+                        {
+                            var itemId = (itemRow["id"] ?? "").ToString();
+                            var itemName = (itemRow["_name"] ?? "").ToString();
+                            var itemEngineId = (itemRow["_engineid"] ?? "").ToString();
+                            var itemLocationUrl = (itemRow["_locationurl"] ?? "").ToString();
+                            var itemType = (itemRow["_type"] ?? "").ToString();
+                            var itemCollectionName = (itemRow["_collectionname"] ?? "").ToString();
+                            var itemIndexPath = (itemRow["_indexpath"] ?? "").ToString();
+
+                            switch (typeName.ToString())
+                            {
+                                case "index":
+                                    var indexElement = new IndexesElementCfg();
+                                    indexElement.Name = itemName;
+                                    indexElement.Location = itemLocationUrl;
+                                    indexElement.Type = itemType;
+                                    indexElement.CollectionItem = itemCollectionName;
+                                    indexesElementsList.Add(indexElement);
+                                    break;
+                                case "rss":
+                                    var rss = new rssIndexElement();
+                                    rss.Name = itemName;
+                                    rss.SiteMapUrl = itemLocationUrl;
+                                    rss.IndexPath = itemIndexPath;
+                                    rssIndexesElementsList.Add(rss);
+                                    break;
+                                case "sitemap":
+                                    var website = new WebsiteToIndexElement();
+                                    website.Name = itemName;
+                                    website.SiteMapUrl = itemLocationUrl;
+                                    website.IndexPath = itemIndexPath;
+                                    websiteIndexesElementsList.Add(website);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
                     }
                 }
 
