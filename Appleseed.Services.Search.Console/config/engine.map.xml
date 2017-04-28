@@ -40,7 +40,7 @@
       </illuminators>
     </add>
   </IlluminatorsSection>
-  <IndexesSection>
+  <IndexesSectionCfg>
     <add name="test">
       <indexes>
         <!-- TODO: Below indexes are not currently used by ; Console is currently looking in search.console/app.config --> 
@@ -51,7 +51,7 @@
         <add name="indexalias5" location="http://localhost:8983/solr/appleseed-public" type="Solr" collectionName="appleseed-public" />
       </indexes>
     </add>
-  </IndexesSection>
+  </IndexesSectionCfg>
   <NutshellCRMApiCrawlerIndexServiceSection>
     <add name="test">
       <Websites>

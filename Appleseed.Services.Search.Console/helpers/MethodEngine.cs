@@ -189,7 +189,7 @@ namespace Appleseed.Services.Search.Console
                     }
                     foreach (string siteMap in targetUrls)
                     {
-                        var indexService = new RssContentIndexService(Logger, source, siteMap);
+                        var indexService = new RssContentIndexService(Logger, source, siteMap, engine);
 
                         try
                         {
@@ -235,7 +235,7 @@ namespace Appleseed.Services.Search.Console
                     Logger.Info("SITE: " + source.Name);
 
 
-                    var indexService = new WebContentIndexService(Logger, source);
+                    var indexService = new WebContentIndexService(Logger, source, engine);
 
                     try
                     {

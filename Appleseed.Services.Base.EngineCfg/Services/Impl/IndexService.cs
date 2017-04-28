@@ -7,6 +7,7 @@
 
     using Appleseed.Services.Base.Engine.Processors;
     using Appleseed.Services.Base.Model;
+    using Appleseed.Services.Base.Engine.Configuration;
 
     public class IndexService : IAmABaseService
     {
@@ -15,6 +16,7 @@
         private readonly IExtractThings extractor;
         private readonly IOrganizeThings organizer;
         private readonly IIndexThings indexer;
+        private readonly Engine engine;
 
         /// <summary>
         /// 
@@ -31,6 +33,16 @@
             this.extractor = extractor;
             this.organizer = organizer;
             this.indexer = indexer;
+        }
+
+        public IndexService(ICollectThings collector, IAggregateData aggregator, IExtractThings extractor, IOrganizeThings organizer, IIndexThings indexer, Engine engine)
+        {
+            this.collector = collector;
+            this.aggregator = aggregator;
+            this.extractor = extractor;
+            this.organizer = organizer;
+            this.indexer = indexer;
+            this.engine = engine;
         }
 
         public bool Run()

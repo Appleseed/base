@@ -23,7 +23,7 @@
 
         private ElasticSearchIndexer elasticSearchIndexer  = null;
 
-        
+        private Engine engine;
 
 
         public GeneralIndexer(ILog logger, string pathToIndex)
@@ -39,6 +39,29 @@
             }
 
             this.indexPath = pathToIndex;
+            this.logger = logger;
+        }
+
+        public GeneralIndexer(ILog logger, string pathToIndex, Engine engine)
+        {
+            if (logger == null)
+            {
+                throw new ArgumentNullException("logger");
+            }
+
+            if (string.IsNullOrEmpty(pathToIndex))
+            {
+                throw new ArgumentNullException("pathToIndex");
+            }
+
+            if (engine == null)
+            {
+                throw new ArgumentNullException("engine");
+            }
+
+
+            this.indexPath = pathToIndex;
+            this.engine = engine;
             this.logger = logger;
         }
 
@@ -61,6 +84,18 @@
 
         }
 
+        public string GetIndexName(string indexName)
+        {
+            
+            int start = indexName.IndexOf('{');
+            int end = indexName.IndexOf('}');
+            if (start != -1 && end != -1)
+            {
+                indexName = indexName.Substring(start + 1, end - start - 1);
+            }
+
+            return indexName;
+        }
 
         //TODO: change / refactor / override different Build method that takes the data from a Queue - can be SQL at first with just the connString + table
         // TODO: BuildFromQueue(string queueName) ??
@@ -69,19 +104,20 @@
 
         public void Build(IEnumerable<Model.AppleseedModuleItemIndex> indexableData)
         {
-            var configLocation = ConfigurationManager.AppSettings["ReadConfigFrom"];
-            var indexesConfig = ConfigurationManager.GetSection("indexes") as IndexesSection;
+            //var indexesConfig = ConfigurationManager.GetSection("indexes") as IndexesSection;
+            var config = this.engine;
+            var indexCollection = this.engine.IndexesSectionCfg;
 
-
-
-
-
-            foreach (var name in GetIndexNames(this.indexPath))
+            if (config.IndexesSectionCfg.Count == 0 || config.IndexesSectionCfg == null)
             {
-                
-                foreach (IndexesElement index in indexesConfig.Indexes)
+                logger.Info("IndexesSectionCfg NOT FOUND IN CONFIG SOURCE");
+            }
+
+            foreach (IndexesSectionCfg section in config.IndexesSectionCfg)
+            {
+                section.Indexes.ForEach(delegate (IndexesElementCfg index)
                 {
-                    if (index.Name == name)
+                    if (GetIndexName(index.Name) == GetIndexName(this.indexPath))
                     {
                         if (index.Type == "Lucene.NET")
                         {
@@ -89,7 +125,7 @@
                             luceneIndexer.Build(indexableData);
                         }
 
-                        if(index.Type == "Solr")
+                        if (index.Type == "Solr")
                         {
                             solrIndexer = new SolrIndexer(this.logger, index.Location);
                             solrIndexer.Build(indexableData);
@@ -102,10 +138,9 @@
                         }
                     }
 
-                }
+                });
             }
-            
-            
+
         }
 
 

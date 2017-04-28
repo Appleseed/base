@@ -13,10 +13,11 @@
         private readonly string siteMapUrl;
         private readonly string indexPath;
         private readonly string sourceName;
+        private readonly Engine engine;
 
         private readonly ILog logger;
 
-        public WebContentIndexService(ILog logger, WebsiteToIndexElement source)
+        public WebContentIndexService(ILog logger, WebsiteToIndexElement source, Engine engine)
         {
             if (logger == null)
             {
@@ -49,6 +50,7 @@
             this.indexPath = source.IndexPath;
             this.sourceName = source.Name;
             this.siteMapUrl = source.SiteMapUrl;
+            this.engine = engine;
         }
 
         public bool Run()
@@ -57,9 +59,10 @@
             var collector = new SiteMapCollector(this.logger, this.siteMapUrl, new XmlExtractor());
             var extractor = new WebContentExtractor(this.logger);
             var organizer = new AppleseedModuleItemIndexOrganizer(this.logger,this.sourceName);
-            var indexer = new GeneralIndexer(this.logger, this.indexPath);
+            var indexer = new GeneralIndexer(this.logger, this.indexPath, this.engine);
+            var engine = this.engine;
 
-            var indexService = new IndexService(collector, aggregator, extractor, organizer, indexer);
+            var indexService = new IndexService(collector, aggregator, extractor, organizer, indexer, engine);
 
             try
             {

@@ -17,7 +17,9 @@
 
         private readonly ILog logger;
 
-        public RssContentIndexService(ILog logger, rssIndexElement source, string rssUrl)
+        private readonly Engine engine;
+
+        public RssContentIndexService(ILog logger, rssIndexElement source, string rssUrl, Engine engine)
         {
             if (logger == null)
             {
@@ -54,6 +56,7 @@
             this.indexPath = source.IndexPath;
             this.sourceName = source.Name;
             this.rssUrl = rssUrl;
+            this.engine = engine;
         }
 
         public bool Run()
@@ -62,9 +65,10 @@
             var collector = new RssContentCollector(this.logger,  new XmlExtractor(), this.rssUrl);
             var extractor = new WebContentExtractor(this.logger);
             var organizer = new AppleseedModuleItemIndexOrganizer(this.logger, this.sourceName);
-            var indexer = new GeneralIndexer(this.logger, this.indexPath);
+            var indexer = new GeneralIndexer(this.logger, this.indexPath, this.engine);
+            var engine = this.engine;
 
-            var indexService = new IndexService(collector, aggregator, extractor, organizer, indexer);
+            var indexService = new IndexService(collector, aggregator, extractor, organizer, indexer, engine);
 
             try
             {
