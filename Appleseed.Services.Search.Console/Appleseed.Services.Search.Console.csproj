@@ -344,19 +344,19 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Appleseed.Services.Base.EngineCfg\Appleseed.Services.Base.EngineCfg.csproj">
+    <ProjectReference Include="..\Projects\Appleseed.Services.Base.EngineCfg\Appleseed.Services.Base.EngineCfg.csproj">
       <Project>{99434afe-01a5-4bd4-bae9-55810389efb1}</Project>
       <Name>Appleseed.Services.Base.EngineCfg</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Appleseed.Services.Core\Appleseed.Services.Core.csproj">
+    <ProjectReference Include="..\Projects\Appleseed.Services.Base.Model\Appleseed.Services.Base.Model.csproj">
+      <Project>{cd4bd7b9-a019-4fc5-a1bb-cd6ce2da987b}</Project>
+      <Name>Appleseed.Services.Base.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Projects\Appleseed.Services.Core\Appleseed.Services.Core.csproj">
       <Project>{DA298FAB-1CDD-44EB-B055-ED6CE0E9DD6A}</Project>
       <Name>Appleseed.Services.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Appleseed.Services.Base.Model\Appleseed.Services.Base.Model.csproj">
-      <Project>{CD4BD7B9-A019-4FC5-A1BB-CD6CE2DA987B}</Project>
-      <Name>Appleseed.Services.Base.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Appleseed.Services.Tagger\Appleseed.Services.Tagger.csproj">
+    <ProjectReference Include="..\Projects\Appleseed.Services.Tagger\Appleseed.Services.Tagger.csproj">
       <Project>{10fba336-a779-4a99-a8a3-e16ef456ef25}</Project>
       <Name>Appleseed.Services.Tagger</Name>
     </ProjectReference>
