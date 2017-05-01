@@ -3,26 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Knowledge.Examples", "Appleseed.Services.Knowledge.Examples\Appleseed.Services.Knowledge.Examples.csproj", "{8EF39966-2BD1-452E-A6ED-7E4305225019}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Knowledge.Examples", "Projects\Appleseed.Services.Knowledge.Examples\Appleseed.Services.Knowledge.Examples.csproj", "{8EF39966-2BD1-452E-A6ED-7E4305225019}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Knowledge.Model", "Appleseed.Services.Knowledge.Model\Appleseed.Services.Knowledge.Model.csproj", "{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Knowledge.Model", "Projects\Appleseed.Services.Knowledge.Model\Appleseed.Services.Knowledge.Model.csproj", "{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Base.Jobs", "Appleseed.Services.Base.Jobs\Appleseed.Services.Base.Jobs.csproj", "{E19A1727-8203-4134-AEF9-5981B4676C38}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Base.Jobs", "Projects\Testing\Appleseed.Services.Base.Jobs\Appleseed.Services.Base.Jobs.csproj", "{E19A1727-8203-4134-AEF9-5981B4676C38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Base.Model", "Appleseed.Services.Base.Model\Appleseed.Services.Base.Model.csproj", "{CD4BD7B9-A019-4FC5-A1BB-CD6CE2DA987B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Base.Model", "Projects\Appleseed.Services.Base.Model\Appleseed.Services.Base.Model.csproj", "{CD4BD7B9-A019-4FC5-A1BB-CD6CE2DA987B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Tagger", "Appleseed.Services.Tagger\Appleseed.Services.Tagger.csproj", "{10FBA336-A779-4A99-A8A3-E16EF456EF25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Tagger", "Projects\Appleseed.Services.Tagger\Appleseed.Services.Tagger.csproj", "{10FBA336-A779-4A99-A8A3-E16EF456EF25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.TaggerTestConsole", "Appleseed.Services.TaggerTestConsole\Appleseed.Services.TaggerTestConsole.csproj", "{A1B5778E-96B3-45AA-BB63-099624DB9B0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.TaggerTestConsole", "Projects\Testing\Appleseed.Services.TaggerTestConsole\Appleseed.Services.TaggerTestConsole.csproj", "{A1B5778E-96B3-45AA-BB63-099624DB9B0B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{043FD603-48C3-4484-AC37-3051CF313A4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Core", "Appleseed.Services.Core\Appleseed.Services.Core.csproj", "{DA298FAB-1CDD-44EB-B055-ED6CE0E9DD6A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Core", "Projects\Appleseed.Services.Core\Appleseed.Services.Core.csproj", "{DA298FAB-1CDD-44EB-B055-ED6CE0E9DD6A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{CD4BD7B9-A019-4FC5-A1BB-CD6CE2DA987B} = {CD4BD7B9-A019-4FC5-A1BB-CD6CE2DA987B}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.UnitTests", "Appleseed.Services.UnitTests\Appleseed.Services.UnitTests.csproj", "{C526F116-2DA5-4209-80A2-EDE485155C9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.UnitTests", "Projects\Testing\Appleseed.Services.UnitTests\Appleseed.Services.UnitTests.csproj", "{C526F116-2DA5-4209-80A2-EDE485155C9F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{91E501AD-593F-4108-8043-C97BF47D55A4}"
 	ProjectSection(SolutionItems) = preProject
@@ -33,17 +33,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{91E501
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Search.Console", "Appleseed.Services.Search.Console\Appleseed.Services.Search.Console.csproj", "{C2882AA4-E489-4614-A2F3-927923F80383}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Base.Data", "Appleseed.Base.Data\Appleseed.Base.Data.csproj", "{D5E78361-25B0-4C70-92C8-B49B718C8B77}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Base.Data", "Projects\Testing\Appleseed.Base.Data\Appleseed.Base.Data.csproj", "{D5E78361-25B0-4C70-92C8-B49B718C8B77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Knowledge.Test", "Appleseed.Services.Knowledge.Test\Appleseed.Services.Knowledge.Test.csproj", "{56EDBF5D-AED3-4512-B240-463FD59B29BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Knowledge.Test", "Projects\Appleseed.Services.Knowledge.Test\Appleseed.Services.Knowledge.Test.csproj", "{56EDBF5D-AED3-4512-B240-463FD59B29BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Base.EngineCfg", "Appleseed.Services.Base.EngineCfg\Appleseed.Services.Base.EngineCfg.csproj", "{99434AFE-01A5-4BD4-BAE9-55810389EFB1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Base.Engine", "Appleseed.Services.Base.Engine\Appleseed.Services.Base.Engine.csproj", "{032BD5C7-760C-438F-B964-88F61E6AC164}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Base.EngineCfg", "Projects\Appleseed.Services.Base.EngineCfg\Appleseed.Services.Base.EngineCfg.csproj", "{99434AFE-01A5-4BD4-BAE9-55810389EFB1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{C980E463-0984-4940-98BE-10942242B1EB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{360370FB-4831-4A1A-920E-516E9FA36C44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Base.Engine", "Projects\Appleseed.Services.Base.Engine\Appleseed.Services.Base.Engine.csproj", "{032BD5C7-760C-438F-B964-88F61E6AC164}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -130,7 +130,6 @@ Global
 		{C526F116-2DA5-4209-80A2-EDE485155C9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C526F116-2DA5-4209-80A2-EDE485155C9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C526F116-2DA5-4209-80A2-EDE485155C9F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{C526F116-2DA5-4209-80A2-EDE485155C9F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{C526F116-2DA5-4209-80A2-EDE485155C9F}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{C526F116-2DA5-4209-80A2-EDE485155C9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C526F116-2DA5-4209-80A2-EDE485155C9F}.Release|Any CPU.Build.0 = Release|Any CPU
@@ -206,6 +205,7 @@ Global
 		{CD4BD7B9-A019-4FC5-A1BB-CD6CE2DA987B} = {C980E463-0984-4940-98BE-10942242B1EB}
 		{10FBA336-A779-4A99-A8A3-E16EF456EF25} = {C980E463-0984-4940-98BE-10942242B1EB}
 		{A1B5778E-96B3-45AA-BB63-099624DB9B0B} = {043FD603-48C3-4484-AC37-3051CF313A4A}
+		{043FD603-48C3-4484-AC37-3051CF313A4A} = {C980E463-0984-4940-98BE-10942242B1EB}
 		{DA298FAB-1CDD-44EB-B055-ED6CE0E9DD6A} = {C980E463-0984-4940-98BE-10942242B1EB}
 		{C526F116-2DA5-4209-80A2-EDE485155C9F} = {043FD603-48C3-4484-AC37-3051CF313A4A}
 		{C2882AA4-E489-4614-A2F3-927923F80383} = {360370FB-4831-4A1A-920E-516E9FA36C44}
