@@ -16,7 +16,7 @@ namespace Appleseed.Services.Base.Engine.Processors.Impl
 
 	//using NReadability;
 
-	using TikaOnDotNet;
+	using TikaOnDotNet.TextExtraction;
 	using Appleseed.Services.Core.Models;
 	using System.Text;
 	using Newtonsoft.Json.Linq;
