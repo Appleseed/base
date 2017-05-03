@@ -270,7 +270,7 @@
 
          
         }
-
+        /*
         private static void RunDropboxIndexService()
         {
             var indexServiceConfig = ConfigurationManager.GetSection("dropboxCloudFileIndexService") as DropBoxCloudFileIndexServiceSection;
@@ -572,7 +572,7 @@
 
             Logger.Info("NO SITES TO TAG");
         }
-
+        */
         private static void ExitProgram()
         {
             var isExitAfterRunEnabled = ConfigurationManager.AppSettings["ExitAfterRun"];
