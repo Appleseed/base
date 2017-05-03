@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{91E501
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Search.Console", "Appleseed.Services.Search.Console\Appleseed.Services.Search.Console.csproj", "{C2882AA4-E489-4614-A2F3-927923F80383}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Search.Console", "Applications\Appleseed.Services.Search.Console\Appleseed.Services.Search.Console.csproj", "{C2882AA4-E489-4614-A2F3-927923F80383}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Base.Data", "Projects\Testing\Appleseed.Base.Data\Appleseed.Base.Data.csproj", "{D5E78361-25B0-4C70-92C8-B49B718C8B77}"
 EndProject
