@@ -91,7 +91,7 @@
             int end = indexName.IndexOf('}');
             if (start != -1 && end != -1)
             {
-                indexName = indexName.Substring(start + 1, end - start - 1);
+                indexName = indexName.Substring(start + 1, end - start - 1).ToLower();
             }
 
             return indexName;
@@ -110,7 +110,7 @@
 
             if (config.IndexesSectionCfg.Count == 0 || config.IndexesSectionCfg == null)
             {
-                logger.Info("IndexesSectionCfg NOT FOUND IN CONFIG SOURCE");
+                logger.Info("INDEX SOURCES NOT FOUND IN CONFIG");
             }
 
             foreach (IndexesSectionCfg section in config.IndexesSectionCfg)

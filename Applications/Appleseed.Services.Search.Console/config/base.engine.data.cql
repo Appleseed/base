@@ -86,6 +86,7 @@ insert into appleseed_search_engines.config (config_type, config_name, config_va
 
 insert into appleseed_search_engines.config (config_type, config_name, config_values) values (
 	'source', 'Web.Site.RSS.XML',
+	{ 'Blog' : { 'siteMapUrl' : 'https://blog.domain.us/feed',
 				 'indexPath' : '{indexalias5}'
 			   }
 	}
@@ -112,6 +113,7 @@ insert into appleseed_search_engines.config (config_type, config_name, config_va
 
 insert into appleseed_search_engines.config (config_type, config_name, config_values) values (
 	'source', 'Web.Site.Sitemap.XML',
+	{ 'My Site' : { 'siteMapUrl' : 'http://domain.us/sitemap.axd', 
 				    'indexPath' : '{indexalias5}'
 				  }
 	}

@@ -34,59 +34,52 @@ namespace Appleseed.Services.Search.Console.helpers
                 var websiteIndexesSection = new WebsiteIndexServiceSection();
                 var websiteIndexesElementsList = new List<WebsiteToIndexElement>();
 
-                var engineTypes = session.Execute("select * from engine_types");
-                foreach (var typeRow in engineTypes)
+                var engineItems = session.Execute("select * from config");
+                
+                foreach (var itemRow in engineItems)
                 {
-                    //var typeId = typeRow.GetColumn("id").Index;
-                    //var typeIds = typeRow[typeId];
-                    var typeId = typeRow["id"];
-                    var typeName = typeRow["_name"];
-                    var engines = session.Execute("select * from engines where \"_typeid\" = " + typeId + " ALLOW FILTERING");
-                    foreach (var engineRow in engines)
-                    {
-                        var engineId = typeRow["id"];
-                        //var engineName = engineRow["_name"];
-                        var engineTypeId = engineRow["_typeid"];
-                        var engineItems = session.Execute("select * from engine_items where \"_engineid\" = " + engineId + " ALLOW FILTERING");
-                        foreach (var itemRow in engineItems)
-                        {
-                            var itemId = (itemRow["id"] ?? "").ToString();
-                            var itemName = (itemRow["_name"] ?? "").ToString();
-                            var itemEngineId = (itemRow["_engineid"] ?? "").ToString();
-                            var itemLocationUrl = (itemRow["_locationurl"] ?? "").ToString();
-                            var itemType = (itemRow["_type"] ?? "").ToString();
-                            var itemCollectionName = (itemRow["_collectionname"] ?? "").ToString();
-                            var itemIndexPath = (itemRow["_indexpath"] ?? "").ToString();
+                    var configName = (itemRow["config_name"] ?? "").ToString();
+                    var configType = (itemRow["config_type"] ?? "").ToString();
 
-                            switch (typeName.ToString())
-                            {
-                                case "index":
-                                    var indexElement = new IndexesElementCfg();
-                                    indexElement.Name = itemName;
-                                    indexElement.Location = itemLocationUrl;
-                                    indexElement.Type = itemType;
-                                    indexElement.CollectionItem = itemCollectionName;
-                                    indexesElementsList.Add(indexElement);
-                                    break;
-                                case "rss":
-                                    var rss = new rssIndexElement();
-                                    rss.Name = itemName;
-                                    rss.SiteMapUrl = itemLocationUrl;
-                                    rss.IndexPath = itemIndexPath;
-                                    rssIndexesElementsList.Add(rss);
-                                    break;
-                                case "sitemap":
-                                    var website = new WebsiteToIndexElement();
-                                    website.Name = itemName;
-                                    website.SiteMapUrl = itemLocationUrl;
-                                    website.IndexPath = itemIndexPath;
-                                    websiteIndexesElementsList.Add(website);
-                                    break;
-                                default:
-                                    break;
-                            }
+                    var itemValues = new SortedDictionary<string, IDictionary<string, string>>();
+                    itemValues = (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
+                    foreach (var values in itemValues)
+                    {
+                        var itemName = values.Key.ToString();
+                        var itemSitemapUrl = (values.Value.ContainsKey("siteMapUrl") ? values.Value["siteMapUrl"] : "").ToString();
+                        var itemLocationUrl = (values.Value.ContainsKey("location") ? values.Value["location"] : "").ToString();
+                        var itemCollectionName = (values.Value.ContainsKey("collectionName") ? values.Value["collectionName"] : "").ToString();
+                        var itemIndexPath = (values.Value.ContainsKey("indexPath") ? values.Value["indexPath"] : "").ToString();
+                        var itemType = (values.Value.ContainsKey("type") ? values.Value["type"] : "").ToString();
+
+                        switch (configName)
+                        {
+                            case "Search.Index":
+                                var indexElement = new IndexesElementCfg();
+                                indexElement.Name = itemName;
+                                indexElement.Location = itemLocationUrl;
+                                indexElement.Type = itemType;
+                                indexElement.CollectionItem = itemCollectionName;
+                                indexesElementsList.Add(indexElement);
+                                break;
+                            case "Web.Site.RSS.XML":
+                                var rss = new rssIndexElement();
+                                rss.Name = itemName;
+                                rss.SiteMapUrl = itemSitemapUrl;
+                                rss.IndexPath = itemIndexPath;
+                                rssIndexesElementsList.Add(rss);
+                                break;
+                            case "Web.Site.Sitemap.XML":
+                                var website = new WebsiteToIndexElement();
+                                website.Name = itemName;
+                                website.SiteMapUrl = itemSitemapUrl;
+                                website.IndexPath = itemIndexPath;
+                                websiteIndexesElementsList.Add(website);
+                                break;
+                            default:
+                                break;
                         }
-                    }
+                    };
                 }
 
                 // Indexes

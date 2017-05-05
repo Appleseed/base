@@ -326,6 +326,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="config\appleseed_search_engines.cql" />
+    <None Include="config\base.engine.data.cql" />
     <None Include="config\engine.map.lite.json" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
