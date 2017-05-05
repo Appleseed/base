@@ -43,7 +43,6 @@
   <IndexesSectionCfg>
     <add name="test">
       <indexes>
-        <!-- TODO: Below indexes are not currently used by ; Console is currently looking in search.console/app.config --> 
         <!--<add name="indexalias1" location="C:\Services\Appleseed.Search\Data\public" type="Lucene.NET" collectionName="" />-->
         <!--<add name="indexalias2" location="C:\Services\Appleseed.Search\Data\private" type="Lucene.NET" collectionName="" />-->
         <!--<add name="indexalias3" location="C:\Services\Appleseed.Search\Data\konotree.default.com" type="Lucene.NET" collectionName="" />-->
