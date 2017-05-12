@@ -14,6 +14,7 @@ namespace Appleseed.Services.Search.Console.helpers
 {
     class CassandraToClass
     {
+        private static readonly ILog Logger = LogManager.GetCurrentClassLogger();
 
         public static Engine GetCassandraConfig()
         {
@@ -109,7 +110,7 @@ namespace Appleseed.Services.Search.Console.helpers
 
             catch (Exception ex)
             {
-                System.Console.WriteLine(ex);
+                Logger.Error(ex);
             }
             return config;
         }
