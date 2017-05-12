@@ -13,13 +13,13 @@ namespace Appleseed.Services.UnitTests
     public class RssIndexTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethod1(Engine engine)
         {
 
              ILog Logger = LogManager.GetCurrentClassLogger();
 
 
-             var indexServiceConfig = ConfigurationManager.GetSection("rssIndexService") as WebsiteIndexServiceSection;
+             var indexServiceConfig = ConfigurationManager.GetSection("rssIndexService") as rssIndexServiceSection;
 
              if (indexServiceConfig != null)
              {
@@ -30,7 +30,7 @@ namespace Appleseed.Services.UnitTests
                  }
 
                  Logger.Info("BEGIN RSS INDEXING");
-                 foreach (WebsiteToIndexElement source in indexServiceConfig.Websites)
+                 foreach (rssIndexElement source in indexServiceConfig.Websites)
                  {
                      Logger.Info("SITE: " + source.Name);
 
@@ -42,7 +42,7 @@ namespace Appleseed.Services.UnitTests
                      }
                      foreach (string siteMap in targetUrls)
                      {
-                         var indexService = new RssContentIndexService(Logger, source, siteMap);
+                         var indexService = new RssContentIndexService(Logger, source, siteMap, engine);
 
                          try
                          {
