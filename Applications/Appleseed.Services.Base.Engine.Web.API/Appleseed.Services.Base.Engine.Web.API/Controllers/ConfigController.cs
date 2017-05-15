@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Cassandra;
+using Appleseed.Services.Base.Engine.Web.API.Models;
 
 namespace Appleseed.Services.Base.Engine.Web.API.Controllers
 { 
@@ -17,57 +18,60 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
 
         private int appConfigSourcePort = 9042;
 
+        private Config GetConfig(RowSet rowSet)
+        {
+            var engineJson = new Config();
+            var configList = new List<ConfigItem>();
+
+            foreach (var itemRow in rowSet)
+            {
+                var configItem = new ConfigItem();
+                configItem.ConfigItemName = (itemRow["config_name"] ?? "").ToString();
+                configItem.ConfigItemType = (itemRow["config_type"] ?? "").ToString();
+                configItem.ConfigItemValues = (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
+                configList.Add(configItem);
+            }
+            engineJson.ConfigItems = configList;
+
+            return engineJson;
+        }
+
         // GET: api/Config
         [HttpGet]
-        public List<string> Get()
+        public Config Get()
         {
             //var appConfigSource = ConfigurationManager.AppSettings["CassandraUrl"];
             //var appConfigSourcePort = Convert.ToInt32(ConfigurationManager.AppSettings["CassandraPort"]);
             Cluster cluster = Cluster.Builder().WithPort(appConfigSourcePort).AddContactPoint(appConfigSource).Build();
             Cassandra.ISession session = cluster.Connect("appleseed_search_engines");
 
-            var engineItems = session.Execute("select json * from config");
-            var engineJson = new List<string>();
-
-            foreach (var item in engineItems)
-            {
-                engineJson.Add( item["[json]"].ToString());
-            }
+            var engineItems = session.Execute("select * from config");
+            var engineJson = GetConfig(engineItems);
             return engineJson;
         }
 
         // GET: api/Config/source
         [HttpGet("{type}", Name = "Get Config Type")]
-        public List<string> Get(string type)
+        public Config Get(string type)
         {
             Cluster cluster = Cluster.Builder().WithPort(appConfigSourcePort).AddContactPoint(appConfigSource).Build();
             Cassandra.ISession session = cluster.Connect("appleseed_search_engines");
 
-            var engineItems = session.Execute("select json * from config where config_type = '" + type + "'");
-            var engineJson = new List<string>();
-
-            foreach (var item in engineItems)
-            {
-                engineJson.Add(item["[json]"].ToString());
-            }
+            var engineItems = session.Execute("select * from config where config_type = '" + type + "'");
+            var engineJson = GetConfig(engineItems);
 
             return engineJson;
         }
 
         // GET: api/Config/source/Data.XML
         [HttpGet("{type}/{name}", Name = "Get Config Type and Name")]
-        public List<string> Get(string type, string name)
+        public Config Get(string type, string name)
         {
             Cluster cluster = Cluster.Builder().WithPort(appConfigSourcePort).AddContactPoint(appConfigSource).Build();
             Cassandra.ISession session = cluster.Connect("appleseed_search_engines");
 
-            var engineItems = session.Execute("select json * from config where config_type = '" + type + "' and config_name = '" + name + "'");
-            var engineJson = new List<string>();
-
-            foreach (var item in engineItems)
-            {
-                engineJson.Add(item["[json]"].ToString());
-            }
+            var engineItems = session.Execute("select * from config where config_type = '" + type + "' and config_name = '" + name + "'");
+            var engineJson = GetConfig(engineItems);
 
             return engineJson;
         }
