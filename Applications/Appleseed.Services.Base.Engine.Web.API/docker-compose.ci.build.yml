@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  ci-build:
+    image: microsoft/aspnetcore-build:1.0-1.1
+    volumes:
+      - .:/src
+    working_dir: /src
+    command: /bin/bash -c "dotnet restore ./Appleseed.Services.Base.Engine.Web.API.sln && dotnet publish ./Appleseed.Services.Base.Engine.Web.API.sln -c Release -o ./obj/Docker/publish"

@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  appleseed.services.base.engine.web.api:
+    image: appleseed.services.base.engine.web.api
+    build:
+      context: ./Appleseed.Services.Base.Engine.Web.API
+      dockerfile: Dockerfile
