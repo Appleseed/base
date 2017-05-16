@@ -7,13 +7,13 @@ namespace Appleseed.Services.Base.Engine.Web.API.Models
 {
     public class Config
     {
-        public List<ConfigItem> ConfigItems { get; set; }
+        public List<ConfigItem> Engine { get; set; }
     }
 
     public class ConfigItem
     { 
-        public string ConfigItemName { get; set;}
-        public string ConfigItemType { get; set; }
-        public SortedDictionary<string, IDictionary<string, string>> ConfigItemValues { get; set; }
+        public string config_name { get; set;}
+        public string config_type { get; set; }
+        public SortedDictionary<string, IDictionary<string, string>> config_values { get; set; }
     }
 }

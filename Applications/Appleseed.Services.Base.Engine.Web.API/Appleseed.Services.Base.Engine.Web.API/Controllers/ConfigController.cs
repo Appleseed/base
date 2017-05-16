@@ -26,12 +26,12 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             foreach (var itemRow in rowSet)
             {
                 var configItem = new ConfigItem();
-                configItem.ConfigItemName = (itemRow["config_name"] ?? "").ToString();
-                configItem.ConfigItemType = (itemRow["config_type"] ?? "").ToString();
-                configItem.ConfigItemValues = (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
+                configItem.config_name = (itemRow["config_name"] ?? "").ToString();
+                configItem.config_type = (itemRow["config_type"] ?? "").ToString();
+                configItem.config_values= (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
                 configList.Add(configItem);
             }
-            engineJson.ConfigItems = configList;
+            engineJson.Engine = configList;
 
             return engineJson;
         }
