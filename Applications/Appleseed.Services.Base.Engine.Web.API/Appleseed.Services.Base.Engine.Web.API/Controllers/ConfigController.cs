@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Cassandra;
+using Newtonsoft.Json;
 using Appleseed.Services.Base.Engine.Web.API.Models;
 
 namespace Appleseed.Services.Base.Engine.Web.API.Controllers
@@ -37,7 +38,7 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
         }
 
         // GET: api/Config
-        [HttpGet]
+        [HttpGet(Name = "Get Config")]
         public Config Get()
         {
             //var appConfigSource = ConfigurationManager.AppSettings["CassandraUrl"];
@@ -76,12 +77,28 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             return engineJson;
         }
 
-        // POST: api/Config
-        [HttpPost("{type}")]
-        public void Post([FromBody]string value)
+        // POST: api/Config/source
+        [HttpPost()]
+        public IActionResult Post([FromBody] dynamic data)
         {
+            if (data.config_type == null || data.config_name == null || data.config_values == null)
+            {
+                return  BadRequest();
+            }
+
+            Cluster cluster = Cluster.Builder().WithPort(appConfigSourcePort).AddContactPoint(appConfigSource).Build();
+            Cassandra.ISession session = cluster.Connect("appleseed_search_engines");
+
+            data = JsonConvert.SerializeObject(data);
+            data = JsonConvert.DeserializeObject<ConfigItem>(data);
+
+            var prep = session.Prepare("insert into config (config_type, config_name, config_values) values (?, ?, ?)");
+            var statement = prep.Bind(data.config_type, data.config_name, data.config_values);
+            session.Execute(statement);
+
+            return CreatedAtRoute("Get Config", data);
         }
-        
+
         // PUT: api/Config/source
         [HttpPut("{type}")]
         public void Put(int id, [FromBody]string value)
