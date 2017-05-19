@@ -81,7 +81,7 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
         [HttpPost()]
         public IActionResult Post([FromBody] dynamic data)
         {
-            if (data.config_type == null || data.config_name == null || data.config_values == null)
+            if (data.config_type == null || data.config_name == null)
             {
                 return  BadRequest();
             }
@@ -91,6 +91,15 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
 
             data = JsonConvert.SerializeObject(data);
             data = JsonConvert.DeserializeObject<ConfigItem>(data);
+
+            var check = session.Prepare("select * from config where config_type = ? and config_name = ? limit 1");
+            var checkStatement = check.Bind(data.config_type, data.config_name);
+            var checkResults = session.Execute(checkStatement);
+
+            if (checkResults.GetAvailableWithoutFetching() > 0)
+            {
+                return BadRequest();
+            }
 
             var prep = session.Prepare("insert into config (config_type, config_name, config_values) values (?, ?, ?)");
             var statement = prep.Bind(data.config_type, data.config_name, data.config_values);
