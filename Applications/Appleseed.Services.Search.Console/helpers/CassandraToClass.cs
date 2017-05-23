@@ -16,13 +16,20 @@ namespace Appleseed.Services.Search.Console.helpers
     {
         private static readonly ILog Logger = LogManager.GetCurrentClassLogger();
 
-        public static Engine GetCassandraConfig()
+        private static Cluster GetCluster()
         {
-            var config = new Engine();
             var appConfigSource = ConfigurationManager.AppSettings["CassandraUrl"];
             var appConfigSourcePort = Convert.ToInt32(ConfigurationManager.AppSettings["CassandraPort"]);
 
             Cluster cluster = Cluster.Builder().WithPort(appConfigSourcePort).AddContactPoint(appConfigSource).Build();
+            return cluster;
+        }
+
+        public static Engine GetCassandraConfig()
+        {
+            var config = new Engine();
+
+            var cluster = GetCluster();
 
             try
             {
@@ -34,6 +41,8 @@ namespace Appleseed.Services.Search.Console.helpers
                 var rssIndexesElementsList = new List<rssIndexElement>();
                 var websiteIndexesSection = new WebsiteIndexServiceSection();
                 var websiteIndexesElementsList = new List<WebsiteToIndexElement>();
+                var webCrawlSection = new WebCrawlIndexServiceSection();
+                var webCrawlList = new List<WebCrawlToIndexElement>();
 
                 var engineItems = session.Execute("select * from config");
                 
@@ -52,6 +61,9 @@ namespace Appleseed.Services.Search.Console.helpers
                         var itemCollectionName = (values.Value.ContainsKey("collectionName") ? values.Value["collectionName"] : "").ToString();
                         var itemIndexPath = (values.Value.ContainsKey("indexPath") ? values.Value["indexPath"] : "").ToString();
                         var itemType = (values.Value.ContainsKey("type") ? values.Value["type"] : "").ToString();
+                        var itemCrawlDepth = 0;//Int32.Parse(values.Value.ContainsKey("crawlDetph") ? values.Value["crawlDetph"] : "");
+                        var itemConnString = (values.Value.ContainsKey("connectionString") ? values.Value["connectionString"] : "").ToString();
+                        var itemTableName = (values.Value.ContainsKey("tableName") ? values.Value["tableName"] : "").ToString();
 
                         switch (configName)
                         {
@@ -62,6 +74,16 @@ namespace Appleseed.Services.Search.Console.helpers
                                 indexElement.Type = itemType;
                                 indexElement.CollectionItem = itemCollectionName;
                                 indexesElementsList.Add(indexElement);
+                                break;
+                            case "Web.Site.Crawl":
+                                var crawl = new WebCrawlToIndexElement();
+                                crawl.Name = itemName;
+                                crawl.SiteMapUrl = itemSitemapUrl;
+                                crawl.crawlDepth = itemCrawlDepth;
+                                crawl.IndexPath = itemIndexPath;
+                                crawl.ConnectionString = itemConnString;
+                                crawl.TableName = itemTableName;
+                                webCrawlList.Add(crawl);
                                 break;
                             case "Web.Site.RSS.XML":
                                 var rss = new rssIndexElement();
@@ -98,12 +120,18 @@ namespace Appleseed.Services.Search.Console.helpers
                 websiteIndexesSection.Websites = websiteIndexesElementsList;
                 var websiteIndexesSectionList = new List<WebsiteIndexServiceSection>();
                 websiteIndexesSectionList.Add(websiteIndexesSection);
+                // Webcrawls
+                webCrawlSection.Name = "Webcrawl";
+                webCrawlSection.Websites = webCrawlList;
+                var webCrawlSectionList = new List<WebCrawlIndexServiceSection>();
+                webCrawlSectionList.Add(webCrawlSection);
 
 
                 // Add all lists to config
                 config.IndexesSectionCfg = indexesSectionList;
                 config.rssIndexServiceSection = rssIndexesSectionList;
                 config.WebsiteIndexServiceSection = websiteIndexesSectionList;
+                config.WebCrawlIndexServiceSection = webCrawlSectionList;
                 return config;
 
             }
