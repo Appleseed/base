@@ -108,6 +108,50 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             return CreatedAtRoute("Get Config", data);
         }
 
+        // POST: api/Config/source/Data.XML
+        [HttpPost("{type}/{name}")]
+        public IActionResult Post([FromBody] dynamic data, string type, string name)
+        {
+            Cluster cluster = Cluster.Builder().WithPort(appConfigSourcePort).AddContactPoint(appConfigSource).Build();
+            Cassandra.ISession session = cluster.Connect("appleseed_search_engines");
+
+            data = JsonConvert.SerializeObject(data);
+            data = JsonConvert.DeserializeObject<ConfigItem>(data);
+
+            var check = session.Prepare("select * from config where config_type = ? and config_name = ?");
+            var checkStatement = check.Bind(type, name);
+            var checkResults = session.Execute(checkStatement);
+            
+            if (checkResults.GetAvailableWithoutFetching() == 0)
+            {
+                return BadRequest();
+            }
+            var allValues = new SortedDictionary<string, IDictionary<string, string>>();
+            foreach (var dataValues in data.config_values)
+            {
+                foreach (var itemRow in checkResults)
+                {
+                    var itemValues = (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
+                    foreach (var value in itemValues)
+                    {
+                        allValues.Add(value.Key, value.Value);
+                    }
+                    if (itemValues.ContainsKey(dataValues.Key) == false)
+                    {
+                        allValues.Add( dataValues.Key, dataValues.Value);
+                    } else
+                    {
+                        return BadRequest();
+                    }
+                }
+            }
+            var prep = session.Prepare("insert into config (config_type, config_name, config_values) values (?, ?, ?)");
+            var statement = prep.Bind(type, name, allValues);
+            session.Execute(statement);
+
+            return CreatedAtRoute("Get Config", data);
+        }
+
         // PUT: api/Config/source
         [HttpPut("{type}")]
         public void Put(int id, [FromBody]string value)
