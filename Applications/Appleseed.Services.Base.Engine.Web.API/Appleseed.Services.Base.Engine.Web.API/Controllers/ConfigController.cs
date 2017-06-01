@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 using Appleseed.Services.Base.Engine.Web.API.Models;
 
 namespace Appleseed.Services.Base.Engine.Web.API.Controllers
-{ 
+{
     [Produces("application/json")]
     [Route("api/Config")]
     public class ConfigController : Controller
@@ -29,7 +29,7 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
                 var configItem = new ConfigItem();
                 configItem.config_name = (itemRow["config_name"] ?? "").ToString();
                 configItem.config_type = (itemRow["config_type"] ?? "").ToString();
-                configItem.config_values= (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
+                configItem.config_values = (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
                 configList.Add(configItem);
             }
             engineJson.Engine = configList;
@@ -77,13 +77,13 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             return engineJson;
         }
 
-        // POST: api/Config/source
+        // POST: api/Config
         [HttpPost()]
         public IActionResult Post([FromBody] dynamic data)
         {
             if (data.config_type == null || data.config_name == null)
             {
-                return  BadRequest();
+                return BadRequest();
             }
 
             Cluster cluster = Cluster.Builder().WithPort(appConfigSourcePort).AddContactPoint(appConfigSource).Build();
@@ -92,7 +92,7 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             data = JsonConvert.SerializeObject(data);
             data = JsonConvert.DeserializeObject<ConfigItem>(data);
 
-            var check = session.Prepare("select * from config where config_type = ? and config_name = ? limit 1");
+            var check = session.Prepare("select * from config where config_type = ? and config_name = ?");
             var checkStatement = check.Bind(data.config_type, data.config_name);
             var checkResults = session.Execute(checkStatement);
 
