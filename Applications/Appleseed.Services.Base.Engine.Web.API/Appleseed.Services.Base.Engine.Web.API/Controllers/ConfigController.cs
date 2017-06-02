@@ -157,6 +157,56 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             return CreatedAtRoute("Get Config", data);
         }
 
+        // POST: api/Config/source/Data.XML/Contacts
+        [HttpPost("{type}/{name}/{item}")]
+        public IActionResult Post([FromBody] dynamic data, string type, string name, string item)
+        {
+            Cluster cluster = Cluster.Builder().WithPort(appConfigSourcePort).AddContactPoint(appConfigSource).Build();
+            Cassandra.ISession session = cluster.Connect("appleseed_search_engines");
+
+            var check = session.Prepare("select * from config where config_type = ? and config_name = ?");
+            var checkStatement = check.Bind(type, name);
+            var checkResults = session.Execute(checkStatement);
+            var results = checkResults.GetRows().ToList();
+            var allValues = new SortedDictionary<string, IDictionary<string, string>>();
+
+            foreach (var dataValues in data)
+            {
+                foreach (var itemRow in results)
+                {
+                    var itemValues = (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
+                    foreach (var itemValue in itemValues)
+                    {
+                        if (allValues.ContainsKey(itemValue.Key) == false)
+                        {
+                            allValues.Add(itemValue.Key, itemValue.Value);
+                        }
+                    }
+                    if (itemValues.ContainsKey(item) == true)
+                    {
+                        if (itemValues[item].ContainsKey(dataValues.Name) == false)
+                        {
+                            allValues[item].Add(dataValues.Name, dataValues.Value.ToString());
+                        }
+                        else
+                        {
+                            return BadRequest();
+                        }
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
+                }
+            }
+
+            var prep = session.Prepare("insert into config (config_type, config_name, config_values) values (?, ?, ?)");
+            var statement = prep.Bind(type, name, allValues);
+            session.Execute(statement);
+
+            return CreatedAtRoute("Get Config", data);
+        }
+
         // PUT: api/Config/source/Data.XML
         [HttpPut("{type}/{name}")]
         public IActionResult Put([FromBody] dynamic data, string type, string name)
