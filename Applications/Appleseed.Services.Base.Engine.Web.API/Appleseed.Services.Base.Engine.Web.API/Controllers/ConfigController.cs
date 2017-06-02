@@ -135,14 +135,16 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
                 foreach (var itemRow in results)
                 {
                     var itemValues = (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
-                    foreach (var value in itemValues)
-                    {
-                        allValues.Add(value.Key, value.Value);
-                    }
+                    foreach (var itemValue in itemValues)
+                        if (allValues.ContainsKey(itemValue.Key) == false)
+                        {
+                            allValues.Add(itemValue.Key, itemValue.Value);
+                        }
                     if (itemValues.ContainsKey(dataValues.Key) == false)
                     {
                         allValues.Add( dataValues.Key, dataValues.Value);
-                    } else
+                    }
+                    else
                     {
                         return BadRequest();
                     }
@@ -182,10 +184,11 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
                 foreach (var itemRow in results)
                 {
                     var itemValues = (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
-                    foreach (var value in itemValues)
-                    {
-                        allValues.Add(value.Key, value.Value);
-                    }
+                    foreach (var itemValue in itemValues)
+                        if (allValues.ContainsKey(itemValue.Key) == false)
+                        {
+                            allValues.Add(itemValue.Key, itemValue.Value);
+                        }
                     if (itemValues.ContainsKey(dataValues.Key) == true)
                     {
                         allValues[dataValues.Key] = dataValues.Value;
