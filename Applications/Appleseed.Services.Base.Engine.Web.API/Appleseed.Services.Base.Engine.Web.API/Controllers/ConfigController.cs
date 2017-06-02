@@ -123,7 +123,8 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             var check = session.Prepare("select * from config where config_type = ? and config_name = ?");
             var checkStatement = check.Bind(type, name);
             var checkResults = session.Execute(checkStatement);
-            
+            var results = checkResults.GetRows().ToList();
+
             if (checkResults.GetAvailableWithoutFetching() == 0)
             {
                 return BadRequest();
@@ -131,7 +132,7 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             var allValues = new SortedDictionary<string, IDictionary<string, string>>();
             foreach (var dataValues in data.config_values)
             {
-                foreach (var itemRow in checkResults)
+                foreach (var itemRow in results)
                 {
                     var itemValues = (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
                     foreach (var value in itemValues)
@@ -169,6 +170,7 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             var check = session.Prepare("select * from config where config_type = ? and config_name = ?");
             var checkStatement = check.Bind(type, name);
             var checkResults = session.Execute(checkStatement);
+            var results = checkResults.GetRows().ToList();
 
             if (checkResults.GetAvailableWithoutFetching() == 0)
             {
@@ -177,7 +179,7 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             var allValues = new SortedDictionary<string, IDictionary<string, string>>();
             foreach (var dataValues in data.config_values)
             {
-                foreach (var itemRow in checkResults)
+                foreach (var itemRow in results)
                 {
                     var itemValues = (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
                     foreach (var value in itemValues)
