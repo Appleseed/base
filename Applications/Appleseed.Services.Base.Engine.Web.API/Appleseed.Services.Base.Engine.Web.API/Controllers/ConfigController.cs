@@ -237,29 +237,26 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             {
                 return BadRequest();
             }
-            var allValues = new SortedDictionary<string, IDictionary<string, string>>();
+            var itemValues = (SortedDictionary<string, IDictionary<string, string>>)(results.First()["config_values"]);
             foreach (var dataValues in data.config_values)
             {
                 foreach (var itemRow in results)
                 {
-                    var itemValues = (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
-                    foreach (var itemValue in itemValues)
-                        if (allValues.ContainsKey(itemValue.Key) == false)
+                    foreach (var itemValue in itemValues.ToList())
+                    {
+                        if (itemValues.ContainsKey(dataValues.Key) == true)
                         {
-                            allValues.Add(itemValue.Key, itemValue.Value);
+                            itemValues[dataValues.Key] = dataValues.Value;
                         }
-                    if (itemValues.ContainsKey(dataValues.Key) == true)
-                    {
-                        allValues[dataValues.Key] = dataValues.Value;
-                    }
-                    else
-                    {
-                        return BadRequest();
+                        else
+                        {
+                            return BadRequest();
+                        }
                     }
                 }
             }
             var prep = session.Prepare("insert into config (config_type, config_name, config_values) values (?, ?, ?)");
-            var statement = prep.Bind(type, name, allValues);
+            var statement = prep.Bind(type, name, itemValues);
             session.Execute(statement);
 
             return CreatedAtRoute("Get Config Type and Name", data);
