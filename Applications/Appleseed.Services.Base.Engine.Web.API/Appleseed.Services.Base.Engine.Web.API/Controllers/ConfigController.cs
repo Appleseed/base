@@ -354,10 +354,30 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             return CreatedAtRoute("Get Config Type and Name", data);
         }
 
-        // DELETE: api/ApiWithActions/source
+        // DELETE: api/Config/source
         [HttpDelete("{type}")]
-        public void Delete(int id)
+        public IActionResult Delete(string type)
         {
+            Cluster cluster = Cluster.Builder().WithPort(appConfigSourcePort).AddContactPoint(appConfigSource).Build();
+            Cassandra.ISession session = cluster.Connect("appleseed_search_engines");
+
+            var check = session.Prepare("select * from config where config_type = ?");
+            var checkStatement = check.Bind(type);
+            var checkResults = session.Execute(checkStatement);
+            var results = checkResults.GetRows().ToList();
+
+            if (results.Count() == 0)
+            {
+                return BadRequest();
+            }
+
+            var prep = session.Prepare("delete from config where config_type = ?");
+            var statement = prep.Bind(type);
+            session.Execute(statement);
+
+            return Ok();
+        }
+
         }
     }
 }
