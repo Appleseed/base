@@ -133,7 +133,9 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             {
                 return BadRequest();
             }
+
             var allValues = new SortedDictionary<string, IDictionary<string, string>>();
+
             foreach (var dataValues in data.config_values)
             {
                 foreach (var itemRow in results)
@@ -146,7 +148,7 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
                         }
                     if (itemValues.ContainsKey(dataValues.Key) == false)
                     {
-                        allValues.Add( dataValues.Key, dataValues.Value);
+                        allValues.Add(dataValues.Key, dataValues.Value);
                     }
                     else
                     {
@@ -182,31 +184,28 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
 
             foreach (var dataValues in data)
             {
-                foreach (var itemRow in results)
+                var itemValues = (SortedDictionary<string, IDictionary<string, string>>)(results.First()["config_values"]);
+                foreach (var itemValue in itemValues)
                 {
-                    var itemValues = (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
-                    foreach (var itemValue in itemValues)
+                    if (allValues.ContainsKey(itemValue.Key) == false)
                     {
-                        if (allValues.ContainsKey(itemValue.Key) == false)
-                        {
-                            allValues.Add(itemValue.Key, itemValue.Value);
-                        }
+                        allValues.Add(itemValue.Key, itemValue.Value);
                     }
-                    if (itemValues.ContainsKey(item) == true)
+                }
+                if (itemValues.ContainsKey(item) == true)
+                {
+                    if (itemValues[item].ContainsKey(dataValues.Name) == false)
                     {
-                        if (itemValues[item].ContainsKey(dataValues.Name) == false)
-                        {
-                            allValues[item].Add(dataValues.Name, dataValues.Value.ToString());
-                        }
-                        else
-                        {
-                            return BadRequest();
-                        }
+                        allValues[item].Add(dataValues.Name, dataValues.Value.ToString());
                     }
                     else
                     {
                         return BadRequest();
                     }
+                }
+                else
+                {
+                    return BadRequest();
                 }
             }
 
