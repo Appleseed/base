@@ -129,7 +129,7 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             var checkResults = session.Execute(checkStatement);
             var results = checkResults.GetRows().ToList();
 
-            if (checkResults.GetAvailableWithoutFetching() == 0)
+            if (results.Count() == 0)
             {
                 return BadRequest();
             }
@@ -228,7 +228,7 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             var checkResults = session.Execute(checkStatement);
             var results = checkResults.GetRows().ToList();
 
-            if (checkResults.GetAvailableWithoutFetching() == 0)
+            if (results.Count() == 0)
             {
                 return BadRequest();
             }
@@ -326,7 +326,7 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             var checkResults = session.Execute(checkStatement);
             var results = checkResults.GetRows().ToList();
 
-            if (checkResults.GetAvailableWithoutFetching() == 0)
+            if (results.Count() == 0)
             {
                 return BadRequest();
             }
