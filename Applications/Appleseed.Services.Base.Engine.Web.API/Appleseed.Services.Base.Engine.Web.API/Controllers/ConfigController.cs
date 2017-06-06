@@ -279,23 +279,17 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
                 return BadRequest();
             }
 
-            var allValues = new SortedDictionary<string, IDictionary<string, string>>();
+            var itemValues = (SortedDictionary<string, IDictionary<string, string>>)(results.First()["config_values"]);
 
             foreach (var dataValues in data)
-            { 
-                foreach (var itemRow in results)
+            {
+                foreach (var itemValue in itemValues)
                 {
-                    var itemValues = (SortedDictionary<string, IDictionary<string, string>>)(itemRow["config_values"]);
-                    foreach (var itemValue in itemValues)
-                        if (allValues.ContainsKey(itemValue.Key) == false)
-                        {
-                            allValues.Add(itemValue.Key, itemValue.Value);
-                        }
                     if (itemValues.ContainsKey(item) == true)
                     {
                         if (itemValues[item].ContainsKey(dataValues.Name) == true)
                         {
-                            allValues[item][dataValues.Name] = dataValues.Value.ToString();
+                            itemValues[item][dataValues.Name] = dataValues.Value.ToString();
                         }
                         else
                         {
@@ -310,7 +304,7 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             }
             
             var prep = session.Prepare("insert into config (config_type, config_name, config_values) values (?, ?, ?)");
-            var statement = prep.Bind(type, name, allValues);
+            var statement = prep.Bind(type, name, itemValues);
             session.Execute(statement);
 
             return CreatedAtRoute("Get Config Type and Name", data);
