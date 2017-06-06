@@ -172,6 +172,12 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             var checkStatement = check.Bind(type, name);
             var checkResults = session.Execute(checkStatement);
             var results = checkResults.GetRows().ToList();
+
+            if (results.Count == 0)
+            {
+                return BadRequest();
+            }
+
             var allValues = new SortedDictionary<string, IDictionary<string, string>>();
 
             foreach (var dataValues in data)
@@ -272,7 +278,7 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             var checkResults = session.Execute(checkStatement);
             var results = checkResults.GetRows().ToList();
 
-            if (checkResults.GetAvailableWithoutFetching() == 0)
+            if (results.Count() == 0)
             {
                 return BadRequest();
             }
