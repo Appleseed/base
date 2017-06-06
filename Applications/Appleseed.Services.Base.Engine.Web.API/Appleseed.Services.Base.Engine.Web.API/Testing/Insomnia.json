@@ -1,0 +1,449 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2017-06-06T19:09:43.415Z",
+	"__export_source": "insomnia.desktop.app:v5.1.1",
+	"resources": [
+		{
+			"_id": "wrk_6399203f42094432b240c44e8150c187",
+			"parentId": null,
+			"modified": 1494598664710,
+			"created": 1494598664710,
+			"name": "Insomnia",
+			"description": "",
+			"certificates": [],
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_4333e914e3ea42bf9052879c600625cf",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1494946371931,
+			"created": 1494946371931,
+			"name": "Base Environment",
+			"data": {},
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_ad1aad14fe894fbebdb646f8ab7f6e0b",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1495636674486,
+			"created": 1494947880836,
+			"name": "Default Jar",
+			"cookies": [],
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "req_307a3565bf154724a543cef28f864edb",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496775764262,
+			"created": 1494946451575,
+			"url": "http://localhost:63210/api/config",
+			"name": "(add config name w. 1 item)",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"config_name\": \"New.Web.Site.RSS.XML\",\n\t\"config_type\": \"test\",\n\t\"config_values\": {\n\t\t\"Other Blog\": {\n\t\t\t\"indexPath\": \"{indexaliasA}\",\n\t\t\t\"siteMapUrl\": \"https://A.blog.us/feed\"\n\t\t}\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_809d3a2aa1464f18bd93b25c2ccb1ca1"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1494946451575,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_521bad60672c4a6daea209279fbe8ffa",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496775789210,
+			"created": 1494947848142,
+			"url": "http://localhost:63210/api/config",
+			"name": "(add config name w. 2 items)",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"config_name\": \"New.Web.Site.RSS.XML\",\n\t\"config_type\": \"test\",\n\t\"config_values\": {\n\t\t\"Other Blog2\": {\n\t\t\t\"indexPath\": \"{indexaliasA}\",\n\t\t\t\"siteMapUrl\": \"https://A.blog.us/feed\"\n\t\t},\n\t\t\"Other Blog3\": {\n\t\t\t\"indexPath\": \"{indexaliasB}\",\n\t\t\t\"siteMapUrl\": \"https://B.blog.us/feed\"\n\t\t}\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_1f7069fc81cd47e7a12de99ca3d54b97"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1494947848142,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_11cbbf75ec4f4ff190d78de6045dd731",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496681161837,
+			"created": 1494947905920,
+			"url": "http://localhost:63210/api/config",
+			"name": "All",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1494947905920,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_f2103aaed2124f17a9fced8232daf6ba",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496775950600,
+			"created": 1494950296400,
+			"url": "http://localhost:63210/api/config/test/New.Web.Site.RSS.XML",
+			"name": "type/name (add item)",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"config_values\": {\n\t\t\"Other Blog4\": {\n\t\t\t\"indexPath4\": \"{indexaliasE}\",\n\t\t\t\"siteMapUrl4\": \"https://E.blog.us/feed\"\n\t\t}\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_1c7e089c61704c62b8f0976cfaa6d213"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1494947877031,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_e30a0dfc0cf1409595adeec40d6fd9e9",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496775969526,
+			"created": 1496348277453,
+			"url": "http://localhost:63210/api/config/test/New.Web.Site.RSS.XML",
+			"name": "type/name (add items)",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"config_values\": {\n\t\t\"Other Blog5\": {\n\t\t\t\"indexPath\": \"{indexaliasF}\",\n\t\t\t\"siteMapUrl\": \"https://F.blog.us/feed\"\n\t\t},\n\t\t\"Other Blog6\": {\n\t\t\t\"indexPath\": \"{indexaliasG}\",\n\t\t\t\"siteMapUrl\": \"https://G.blog.us/feed\"\n\t\t}\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_1c7e089c61704c62b8f0976cfaa6d213"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1494947891475.5,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_60916b1121314bd188ede29e66edc8ab",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496772656260,
+			"created": 1496348327249,
+			"url": "http://localhost:63210/api/config/test/New.Web.Site.RSS.XML",
+			"name": "type/name",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1494947898697.75,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_4be0ad5326ba4c19bf3db04eea14afa2",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496776013675,
+			"created": 1496351417535,
+			"url": "http://localhost:63210/api/config/test/New.Web.Site.RSS.XML",
+			"name": "type/name (edit)",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"config_values\": {\n\t\t\"Other Blog\": {\n\t\t\t\"indexPath\": \"{indexaliasZ}\",\n\t\t\t\"siteMapUrl\": \"https://Z.blog.us/feed\"\n\t\t}\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_1c7e089c61704c62b8f0976cfaa6d213"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1494947893732.4531,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_29a406619d65486da58368e52ef6e0b7",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496776029512,
+			"created": 1496436558576,
+			"url": "http://localhost:63210/api/config/test/New.Web.Site.RSS.XML/Other Blog2",
+			"name": "type/name/item (edit item values)",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"indexPath\": \"{indexaliasY}\",\n\t\"siteMapUrl\": \"https://Y.blog.us/feed\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_1c7e089c61704c62b8f0976cfaa6d213"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1494947896892.1875,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_3e7bf17337a148f2a4a82e52a3f608ce",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496776051540,
+			"created": 1496439476898,
+			"url": "http://localhost:63210/api/config/test/New.Web.Site.RSS.XML/Other Blog2/indexPath",
+			"name": "type/name/item/valueKey (edit specific item value)",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "\n\"{indexaliasX}\"\n"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_1c7e089c61704c62b8f0976cfaa6d213"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1494947897794.9688,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_40f42328c92f4c47ba1bc7dafa79cff4",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496775989581,
+			"created": 1496440138049,
+			"url": "http://localhost:63210/api/config/test/New.Web.Site.RSS.XML/Other Blog",
+			"name": "type/name/item (add item values)",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"siteMapUrl2\": \"https://blog2.blog.us/feed\",\n\t\"siteMapUrl3\": \"https://blog2.blog.us/feed\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_1c7e089c61704c62b8f0976cfaa6d213"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1494947893281.0625,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_037363a942d6432faa84302391966489",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496776122198,
+			"created": 1496679142311,
+			"url": "http://localhost:63210/api/config/test",
+			"name": "type (delete all of type)",
+			"method": "DELETE",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1494946451525,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_c503419d87cd42578258dff20c93eee1",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496681824023,
+			"created": 1496679227365,
+			"url": "http://localhost:63210/api/config/test",
+			"name": "type",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1494947902308.875,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_e7707ab9c5d94d97903825ef5c37fb33",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496776023743,
+			"created": 1496766013601,
+			"url": "http://localhost:63210/api/config/test/New.Web.Site.RSS.XML",
+			"name": "type/name (edit x2)",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"config_values\": {\n\t\t\"Other Blog\": {\n\t\t\t\"indexPath\": \"{indexaliasZ}\",\n\t\t\t\"siteMapUrl\": \"https://Z.blog.us/feed\"\n\t\t},\n\t\t\"Other Blog2\": {\n\t\t\t\"indexPath\": \"{indexaliasZ}\",\n\t\t\t\"siteMapUrl\": \"https://Z.blog.us/feed\"\n\t\t}\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_1c7e089c61704c62b8f0976cfaa6d213"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1494947894183.8438,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_ef12c3fc796148cb98428bd887d85d4e",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496775834796,
+			"created": 1496766762587,
+			"url": "http://localhost:63210/api/config",
+			"name": "(add config name x2)",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "[\n\t{\n\t\t\"config_name\": \"New.Web.Site.RSS.XML\",\n\t\t\"config_type\": \"test\",\n\t\t\"config_values\": {\n\t\t\t\"Other Blog2\": {\n\t\t\t\t\"indexPath\": \"{indexaliasA}\",\n\t\t\t\t\"siteMapUrl\": \"https://A.blog.us/feed\"\n\t\t\t},\n\t\t\t\"Other Blog3\": {\n\t\t\t\t\"indexPath\": \"{indexaliasB}\",\n\t\t\t\t\"siteMapUrl\": \"https://B.blog.us/feed\"\n\t\t\t}\n\t\t}\n\t},\n\t{\n\t\t\"config_name\": \"New.Web.Site.RSS.XML2\",\n\t\t\"config_type\": \"test\",\n\t\t\"config_values\": {\n\t\t\t\"Other Blog2\": {\n\t\t\t\t\"indexPath\": \"{indexaliasC}\",\n\t\t\t\t\"siteMapUrl\": \"https://C.blog.us/feed\"\n\t\t\t},\n\t\t\t\"Other Blog3\": {\n\t\t\t\t\"indexPath\": \"{indexaliasD}\",\n\t\t\t\t\"siteMapUrl\": \"https://D.blog.us/feed\"\n\t\t\t}\n\t\t}\n\t}\n]"
+			},
+			"parameters": [],
+			"headers": [
+				{
+					"name": "Content-Type",
+					"value": "application/json",
+					"id": "pair_1f7069fc81cd47e7a12de99ca3d54b97"
+				}
+			],
+			"authentication": {},
+			"metaSortKey": -1494947862586.5,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_33f971e38cda442fa19548457f1b2a61",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496776097696,
+			"created": 1496766843665,
+			"url": "http://localhost:63210/api/config/test/New.Web.Site.RSS.XML",
+			"name": "type/name (delete object of name)",
+			"method": "DELETE",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1494946451550,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_b497c3194f1b4648bccbf43f79d1c01c",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496776095763,
+			"created": 1496767072092,
+			"url": "http://localhost:63210/api/config/test/New.Web.Site.RSS.XML/Other Blog",
+			"name": "type/name/item (delete object item)",
+			"method": "DELETE",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1494946451562.5,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		},
+		{
+			"_id": "req_737f31b9fda74e3381b1297b9d2ecc5a",
+			"parentId": "wrk_6399203f42094432b240c44e8150c187",
+			"modified": 1496776091951,
+			"created": 1496770147612,
+			"url": "http://localhost:63210/api/config/test/New.Web.Site.RSS.XML/Other Blog/siteMapUrl",
+			"name": "type/name/item/valueKey (delete object item's value)",
+			"method": "DELETE",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1494946451568.75,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"_type": "request"
+		}
+	]
+}
