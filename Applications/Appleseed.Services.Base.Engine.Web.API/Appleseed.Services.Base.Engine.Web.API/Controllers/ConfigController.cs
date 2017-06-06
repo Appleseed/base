@@ -58,8 +58,10 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             Cluster cluster = Cluster.Builder().WithPort(appConfigSourcePort).AddContactPoint(appConfigSource).Build();
             Cassandra.ISession session = cluster.Connect("appleseed_search_engines");
 
-            var engineItems = session.Execute("select * from config where config_type = '" + type + "'");
-            var engineJson = GetConfig(engineItems);
+            var check = session.Prepare("select * from config where config_type = ?");
+            var checkStatement = check.Bind(type);
+            var checkResults = session.Execute(checkStatement);
+            var engineJson = GetConfig(checkResults);
 
             return engineJson;
         }
@@ -71,8 +73,10 @@ namespace Appleseed.Services.Base.Engine.Web.API.Controllers
             Cluster cluster = Cluster.Builder().WithPort(appConfigSourcePort).AddContactPoint(appConfigSource).Build();
             Cassandra.ISession session = cluster.Connect("appleseed_search_engines");
 
-            var engineItems = session.Execute("select * from config where config_type = '" + type + "' and config_name = '" + name + "'");
-            var engineJson = GetConfig(engineItems);
+            var check = session.Prepare("select * from config where config_type = ? and config_name = ?");
+            var checkStatement = check.Bind(type, name);
+            var checkResults = session.Execute(checkStatement);
+            var engineJson = GetConfig(checkResults);
 
             return engineJson;
         }
