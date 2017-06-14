@@ -1,7 +1,7 @@
 
-CREATE KEYSPACE appleseed_search_engines WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}  AND durable_writes = true;
+CREATE KEYSPACE IF NOT EXISTS appleseed_search_engines WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}  AND durable_writes = true;
 
-CREATE TABLE appleseed_search_engines.config (
+CREATE TABLE IF NOT EXISTS appleseed_search_engines.config (
     "config_type" text,
 	"config_name" text,
     "config_values" map<text, frozen<map<text, text>>>,

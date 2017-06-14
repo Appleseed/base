@@ -7,13 +7,25 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Cassandra;
 
 namespace Appleseed.Services.Base.Engine.API
 {
     public class Startup
     {
+        private string appConfigSource = "127.0.0.1";
+
+        private int appConfigSourcePort = 9042;
+
         public Startup(IHostingEnvironment env)
         {
+            Cluster cluster = Cluster.Builder().WithPort(appConfigSourcePort).AddContactPoint(appConfigSource).WithDefaultKeyspace("appleseed_search_engines").Build();
+            Cassandra.ISession session = cluster.ConnectAndCreateDefaultKeyspaceIfNotExists();
+
+            // TODO: Remove hard-coded query and replace with the definition in .\Appleseed.Services.Search.Console\config\appleseed_schema.cql
+            session.Execute("CREATE TABLE IF NOT EXISTS appleseed_search_engines.config (\"config_type\" text,\"config_name\" text,\"config_values\" map<text, frozen<map<text, text>>>,PRIMARY KEY((\"config_type\"), \"config_name\"))");
+
+
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
