@@ -2,9 +2,6 @@ USE [master]
 GO
 /****** Object:  Database [Appleseed_Base_App_Alerts]    Script Date: 6/28/2017 4:41:44 PM ******/
 CREATE DATABASE [Appleseed_Base_App_Alerts] ON  PRIMARY 
-( NAME = N'Appleseed_Base_App_Alerts', FILENAME = N'C:\Program Files\Microsoft SQL Server 2016\MSSQL13.EXPRESS2016\MSSQL\DATA\Appleseed_Base_App_Alerts.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
- LOG ON 
-( NAME = N'Appleseed_Base_App_Alerts_log', FILENAME = N'C:\Program Files\Microsoft SQL Server 2016\MSSQL13.EXPRESS2016\MSSQL\DATA\Appleseed_Base_App_Alerts_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
 GO
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
 begin
