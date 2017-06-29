@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [Appleseed_Base_App_Alerts]    Script Date: 6/28/2017 4:41:44 PM ******/
+/****** Object:  Database [Appleseed_Base_App_Alerts]    Script Date: 6/29/2017 8:25:47 AM ******/
 CREATE DATABASE [Appleseed_Base_App_Alerts] ON  PRIMARY 
 GO
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
@@ -80,7 +80,7 @@ ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET QUERY_OPTIMIZER_HOTFIXES =
 GO
 USE [Appleseed_Base_App_Alerts]
 GO
-/****** Object:  Table [dbo].[Alert_Email_Log]    Script Date: 6/28/2017 4:41:44 PM ******/
+/****** Object:  Table [dbo].[Alert_Email_Log]    Script Date: 6/29/2017 8:25:47 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -97,7 +97,7 @@ CREATE TABLE [dbo].[Alert_Email_Log](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Alert_Types]    Script Date: 6/28/2017 4:41:45 PM ******/
+/****** Object:  Table [dbo].[Alert_Types]    Script Date: 6/29/2017 8:25:47 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -113,7 +113,7 @@ CREATE TABLE [dbo].[Alert_Types](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Alert_User_Settings]    Script Date: 6/28/2017 4:41:45 PM ******/
+/****** Object:  Table [dbo].[Alert_User_Settings]    Script Date: 6/29/2017 8:25:47 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -121,6 +121,7 @@ GO
 CREATE TABLE [dbo].[Alert_User_Settings](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[user_id] [uniqueidentifier] NOT NULL,
+	[name] [nvarchar](50) NOT NULL,
 	[source] [nvarchar](500) NOT NULL,
 	[alert_type_id] [int] NOT NULL,
 	[alert_schedule] [nchar](20) NOT NULL,
@@ -132,6 +133,15 @@ CREATE TABLE [dbo].[Alert_User_Settings](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+GO
+SET IDENTITY_INSERT [dbo].[Alert_Types] ON 
+
+GO
+INSERT [dbo].[Alert_Types] ([id], [name], [description]) VALUES (1, N'Search Alert', N'An Alert for users to subscribe to searches')
+GO
+INSERT [dbo].[Alert_Types] ([id], [name], [description]) VALUES (2, N'News Alert', N'An Alert for users to subscribe to news or information')
+GO
+SET IDENTITY_INSERT [dbo].[Alert_Types] OFF
 GO
 ALTER TABLE [dbo].[Alert_Email_Log]  WITH CHECK ADD  CONSTRAINT [FK_Alert_Email_Log_Alert_User_Settings] FOREIGN KEY([alert_user_setting_id])
 REFERENCES [dbo].[Alert_User_Settings] ([id])
