@@ -1,13 +1,8 @@
 USE [master]
 GO
 /****** Object:  Database [Appleseed_Base_App_Alerts]    Script Date: 6/29/2017 8:25:47 AM ******/
-CREATE DATABASE [Appleseed_Base_App_Alerts] ON  PRIMARY 
-GO
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [Appleseed_Base_App_Alerts].[dbo].[sp_fulltext_database] @action = 'enable'
-end
-GO
+CREATE DATABASE [Appleseed_Base_App_Alerts]  
+ 
 ALTER DATABASE [Appleseed_Base_App_Alerts] SET ANSI_NULL_DEFAULT OFF 
 GO
 ALTER DATABASE [Appleseed_Base_App_Alerts] SET ANSI_NULLS OFF 
