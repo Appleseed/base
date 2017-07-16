@@ -137,6 +137,7 @@ namespace Appleseed.Base.Alerts
 
             string url = SolrURL + WebUtility.HtmlDecode(query);
             HttpWebRequest getRequest = (HttpWebRequest)WebRequest.Create(url);
+            getRequest.Method = "GET";
 
         }
 
