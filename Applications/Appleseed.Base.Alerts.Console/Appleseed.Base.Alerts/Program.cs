@@ -37,6 +37,18 @@ namespace Appleseed.Base.Alerts
 
             public SolrResponseItem[] docs { get; set; }
         }
+
+        class SolrResponseItem
+
+        {
+            public string id { get; set; }
+            public string[] item_type { get; set; }
+
+            public string[] address_1 { get; set; }
+           
+
+
+        }
         static void Main(string[] args)
         {
             
