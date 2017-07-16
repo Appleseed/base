@@ -133,7 +133,10 @@ namespace Appleseed.Base.Alerts
 
         static RootSolrObject GetSearchAlertViaSolr(string query)
         {
-           
+            // perform split function
+
+            string url = SolrURL + WebUtility.HtmlDecode(query);
+            HttpWebRequest getRequest = (HttpWebRequest)WebRequest.Create(url);
 
         }
 
