@@ -53,6 +53,10 @@ namespace Appleseed.Base.Alerts
             public string country { get; set; }
             public string[] postal_code { get; set; }
 
+            public string[] product_description { get; set; }
+            public string[] product_quantity { get; set; }
+            public string[] product_type { get; set; }
+            public string[] code_info { get; set; }
 
 
         }
