@@ -68,10 +68,11 @@ namespace Appleseed.Base.Alerts
     class Program
     {
 
-      
-     
+        static string Mode = System.Configuration.ConfigurationManager.AppSettings["Mode"];
 
-       
+
+
+
         static void Main(string[] args)
         {
             
