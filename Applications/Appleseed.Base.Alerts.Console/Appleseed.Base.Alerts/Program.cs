@@ -16,17 +16,17 @@ using Dapper;
 
 namespace Appleseed.Base.Alerts
 {
-  
+    class UserAlert
+    {
+        public Guid user_id { get; set; }
+        public string email { get; set; }
+        public string name { get; set; }
+        public string source { get; set; }
+    }
     class Program
     {
 
-        class UserAlert
-        {
-            public Guid user_id { get; set; }
-            public string email { get; set; }
-            public string name { get; set; }
-            public string source { get; set; }
-        }
+      
         class RootSolrObject
         {
 
