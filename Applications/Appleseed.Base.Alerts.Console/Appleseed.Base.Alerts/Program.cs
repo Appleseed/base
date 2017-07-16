@@ -64,6 +64,9 @@ namespace Appleseed.Base.Alerts
             public string recalling_firm { get; set; }
             public string[] voluntary_mandated { get; set; }
 
+            public DateTime report_date { get; set; }
+            public string[] status { get; set; }
+
 
         }
         static void Main(string[] args)
