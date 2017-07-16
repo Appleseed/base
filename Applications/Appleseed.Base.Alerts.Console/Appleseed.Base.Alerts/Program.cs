@@ -131,7 +131,11 @@ namespace Appleseed.Base.Alerts
 
         }
 
+        static RootSolrObject GetSearchAlertViaSolr(string query)
+        {
+           
 
+        }
 
         #region helpers
         static string UppercaseFirst(string s)
