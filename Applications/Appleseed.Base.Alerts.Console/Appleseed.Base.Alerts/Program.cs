@@ -19,8 +19,14 @@ namespace Appleseed.Base.Alerts
   
     class Program
     {
-        
 
+        class UserAlert
+        {
+            public Guid user_id { get; set; }
+            public string email { get; set; }
+            public string name { get; set; }
+            public string source { get; set; }
+        }
         static void Main(string[] args)
         {
             
