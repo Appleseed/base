@@ -85,8 +85,53 @@ namespace Appleseed.Base.Alerts
         {
             CheckAlertSchedule("daily");
         }
+        static void CheckAlertSchedule(string alert_schedule)
+        {
 
-        
+
+            // Test Mode
+            if (Mode != "prod" || Mode != "production")
+            {
+                RootSolrObject response = GetSearchAlertViaSolr("*:*&fl=*&rows=10");
+
+                SendAlert(TestEmail, "http://www.domain.com/Search.aspx#/q=*:*&fl=*&rows=10", response).Wait();
+            }
+            else
+            {
+                // perform production option
+                // Run SQL to pull schedule
+                // Iterate through users and send emails
+
+                var userAlerts = db.Query<UserAlert>("GetPortalUserAlerts", new { alert_schedule = alert_schedule },
+               commandType: CommandType.StoredProcedure).ToList<UserAlert>();
+
+                if (userAlerts != null && userAlerts.Count > 0)
+                {
+                    foreach (UserAlert ua in userAlerts)
+                    {
+                        try
+                        {
+                            // Need a better split function here q=
+                            RootSolrObject response = GetSearchAlertViaSolr(ua.source.Replace("http://www.domain.com/Search.aspx#/q=", ""));
+                            if (response != null)
+                            {
+                                SendAlert(TestEmail, ua.source, response).Wait();
+                            }
+
+
+                        }
+                        catch (Exception ex)
+                        {
+                            // log exception
+                            ;
+                        }
+                    }
+                }
+            }
+
+        }
+
+
 
         #region helpers
         static string UppercaseFirst(string s)
