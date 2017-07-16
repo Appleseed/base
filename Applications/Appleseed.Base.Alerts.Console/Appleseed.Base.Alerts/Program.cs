@@ -45,7 +45,14 @@ namespace Appleseed.Base.Alerts
             public string[] item_type { get; set; }
 
             public string[] address_1 { get; set; }
-           
+
+            public string city { get; set; }
+
+            public string state { get; set; }
+            public string classification { get; set; }
+            public string country { get; set; }
+            public string[] postal_code { get; set; }
+
 
 
         }
