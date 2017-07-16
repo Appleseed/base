@@ -58,6 +58,12 @@ namespace Appleseed.Base.Alerts
             public string[] product_type { get; set; }
             public string[] code_info { get; set; }
 
+            public string[] reason_for_recall { get; set; }
+            public DateTime recall_initiation_date { get; set; }
+            public string[] recall_number { get; set; }
+            public string recalling_firm { get; set; }
+            public string[] voluntary_mandated { get; set; }
+
 
         }
         static void Main(string[] args)
