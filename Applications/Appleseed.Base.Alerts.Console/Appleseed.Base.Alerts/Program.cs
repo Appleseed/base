@@ -156,8 +156,15 @@ namespace Appleseed.Base.Alerts
 
         static async Task SendAlert(string email, string link, RootSolrObject results)
         {
-          
-        }
+
+            if (results != null && results.response != null && results.response.docs != null && results.response.docs.Count() > 0)
+            {
+                var client = new SendGridClient(APIKey);
+                var from = new EmailAddress(MailFrom, "Mailer");
+                var subject = MailSubject;
+                var to = new EmailAddress(email, null);
+
+            }
 
         #region helpers
         static string UppercaseFirst(string s)
