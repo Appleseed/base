@@ -191,6 +191,10 @@ namespace Appleseed.Base.Alerts
                     //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
                 }
 
+                //Footer
+                sbHtmlContent.Append("<br/><br/>");
+                sbHtmlContent.Append("<a href=" + link + "> More Search Results </a>");
+
             }
 
         #region helpers
