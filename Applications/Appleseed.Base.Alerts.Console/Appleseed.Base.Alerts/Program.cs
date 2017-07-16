@@ -23,20 +23,22 @@ namespace Appleseed.Base.Alerts
         public string name { get; set; }
         public string source { get; set; }
     }
+
+    class RootSolrObject
+    {
+
+        public SolrResponse response { get; set; }
+    }
+    class SolrResponse
+    {
+
+        public SolrResponseItem[] docs { get; set; }
+    }
     class Program
     {
 
       
-        class RootSolrObject
-        {
-
-            public SolrResponse response { get; set; }
-        }
-        class SolrResponse
-        {
-
-            public SolrResponseItem[] docs { get; set; }
-        }
+     
 
         class SolrResponseItem
 
