@@ -71,6 +71,7 @@ namespace Appleseed.Base.Alerts
         static string Mode = System.Configuration.ConfigurationManager.AppSettings["Mode"];
         static string TestEmail = System.Configuration.ConfigurationManager.AppSettings["TestEmail"];
         static string SolrURL = System.Configuration.ConfigurationManager.AppSettings["SolrURL"];
+        static string APIKey = System.Configuration.ConfigurationManager.AppSettings["SendGridAPIKey"];
 
 
 
