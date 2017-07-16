@@ -141,8 +141,9 @@ namespace Appleseed.Base.Alerts
 
             using (var getResponse = (HttpWebResponse)getRequest.GetResponse())
             {
+                Stream newStream = getResponse.GetResponseStream();
+                StreamReader sr = new StreamReader(newStream);
 
-               
             }
 
         }
