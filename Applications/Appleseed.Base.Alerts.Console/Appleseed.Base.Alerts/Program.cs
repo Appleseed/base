@@ -172,6 +172,25 @@ namespace Appleseed.Base.Alerts
                 sbHtmlContent.Append("<h1>" + MailHeaderText + "</h1>");
                 sbHtmlContent.Append("<br/><br/>");
 
+                for (int i = 0; i < results.response.docs.Count(); i++)
+                {
+                    sbHtmlContent.Append("<br/><br/>");
+
+                    sbHtmlContent.Append("<br/><h2>" + UppercaseFirst(results.response.docs[i].item_type[0]) + " : " + results.response.docs[i].recall_number[0] + "</h2>");
+                    sbHtmlContent.Append("<strong>Status: </strong>" + results.response.docs[i].status[0] + "<br/>");
+                    sbHtmlContent.Append("<strong>Classification: </strong>" + results.response.docs[i].classification + "<br/>");
+                    sbHtmlContent.Append("<strong>Description: </strong>" + results.response.docs[i].product_description[0] + "<br/>");
+                    sbHtmlContent.Append("<strong>Code Info: </strong>" + results.response.docs[i].code_info[0] + "<br/>");
+                    sbHtmlContent.Append("<strong>Recall Reason: </strong> " + results.response.docs[i].reason_for_recall[0] + "<br/>");
+                    sbHtmlContent.Append("<strong>Voluntary Mandated: </strong> " + results.response.docs[i].voluntary_mandated[0] + "<br/>");
+                    sbHtmlContent.Append("<strong>Product Quantity: </strong> " + results.response.docs[i].reason_for_recall[0] + "<br/>");
+                    sbHtmlContent.Append("<strong>Recalling Firm: </strong> " + results.response.docs[i].recalling_firm + "<br/>");
+                    sbHtmlContent.Append("<strong>Recalling Firm Address: </strong> " + results.response.docs[i].address_1[0] + "<br/>");
+
+
+                    //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
+                }
+
             }
 
         #region helpers
