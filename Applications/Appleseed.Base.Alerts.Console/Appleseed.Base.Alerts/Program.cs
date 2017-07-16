@@ -154,6 +154,11 @@ namespace Appleseed.Base.Alerts
 
         }
 
+        static async Task SendAlert(string email, string link, RootSolrObject results)
+        {
+          
+        }
+
         #region helpers
         static string UppercaseFirst(string s)
         {
