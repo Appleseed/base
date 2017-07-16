@@ -144,6 +144,11 @@ namespace Appleseed.Base.Alerts
                 Stream newStream = getResponse.GetResponseStream();
                 StreamReader sr = new StreamReader(newStream);
 
+                var result = sr.ReadToEnd();
+
+                var searchResults = JsonConvert.DeserializeObject<RootSolrObject>(result);
+
+
             }
 
         }
