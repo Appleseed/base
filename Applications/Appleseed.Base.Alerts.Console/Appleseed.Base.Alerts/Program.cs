@@ -164,6 +164,14 @@ namespace Appleseed.Base.Alerts
                 var subject = MailSubject;
                 var to = new EmailAddress(email, null);
 
+                var plainTextContent = " ";
+
+                StringBuilder sbHtmlContent = new StringBuilder();
+
+                //Header
+                sbHtmlContent.Append("<h1>" + MailHeaderText + "</h1>");
+                sbHtmlContent.Append("<br/><br/>");
+
             }
 
         #region helpers
