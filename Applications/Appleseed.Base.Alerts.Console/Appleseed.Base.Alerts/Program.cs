@@ -148,6 +148,7 @@ namespace Appleseed.Base.Alerts
 
                 var searchResults = JsonConvert.DeserializeObject<RootSolrObject>(result);
 
+                return searchResults;
 
             }
 
