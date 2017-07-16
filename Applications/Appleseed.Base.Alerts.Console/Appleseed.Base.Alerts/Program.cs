@@ -195,7 +195,11 @@ namespace Appleseed.Base.Alerts
                 sbHtmlContent.Append("<br/><br/>");
                 sbHtmlContent.Append("<a href=" + link + "> More Search Results </a>");
 
+                var htmlContent = sbHtmlContent.ToString();
+                var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+                var response = await client.SendEmailAsync(msg);
             }
+        }
 
         #region helpers
         static string UppercaseFirst(string s)
