@@ -139,6 +139,12 @@ namespace Appleseed.Base.Alerts
             HttpWebRequest getRequest = (HttpWebRequest)WebRequest.Create(url);
             getRequest.Method = "GET";
 
+            using (var getResponse = (HttpWebResponse)getRequest.GetResponse())
+            {
+
+               
+            }
+
         }
 
         #region helpers
