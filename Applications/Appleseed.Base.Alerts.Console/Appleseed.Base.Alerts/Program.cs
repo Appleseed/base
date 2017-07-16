@@ -27,6 +27,11 @@ namespace Appleseed.Base.Alerts
             public string name { get; set; }
             public string source { get; set; }
         }
+        class RootSolrObject
+        {
+
+            public SolrResponse response { get; set; }
+        }
         static void Main(string[] args)
         {
             
