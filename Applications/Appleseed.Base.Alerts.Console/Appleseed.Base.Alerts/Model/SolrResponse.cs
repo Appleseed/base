@@ -8,5 +8,6 @@ namespace Appleseed.Base.Alerts.Model
 {
     class SolrResponse
     {
+        public SolrResponseItem[] docs { get; set; }
     }
 }
