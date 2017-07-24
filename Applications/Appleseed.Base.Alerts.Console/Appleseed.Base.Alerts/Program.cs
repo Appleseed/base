@@ -20,11 +20,7 @@ namespace Appleseed.Base.Alerts
   
 
   
-    class SolrResponse
-    {
-
-        public SolrResponseItem[] docs { get; set; }
-    }
+    
     class SolrResponseItem
 
     {
