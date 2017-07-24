@@ -136,7 +136,10 @@ namespace Appleseed.Base.Alerts
             }
 
         }
+        static void GetUserAlertSchedules(string scheudle)
+        {
 
+        }
         static RootSolrObject GetSearchAlertViaSolr(string query)
         {
             // perform split function
