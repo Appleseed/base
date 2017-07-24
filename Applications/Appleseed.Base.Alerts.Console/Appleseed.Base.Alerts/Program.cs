@@ -90,7 +90,7 @@ namespace Appleseed.Base.Alerts
 
 
             // Test Mode
-            if (Mode != "prod" || Mode != "production")
+            if (String.Compare(Mode, "production", true) != 0)
             {
                 RootSolrObject response = GetSearchAlertViaSolr("*:*&fl=*&rows=10");
 
