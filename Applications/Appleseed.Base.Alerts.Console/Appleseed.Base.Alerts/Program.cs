@@ -136,10 +136,12 @@ namespace Appleseed.Base.Alerts
             }
 
         }
-        static void GetUserAlertSchedules(string scheudle)
+        static List<UserAlert> GetUserAlertSchedules(string scheudle)
         {
               var userAlerts = db.Query<UserAlert>("GetPortalUserAlerts", new { alert_schedule = scheudle },
               commandType: CommandType.StoredProcedure).ToList<UserAlert>();
+
+            return userAlerts;
         }
         static RootSolrObject GetSearchAlertViaSolr(string query)
         {
