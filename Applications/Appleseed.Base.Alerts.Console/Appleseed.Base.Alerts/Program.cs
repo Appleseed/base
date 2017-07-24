@@ -93,6 +93,8 @@ namespace Appleseed.Base.Alerts
         {
             CheckAlertSchedule(MailSchedule);
         }
+
+
         static void CheckAlertSchedule(string alert_schedule)
         {
 
