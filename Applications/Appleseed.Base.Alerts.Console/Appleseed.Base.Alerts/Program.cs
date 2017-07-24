@@ -173,7 +173,7 @@ namespace Appleseed.Base.Alerts
             if (results != null && results.response != null && results.response.docs != null && results.response.docs.Count() > 0)
             {
                 var client = new SendGridClient(APIKey);
-                var from = new EmailAddress(MailFrom, "Mailer");
+                var from = new EmailAddress(MailFrom, MailFromName);
                 var subject = MailSubject;
                 var to = new EmailAddress(email, null);
 
