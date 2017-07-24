@@ -77,9 +77,11 @@ namespace Appleseed.Base.Alerts
         static string MailFrom = System.Configuration.ConfigurationManager.AppSettings["MailFrom"];
         static string MailSubject = System.Configuration.ConfigurationManager.AppSettings["MailSubject"];
         static string MailHeaderText = System.Configuration.ConfigurationManager.AppSettings["MailHeaderText"];
+        static string MailSchedule = System.Configuration.ConfigurationManager.AppSettings["MailSchedule"];
+
         static string SiteSearchLink = System.Configuration.ConfigurationManager.AppSettings["SiteSearchLink"];
         static string SearchLinkText = System.Configuration.ConfigurationManager.AppSettings["SearchLinkText"];
-        static string MailSchedule = System.Configuration.ConfigurationManager.AppSettings["MailSchedule"];
+        
 
 
 
