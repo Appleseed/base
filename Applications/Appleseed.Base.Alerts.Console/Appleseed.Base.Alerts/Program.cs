@@ -89,7 +89,7 @@ namespace Appleseed.Base.Alerts
 
         static void Main(string[] args)
         {
-            CheckAlertSchedule("daily");
+            CheckAlertSchedule();
         }
         static void CheckAlertSchedule(string alert_schedule)
         {
