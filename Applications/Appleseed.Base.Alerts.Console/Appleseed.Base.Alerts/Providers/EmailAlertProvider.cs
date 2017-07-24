@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Appleseed.Base.Alerts.Model;
 using System.Data;
 using Dapper;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Appleseed.Base.Alerts.Providers
 {
