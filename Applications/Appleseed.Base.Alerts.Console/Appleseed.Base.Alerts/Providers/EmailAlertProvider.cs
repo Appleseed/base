@@ -15,7 +15,7 @@ namespace Appleseed.Base.Alerts.Providers
     {
         static IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
-        static List<UserAlert> GetUserAlertSchedules(string scheudle)
+        public List<UserAlert> GetUserAlertSchedules(string scheudle)
         {
             var userAlerts = db.Query<UserAlert>("GetPortalUserAlerts", new { alert_schedule = scheudle },
             commandType: CommandType.StoredProcedure).ToList<UserAlert>();
