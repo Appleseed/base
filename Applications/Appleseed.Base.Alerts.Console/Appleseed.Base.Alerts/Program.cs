@@ -115,7 +115,7 @@ namespace Appleseed.Base.Alerts
                             RootSolrObject response = GetSearchAlertViaSolr(ua.source.Replace("http://www.domain.com/Search.aspx#/q=", ""));
                             if (response != null)
                             {
-                                SendAlert(TestEmail, ua.source, response).Wait();
+                                SendAlert(ua.email, ua.source, response).Wait();
                             }
 
 
