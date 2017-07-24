@@ -97,7 +97,7 @@ namespace Appleseed.Base.Alerts
             {
                 RootSolrObject response = GetSearchAlertViaSolr("*:*&fl=*&rows=10");
 
-                SendAlert(TestEmail, TestLinkText, response).Wait();
+                SendAlert(TestEmail, SearchLinkText, response).Wait();
             }
             else
             {
