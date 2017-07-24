@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 using Dapper;
+using Appleseed.Base.Alerts.Model;
 
 namespace Appleseed.Base.Alerts
 {
