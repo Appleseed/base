@@ -16,6 +16,7 @@ using Dapper;
 
 namespace Appleseed.Base.Alerts
 {
+    #region Entities 
     class UserAlert
     {
         public Guid user_id { get; set; }
@@ -23,6 +24,7 @@ namespace Appleseed.Base.Alerts
         public string name { get; set; }
         public string source { get; set; }
     }
+    #endregion
 
     class RootSolrObject
     {
