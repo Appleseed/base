@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Helpers.cs" />
     <Compile Include="Model\IAlert.cs" />
     <Compile Include="Model\RootSolrObject.cs" />
     <Compile Include="Model\SolrResponse.cs" />
