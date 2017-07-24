@@ -94,7 +94,7 @@ namespace Appleseed.Base.Alerts
 
         static void Main(string[] args)
         {
-            CheckAlertSchedule("daily");
+            CheckAlertSchedule(MailSchedule);
         }
         static void CheckAlertSchedule(string alert_schedule)
         {
@@ -134,7 +134,7 @@ namespace Appleseed.Base.Alerts
                         catch (Exception ex)
                         {
                             // log exception
-                            ;
+                            Console.WriteLine("An error occured sending an email for " + ua.email);
                         }
                     }
                 }
