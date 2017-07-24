@@ -75,7 +75,7 @@ namespace Appleseed.Base.Alerts
         static string MailFrom = System.Configuration.ConfigurationManager.AppSettings["MailFrom"];
         static string MailSubject = System.Configuration.ConfigurationManager.AppSettings["MailSubject"];
         static string MailHeaderText = System.Configuration.ConfigurationManager.AppSettings["MailHeaderText"];
-
+        static string SiteSearchLink = System.Configuration.ConfigurationManager.AppSettings["SiteSearchLink"];
         static string TestLinkText = System.Configuration.ConfigurationManager.AppSettings["TestLinkText"];
 
         static IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
