@@ -107,8 +107,7 @@ namespace Appleseed.Base.Alerts
                 // Run SQL to pull schedule
                 // Iterate through users and send emails
 
-                var userAlerts = db.Query<UserAlert>("GetPortalUserAlerts", new { alert_schedule = alert_schedule },
-               commandType: CommandType.StoredProcedure).ToList<UserAlert>();
+                var userAlerts = GetUserAlertSchedules(alert_schedule);
 
                 if (userAlerts != null && userAlerts.Count > 0)
                 {
