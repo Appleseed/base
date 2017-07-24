@@ -67,7 +67,7 @@ namespace Appleseed.Base.Alerts
     }
     class Program
     {
-
+        #region App Config Values
         static string Mode = System.Configuration.ConfigurationManager.AppSettings["Mode"];
         static string TestEmail = System.Configuration.ConfigurationManager.AppSettings["TestEmail"];
         static string TestSearchQuery = System.Configuration.ConfigurationManager.AppSettings["TestSearchQuery"];
@@ -83,7 +83,7 @@ namespace Appleseed.Base.Alerts
 
         static string SiteSearchLink = System.Configuration.ConfigurationManager.AppSettings["SiteSearchLink"];
         static string SearchLinkText = System.Configuration.ConfigurationManager.AppSettings["SearchLinkText"];
-        
+        #endregion
 
 
 
