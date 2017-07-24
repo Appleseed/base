@@ -18,7 +18,9 @@ using Appleseed.Base.Alerts.Model;
 namespace Appleseed.Base.Alerts
 {
   
-
+    /// <summary>
+    /// Main Program for Alert Notifications 
+    /// </summary>
     class Program
     {
         #region App Config Values
@@ -42,7 +44,6 @@ namespace Appleseed.Base.Alerts
         #endregion
 
         
-
         static void Main(string[] args)
         {
             CheckAlertSchedule(MailSchedule);
