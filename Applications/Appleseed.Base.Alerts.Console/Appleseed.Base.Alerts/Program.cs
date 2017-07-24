@@ -115,7 +115,7 @@ namespace Appleseed.Base.Alerts
                         try
                         {
                             // Need a better split function here q=
-                            RootSolrObject response = GetSearchAlertViaSolr(ua.source.Replace("http://www.domain.com/Search.aspx#/q=", ""));
+                            RootSolrObject response = GetSearchAlertViaSolr(ua.source.Replace(SiteSearchLink, ""));
                             if (response != null)
                             {
                                 SendAlert(ua.email, ua.source, response).Wait();
