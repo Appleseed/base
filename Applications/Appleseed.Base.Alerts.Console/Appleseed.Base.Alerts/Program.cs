@@ -87,13 +87,7 @@ namespace Appleseed.Base.Alerts
         static IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         #endregion
 
-
-
-
-
-
-
-
+        
 
         static void Main(string[] args)
         {
