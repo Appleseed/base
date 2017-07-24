@@ -74,6 +74,7 @@ namespace Appleseed.Base.Alerts
 
         static string SolrURL = System.Configuration.ConfigurationManager.AppSettings["SolrURL"];
         static string APIKey = System.Configuration.ConfigurationManager.AppSettings["SendGridAPIKey"];
+
         static string MailFrom = System.Configuration.ConfigurationManager.AppSettings["MailFrom"];
         static string MailSubject = System.Configuration.ConfigurationManager.AppSettings["MailSubject"];
         static string MailHeaderText = System.Configuration.ConfigurationManager.AppSettings["MailHeaderText"];
