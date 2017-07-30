@@ -29,9 +29,9 @@ namespace Appleseed.Base.Alerts.Model
         public DateTime recall_initiation_date { get; set; }
         public string recall_number { get; set; }
         public string recalling_firm { get; set; }
-        public string[] voluntary_mandated { get; set; }
+        public string voluntary_mandated { get; set; }
 
         public DateTime report_date { get; set; }
-        public string[] status { get; set; }
+        public string status { get; set; }
     }
 }
