@@ -142,7 +142,7 @@ namespace Appleseed.Base.Alerts
 
                 //Header
                 sbHtmlContent.Append("<h1>" + MailHeaderText + "</h1>");
-                sbHtmlContent.Append("<br/><br/>");
+               
 
                 for (int i = 0; i < results.response.docs.Count(); i++)
                 {
