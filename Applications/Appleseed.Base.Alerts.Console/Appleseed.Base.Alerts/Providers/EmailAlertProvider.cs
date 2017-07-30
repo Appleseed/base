@@ -82,7 +82,7 @@ namespace Appleseed.Base.Alerts.Providers
                 {
                     sbHtmlContent.Append("<br/><br/>");
 
-                    sbHtmlContent.Append("<br/><h2>" + Helpers.UppercaseFirst(results.response.docs[i].item_type[0]) + " : " + results.response.docs[i].recall_number[0] + "</h2>");
+                    sbHtmlContent.Append("<br/><h2>" + Helpers.UppercaseFirst(results.response.docs[i].item_type) + " : " + results.response.docs[i].recall_number + "</h2>");
                     sbHtmlContent.Append("<strong>Status: </strong>" + results.response.docs[i].status[0] + "<br/>");
                     sbHtmlContent.Append("<strong>Classification: </strong>" + results.response.docs[i].classification + "<br/>");
                     sbHtmlContent.Append("<strong>Description: </strong>" + results.response.docs[i].product_description[0] + "<br/>");
