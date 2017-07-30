@@ -160,8 +160,8 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Classification: </strong>" + results.response.docs[i].classification + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].product_description))
                         sbHtmlContent.Append("<strong>Description: </strong>" + results.response.docs[i].product_description  + "<br/>");
-                   
- 				    sbHtmlContent.Append("<strong>Code Info: </strong>" + results.response.docs[i].code_info  + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].code_info))
+                        sbHtmlContent.Append("<strong>Code Info: </strong>" + results.response.docs[i].code_info  + "<br/>");
                     
 				    sbHtmlContent.Append("<strong>Recall Reason: </strong> " + results.response.docs[i].reason_for_recall  + "<br/>");
                     
