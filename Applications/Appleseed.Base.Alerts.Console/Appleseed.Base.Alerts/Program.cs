@@ -146,7 +146,7 @@ namespace Appleseed.Base.Alerts
 
                 for (int i = 0; i < results.response.docs.Count(); i++)
                 {
-                    sbHtmlContent.Append("<br/><br/><br/>");
+                    sbHtmlContent.Append("<br/><br/>");
 
                     sbHtmlContent.Append("<br/><h2>" + Helpers.UppercaseFirst(results.response.docs[i].item_type[0]) + " : " + results.response.docs[i].recall_number[0] + "</h2>");
                     sbHtmlContent.Append("<strong>Status: </strong>" + results.response.docs[i].status[0] + "<br/>");
