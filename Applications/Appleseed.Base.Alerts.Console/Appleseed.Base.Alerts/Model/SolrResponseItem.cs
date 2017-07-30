@@ -33,5 +33,7 @@ namespace Appleseed.Base.Alerts.Model
 
         public DateTime report_date { get; set; }
         public string status { get; set; }
+		
+		public DateTime date_last_indexed { get; set; }
     }
 }
