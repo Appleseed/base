@@ -39,7 +39,7 @@ namespace Appleseed.Base.Alerts
         static string MailSchedule = System.Configuration.ConfigurationManager.AppSettings["MailSchedule"];
 
         static string SiteSearchLink = System.Configuration.ConfigurationManager.AppSettings["SiteSearchLink"];
-        static string SearchLinkText = System.Configuration.ConfigurationManager.AppSettings["TestSearchLink"];
+        static string TestSearchLink = System.Configuration.ConfigurationManager.AppSettings["TestSearchLink"];
 
         static IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         #endregion
@@ -60,7 +60,7 @@ namespace Appleseed.Base.Alerts
             {
                 RootSolrObject response = GetSearchAlertViaSolr(TestSearchQuery);
 
-                SendAlert(TestEmail, SearchLinkText, response).Wait();
+                SendAlert(TestEmail, TestSearchLink, response).Wait();
             }
             else
             {
