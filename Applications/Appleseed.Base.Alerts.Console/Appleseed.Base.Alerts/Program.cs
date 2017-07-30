@@ -164,8 +164,8 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Code Info: </strong>" + results.response.docs[i].code_info  + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].reason_for_recall))
                         sbHtmlContent.Append("<strong>Recall Reason: </strong> " + results.response.docs[i].reason_for_recall  + "<br/>");
-                    
-					sbHtmlContent.Append("<strong>Voluntary Mandated: </strong> " + results.response.docs[i].voluntary_mandated + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].voluntary_mandated))
+                        sbHtmlContent.Append("<strong>Voluntary Mandated: </strong> " + results.response.docs[i].voluntary_mandated + "<br/>");
                     
 					sbHtmlContent.Append("<strong>Product Quantity: </strong> " + results.response.docs[i].product_quantity + "<br/>");
                     
