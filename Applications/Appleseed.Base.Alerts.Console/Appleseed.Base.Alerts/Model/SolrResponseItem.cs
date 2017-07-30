@@ -18,7 +18,7 @@ namespace Appleseed.Base.Alerts.Model
         public string state { get; set; }
         public string classification { get; set; }
         public string country { get; set; }
-        public string[] postal_code { get; set; }
+        public string postal_code { get; set; }
 
         public string[] product_description { get; set; }
         public string[] product_quantity { get; set; }
