@@ -22,7 +22,7 @@ namespace Appleseed.Base.Alerts.Model
 
         public string product_description { get; set; }
         public string product_quantity { get; set; }
-        public string[] product_type { get; set; }
+        public string product_type { get; set; }
         public string[] code_info { get; set; }
 
         public string[] reason_for_recall { get; set; }
