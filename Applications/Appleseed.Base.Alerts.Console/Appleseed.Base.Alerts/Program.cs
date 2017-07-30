@@ -166,10 +166,10 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Recall Reason: </strong> " + results.response.docs[i].reason_for_recall  + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].voluntary_mandated))
                         sbHtmlContent.Append("<strong>Voluntary Mandated: </strong> " + results.response.docs[i].voluntary_mandated + "<br/>");
-                    
-					sbHtmlContent.Append("<strong>Product Quantity: </strong> " + results.response.docs[i].product_quantity + "<br/>");
-                    
-					sbHtmlContent.Append("<strong>Recalling Firm: </strong> " + results.response.docs[i].recalling_firm + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].product_quantity))
+                        sbHtmlContent.Append("<strong>Product Quantity: </strong> " + results.response.docs[i].product_quantity + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].recalling_firm))
+                        sbHtmlContent.Append("<strong>Recalling Firm: </strong> " + results.response.docs[i].recalling_firm + "<br/>");
                     
 					sbHtmlContent.Append("<strong>Recalling Firm Address: </strong> " + results.response.docs[i].address_1  + "<br/>");
 
