@@ -156,7 +156,7 @@ namespace Appleseed.Base.Alerts
                     
 					sbHtmlContent.Append("<strong>Description: </strong>" + results.response.docs[i].product_description[0] + "<br/>");
                    
- 				   sbHtmlContent.Append("<strong>Code Info: </strong>" + results.response.docs[i].code_info[0] + "<br/>");
+ 				    sbHtmlContent.Append("<strong>Code Info: </strong>" + results.response.docs[i].code_info[0] + "<br/>");
                     
 				   sbHtmlContent.Append("<strong>Recall Reason: </strong> " + results.response.docs[i].reason_for_recall[0] + "<br/>");
                     
