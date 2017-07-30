@@ -170,8 +170,8 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Product Quantity: </strong> " + results.response.docs[i].product_quantity + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].recalling_firm))
                         sbHtmlContent.Append("<strong>Recalling Firm: </strong> " + results.response.docs[i].recalling_firm + "<br/>");
-                    
-					sbHtmlContent.Append("<strong>Recalling Firm Address: </strong> " + results.response.docs[i].address_1  + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].address_1))
+                        sbHtmlContent.Append("<strong>Recalling Firm Address: </strong> " + results.response.docs[i].address_1  + "<br/>");
 
 
                     //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
