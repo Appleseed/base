@@ -27,7 +27,7 @@ namespace Appleseed.Base.Alerts.Model
 
         public string reason_for_recall { get; set; }
         public DateTime recall_initiation_date { get; set; }
-        public string[] recall_number { get; set; }
+        public string recall_number { get; set; }
         public string recalling_firm { get; set; }
         public string[] voluntary_mandated { get; set; }
 
