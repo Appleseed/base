@@ -73,6 +73,7 @@ namespace Appleseed.Base.Alerts
                 // Iterate through users and send emails
                 Console.WriteLine("INFO : Mode - Production");
                 var userAlerts = GetUserAlertSchedules(alert_schedule);
+                int userSentCount = 0;
 
                 if (userAlerts != null && userAlerts.Count > 0)
                 {
