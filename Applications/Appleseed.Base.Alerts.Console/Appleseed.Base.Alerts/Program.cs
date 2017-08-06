@@ -224,6 +224,7 @@ namespace Appleseed.Base.Alerts
                 var htmlContent = sbHtmlContent.ToString();
                 var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
                 var response = await client.SendEmailAsync(msg);
+                mailResponse = response;
                
             }
         }
