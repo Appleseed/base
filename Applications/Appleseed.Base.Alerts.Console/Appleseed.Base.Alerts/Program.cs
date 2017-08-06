@@ -81,6 +81,7 @@ namespace Appleseed.Base.Alerts
                     Console.WriteLine("INFO : Alerts need to be sent to  " + userAlerts.Count +  " users.");
                     foreach (UserAlert ua in userAlerts)
                     {
+                        error = false;
                         try
                         {
                             // Need a better split function here q=
@@ -97,6 +98,7 @@ namespace Appleseed.Base.Alerts
                             // log exception
                             Console.WriteLine("An error occured sending an email for " + ua.email);
                             Console.WriteLine("\nReason : " + ex.Message);
+                            error = true;
                         }
 
 
