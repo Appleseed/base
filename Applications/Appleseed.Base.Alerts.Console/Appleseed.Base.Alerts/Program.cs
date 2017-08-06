@@ -50,6 +50,8 @@ namespace Appleseed.Base.Alerts
             Console.WriteLine("INFO : Starting Alert Engine.");
 
             CheckAlertSchedule(MailSchedule);
+
+            Console.WriteLine("INFO : Ending Alert Engine.");
         }
 
 
