@@ -96,7 +96,7 @@ namespace Appleseed.Base.Alerts
                         catch (Exception ex)
                         {
                             // log exception
-                            Console.WriteLine("An error occured sending an email for " + ua.email);
+                            Console.WriteLine("Error : An error occured sending an email for " + ua.email);
                             Console.WriteLine("\nReason : " + ex.Message);
                             error = true;
                         }
