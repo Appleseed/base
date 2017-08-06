@@ -69,6 +69,9 @@ namespace Appleseed.Base.Alerts
                 }
                 catch ( Exception ex)
                 {
+                    // log exception
+                    Console.WriteLine("Error : An error occured sending an alert for user " + ua.email);
+                    Console.WriteLine("\nError : Reason - " + ex.Message);
 
                 }
                 Console.WriteLine("INFO : Test Alert Sent");
