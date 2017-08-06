@@ -45,17 +45,25 @@ namespace Appleseed.Base.Alerts.Providers
             HttpWebRequest getRequest = (HttpWebRequest)WebRequest.Create(url);
             getRequest.Method = "GET";
 
-            using (var getResponse = (HttpWebResponse)getRequest.GetResponse())
+            try
             {
-                Stream newStream = getResponse.GetResponseStream();
-                StreamReader sr = new StreamReader(newStream);
+                using (var getResponse = (HttpWebResponse)getRequest.GetResponse())
+                {
+                    Stream newStream = getResponse.GetResponseStream();
+                    StreamReader sr = new StreamReader(newStream);
 
-                var result = sr.ReadToEnd();
+                    var result = sr.ReadToEnd();
 
-                var searchResults = JsonConvert.DeserializeObject<RootSolrObject>(result);
+                    var searchResults = JsonConvert.DeserializeObject<RootSolrObject>(result);
 
-                return searchResults;
+                    return searchResults;
 
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error : Reason - " + ex.Message);
+                return null;
             }
 
         }
