@@ -60,7 +60,7 @@ namespace Appleseed.Base.Alerts
             // Test Mode
             if (String.Compare(Mode, "production", true) != 0)
             {
-                Console.WriteLine("Mode : Test");
+                Console.WriteLine("INFO : Mode - Test");
                 RootSolrObject response = GetSearchAlertViaSolr(TestSearchQuery);
 
                 SendAlert(TestEmail, TestSearchLink, response).Wait();
