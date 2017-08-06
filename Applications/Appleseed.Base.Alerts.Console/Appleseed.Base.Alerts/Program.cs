@@ -163,7 +163,7 @@ namespace Appleseed.Base.Alerts
 
         }
 
-        static async Task SendAlert(string email, string link, RootSolrObject results)
+        static async Task SendAlert(string email, string link, RootSolrObject results, Response mailResponse)
         {
 
             if (results != null && results.response != null && results.response.docs != null && results.response.docs.Count() > 0)
