@@ -156,6 +156,7 @@ namespace Appleseed.Base.Alerts
             }
             catch ( Exception ex)
             {
+                Console.WriteLine("Error : Reason - " + ex.Message);
                 return null;
             }
 
