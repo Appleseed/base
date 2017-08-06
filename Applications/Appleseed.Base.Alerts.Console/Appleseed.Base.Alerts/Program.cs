@@ -74,6 +74,7 @@ namespace Appleseed.Base.Alerts
                 Console.WriteLine("INFO : Mode - Production");
                 var userAlerts = GetUserAlertSchedules(alert_schedule);
                 int userSentCount = 0;
+                bool error = false;
 
                 if (userAlerts != null && userAlerts.Count > 0)
                 {
@@ -97,6 +98,8 @@ namespace Appleseed.Base.Alerts
                             Console.WriteLine("An error occured sending an email for " + ua.email);
                             Console.WriteLine("\nReason : " + ex.Message);
                         }
+
+
                     }
                 }
             }
