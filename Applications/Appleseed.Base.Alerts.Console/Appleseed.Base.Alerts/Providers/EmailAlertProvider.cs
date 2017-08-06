@@ -77,7 +77,7 @@ namespace Appleseed.Base.Alerts.Providers
                 var from = new EmailAddress(MailFrom, MailFromName);
                 var subject = MailSubject;
                 var to = new EmailAddress(email, null);
-
+                
                 var plainTextContent = " ";
 
                 StringBuilder sbHtmlContent = new StringBuilder();
@@ -102,7 +102,7 @@ namespace Appleseed.Base.Alerts.Providers
 
                 var htmlContent = sbHtmlContent.ToString();
                 var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-                var response = await client.SendEmailAsync(msg);
+                mailResponse = await client.SendEmailAsync(msg);
             }
         }
     }
