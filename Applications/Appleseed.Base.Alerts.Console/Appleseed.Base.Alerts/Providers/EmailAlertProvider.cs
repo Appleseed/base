@@ -93,7 +93,7 @@ namespace Appleseed.Base.Alerts.Providers
                     //  Create custom Email Alert 
 
 
-                    //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
+                    //sbHtmlContent.Append("");
                 }
 
                 //Footer
