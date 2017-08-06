@@ -47,7 +47,7 @@ namespace Appleseed.Base.Alerts
         
         static void Main(string[] args)
         {
-            Console.WriteLine("Starting Alert Engine.");
+            Console.WriteLine("INFO : Starting Alert Engine.");
 
             CheckAlertSchedule(MailSchedule);
         }
@@ -76,6 +76,7 @@ namespace Appleseed.Base.Alerts
 
                 if (userAlerts != null && userAlerts.Count > 0)
                 {
+                    Console.WriteLine("");
                     foreach (UserAlert ua in userAlerts)
                     {
                         try
