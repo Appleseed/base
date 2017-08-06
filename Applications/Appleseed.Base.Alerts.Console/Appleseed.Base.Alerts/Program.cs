@@ -48,6 +48,7 @@ namespace Appleseed.Base.Alerts
         static void Main(string[] args)
         {
             Console.WriteLine("Starting Alert Engine.");
+
             CheckAlertSchedule(MailSchedule);
         }
 
@@ -59,6 +60,7 @@ namespace Appleseed.Base.Alerts
             // Test Mode
             if (String.Compare(Mode, "production", true) != 0)
             {
+                Console.WriteLine("Mode : Test");
                 RootSolrObject response = GetSearchAlertViaSolr(TestSearchQuery);
 
                 SendAlert(TestEmail, TestSearchLink, response).Wait();
