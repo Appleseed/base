@@ -101,6 +101,11 @@ namespace Appleseed.Base.Alerts
                             error = true;
                         }
 
+                        if (!error)
+                        {
+                            userSentCount++;
+
+                        }
 
                     }
                 }
