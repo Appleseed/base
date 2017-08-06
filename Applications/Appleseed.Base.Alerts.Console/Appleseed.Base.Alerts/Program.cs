@@ -47,6 +47,7 @@ namespace Appleseed.Base.Alerts
         
         static void Main(string[] args)
         {
+            Console.WriteLine("Starting Alert Engine.");
             CheckAlertSchedule(MailSchedule);
         }
 
