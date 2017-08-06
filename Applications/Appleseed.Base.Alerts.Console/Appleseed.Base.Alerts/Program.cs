@@ -63,13 +63,13 @@ namespace Appleseed.Base.Alerts
             if (String.Compare(Mode, "production", true) != 0)
             {
                 Console.WriteLine("INFO : Mode - Test");
-                RootSolrObject response = GetSearchAlertViaSolr(TestSearchQuery);
+                RootSolrObject solrResponse = GetSearchAlertViaSolr(TestSearchQuery);
                 Response mailResponse = null;
 
                 try
                 {
                     Console.WriteLine("INFO : Attempting to send a test mail to " + TestEmail);
-                    SendAlert(TestEmail, TestSearchLink, response,mailResponse).Wait();
+                    SendAlert(TestEmail, TestSearchLink, solrResponse, mailResponse).Wait();
                 }
                 catch ( Exception ex)
                 {
