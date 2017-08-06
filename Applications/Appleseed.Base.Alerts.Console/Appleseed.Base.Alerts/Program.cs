@@ -96,7 +96,7 @@ namespace Appleseed.Base.Alerts
                         catch (Exception ex)
                         {
                             // log exception
-                            Console.WriteLine("Error : An error occured sending an email for " + ua.email);
+                            Console.WriteLine("Error : An error occured sending an alert for user " + ua.email);
                             Console.WriteLine("\nError : Reason - " + ex.Message);
                             error = true;
                         }
@@ -104,11 +104,12 @@ namespace Appleseed.Base.Alerts
                         if (!error)
                         {
                             userSentCount++;
-
+                           
                         }
 
                     }
                 }
+                Console.WriteLine("INFO : Sent " + userSentCount + " alerts.");
             }
 
         }
