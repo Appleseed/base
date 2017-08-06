@@ -63,7 +63,14 @@ namespace Appleseed.Base.Alerts
                 Console.WriteLine("INFO : Mode - Test");
                 RootSolrObject response = GetSearchAlertViaSolr(TestSearchQuery);
 
-                SendAlert(TestEmail, TestSearchLink, response).Wait();
+                try
+                {
+                    SendAlert(TestEmail, TestSearchLink, response).Wait();
+                }
+                catch ( Exception ex)
+                {
+
+                }
                 Console.WriteLine("INFO : Test Alert Sent");
             }
             else
