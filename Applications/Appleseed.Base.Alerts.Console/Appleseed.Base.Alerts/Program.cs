@@ -65,6 +65,7 @@ namespace Appleseed.Base.Alerts
 
                 try
                 {
+                    Console.WriteLine("INFO : Attempting to send a test mail to " + TestEmail);
                     SendAlert(TestEmail, TestSearchLink, response).Wait();
                 }
                 catch ( Exception ex)
