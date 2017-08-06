@@ -99,12 +99,12 @@ namespace Appleseed.Base.Alerts
                         try
                         {
                             // Need a better split function here q=
-                            RootSolrObject response = GetSearchAlertViaSolr(ua.source.Replace(SiteSearchLink, ""));
+                            RootSolrObject solrResponse = GetSearchAlertViaSolr(ua.source.Replace(SiteSearchLink, ""));
                             Response mailResponse = null;
 
-                            if (response != null)
+                            if (solrResponse != null)
                             {
-                                SendAlert(ua.email, ua.source, response, mailResponse).Wait();
+                                SendAlert(ua.email, ua.source, solrResponse, mailResponse).Wait();
                             }
 
 
