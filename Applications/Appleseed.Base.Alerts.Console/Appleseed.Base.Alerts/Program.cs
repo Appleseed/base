@@ -102,7 +102,7 @@ namespace Appleseed.Base.Alerts
 
                             if (response != null)
                             {
-                                SendAlert(ua.email, ua.source, response).Wait();
+                                SendAlert(ua.email, ua.source, response, mailResponse).Wait();
                             }
 
 
