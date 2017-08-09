@@ -45,22 +45,30 @@ namespace Appleseed.Base.Alerts.Providers
             HttpWebRequest getRequest = (HttpWebRequest)WebRequest.Create(url);
             getRequest.Method = "GET";
 
-            using (var getResponse = (HttpWebResponse)getRequest.GetResponse())
+            try
             {
-                Stream newStream = getResponse.GetResponseStream();
-                StreamReader sr = new StreamReader(newStream);
+                using (var getResponse = (HttpWebResponse)getRequest.GetResponse())
+                {
+                    Stream newStream = getResponse.GetResponseStream();
+                    StreamReader sr = new StreamReader(newStream);
 
-                var result = sr.ReadToEnd();
+                    var result = sr.ReadToEnd();
 
-                var searchResults = JsonConvert.DeserializeObject<RootSolrObject>(result);
+                    var searchResults = JsonConvert.DeserializeObject<RootSolrObject>(result);
 
-                return searchResults;
+                    return searchResults;
 
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error : Reason - " + ex.Message);
+                return null;
             }
 
         }
 
-        public async Task SendAlert(string email, string link, RootSolrObject results)
+        public async Task SendAlert(string email, string link, RootSolrObject results, object mailResponse)
         {
 
             if (results != null && results.response != null && results.response.docs != null && results.response.docs.Count() > 0)
@@ -69,7 +77,7 @@ namespace Appleseed.Base.Alerts.Providers
                 var from = new EmailAddress(MailFrom, MailFromName);
                 var subject = MailSubject;
                 var to = new EmailAddress(email, null);
-
+                
                 var plainTextContent = " ";
 
                 StringBuilder sbHtmlContent = new StringBuilder();
@@ -82,19 +90,10 @@ namespace Appleseed.Base.Alerts.Providers
                 {
                     sbHtmlContent.Append("<br/><br/>");
 
-                    sbHtmlContent.Append("<br/><h2>" + Helpers.UppercaseFirst(results.response.docs[i].item_type[0]) + " : " + results.response.docs[i].recall_number[0] + "</h2>");
-                    sbHtmlContent.Append("<strong>Status: </strong>" + results.response.docs[i].status[0] + "<br/>");
-                    sbHtmlContent.Append("<strong>Classification: </strong>" + results.response.docs[i].classification + "<br/>");
-                    sbHtmlContent.Append("<strong>Description: </strong>" + results.response.docs[i].product_description[0] + "<br/>");
-                    sbHtmlContent.Append("<strong>Code Info: </strong>" + results.response.docs[i].code_info[0] + "<br/>");
-                    sbHtmlContent.Append("<strong>Recall Reason: </strong> " + results.response.docs[i].reason_for_recall[0] + "<br/>");
-                    sbHtmlContent.Append("<strong>Voluntary Mandated: </strong> " + results.response.docs[i].voluntary_mandated[0] + "<br/>");
-                    sbHtmlContent.Append("<strong>Product Quantity: </strong> " + results.response.docs[i].reason_for_recall[0] + "<br/>");
-                    sbHtmlContent.Append("<strong>Recalling Firm: </strong> " + results.response.docs[i].recalling_firm + "<br/>");
-                    sbHtmlContent.Append("<strong>Recalling Firm Address: </strong> " + results.response.docs[i].address_1[0] + "<br/>");
+                    //  Create custom Email Alert 
 
 
-                    //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
+                    //sbHtmlContent.Append("");
                 }
 
                 //Footer
@@ -103,7 +102,7 @@ namespace Appleseed.Base.Alerts.Providers
 
                 var htmlContent = sbHtmlContent.ToString();
                 var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-                var response = await client.SendEmailAsync(msg);
+                mailResponse = await client.SendEmailAsync(msg);
             }
         }
     }

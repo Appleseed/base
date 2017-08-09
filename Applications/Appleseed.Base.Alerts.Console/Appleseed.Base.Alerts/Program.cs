@@ -39,7 +39,7 @@ namespace Appleseed.Base.Alerts
         static string MailSchedule = System.Configuration.ConfigurationManager.AppSettings["MailSchedule"];
 
         static string SiteSearchLink = System.Configuration.ConfigurationManager.AppSettings["SiteSearchLink"];
-        static string SearchLinkText = System.Configuration.ConfigurationManager.AppSettings["SearchLinkText"];
+        static string TestSearchLink = System.Configuration.ConfigurationManager.AppSettings["TestSearchLink"];
 
         static IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         #endregion
@@ -47,7 +47,11 @@ namespace Appleseed.Base.Alerts
         
         static void Main(string[] args)
         {
+            Console.WriteLine("INFO : Starting Alert Engine.");
+
             CheckAlertSchedule(MailSchedule);
+
+            Console.WriteLine("INFO : Ending Alert Engine.");
         }
 
 
@@ -58,29 +62,49 @@ namespace Appleseed.Base.Alerts
             // Test Mode
             if (String.Compare(Mode, "production", true) != 0)
             {
-                RootSolrObject response = GetSearchAlertViaSolr(TestSearchQuery);
+                Console.WriteLine("INFO : Mode - Test");
+                RootSolrObject solrResponse = GetSearchAlertViaSolr(TestSearchQuery);
+                Response mailResponse = null;
 
-                SendAlert(TestEmail, SearchLinkText, response).Wait();
+                try
+                {
+                    Console.WriteLine("INFO : Attempting to send a test mail to " + TestEmail);
+                    SendAlert(TestEmail, TestSearchLink, solrResponse, mailResponse).Wait();
+                }
+                catch ( Exception ex)
+                {
+                    // log exception
+                    Console.WriteLine("Error : An error occured sending an alert for Test user " + TestEmail);
+                    Console.WriteLine("\nError : Reason - " + ex.Message);
+
+                }
+                Console.WriteLine("INFO : Test Alert Sent");
             }
             else
             {
                 // perform production option
                 // Run SQL to pull schedule
                 // Iterate through users and send emails
-
+                Console.WriteLine("INFO : Mode - Production");
                 var userAlerts = GetUserAlertSchedules(alert_schedule);
+                int userSentCount = 0;
+                bool error = false;
 
                 if (userAlerts != null && userAlerts.Count > 0)
                 {
+                    Console.WriteLine("INFO : Alerts need to be sent to  " + userAlerts.Count +  " users.");
                     foreach (UserAlert ua in userAlerts)
                     {
+                        error = false;
                         try
                         {
                             // Need a better split function here q=
-                            RootSolrObject response = GetSearchAlertViaSolr(ua.source.Replace(SiteSearchLink, ""));
-                            if (response != null)
+                            RootSolrObject solrResponse = GetSearchAlertViaSolr(ua.source.Replace(SiteSearchLink, ""));
+                            Response mailResponse = null;
+
+                            if (solrResponse != null)
                             {
-                                SendAlert(ua.email, ua.source, response).Wait();
+                                SendAlert(ua.email, ua.source, solrResponse, mailResponse).Wait();
                             }
 
 
@@ -88,11 +112,20 @@ namespace Appleseed.Base.Alerts
                         catch (Exception ex)
                         {
                             // log exception
-                            Console.WriteLine("An error occured sending an email for " + ua.email);
-                            Console.WriteLine("\nReason : " + ex.Message);
+                            Console.WriteLine("Error : An error occured sending an alert for user " + ua.email);
+                            Console.WriteLine("\nError : Reason - " + ex.Message);
+                            error = true;
                         }
+
+                        if (!error)
+                        {
+                            userSentCount++;
+                           
+                        }
+
                     }
                 }
+                Console.WriteLine("INFO : Sent " + userSentCount + " alerts.");
             }
 
         }
@@ -111,22 +144,31 @@ namespace Appleseed.Base.Alerts
             HttpWebRequest getRequest = (HttpWebRequest)WebRequest.Create(url);
             getRequest.Method = "GET";
 
-            using (var getResponse = (HttpWebResponse)getRequest.GetResponse())
+            try
             {
-                Stream newStream = getResponse.GetResponseStream();
-                StreamReader sr = new StreamReader(newStream);
+                using (var getResponse = (HttpWebResponse)getRequest.GetResponse())
+                {
+                    Stream newStream = getResponse.GetResponseStream();
+                    StreamReader sr = new StreamReader(newStream);
 
-                var result = sr.ReadToEnd();
+                    var result = sr.ReadToEnd();
 
-                var searchResults = JsonConvert.DeserializeObject<RootSolrObject>(result);
+                    var searchResults = JsonConvert.DeserializeObject<RootSolrObject>(result);
 
-                return searchResults;
+                    return searchResults;
 
+                }
             }
+            catch ( Exception ex)
+            {
+                Console.WriteLine("Error : Reason - " + ex.Message);
+                return null;
+            }
+
 
         }
 
-        static async Task SendAlert(string email, string link, RootSolrObject results)
+        static async Task SendAlert(string email, string link, RootSolrObject results, Response mailResponse)
         {
 
             if (results != null && results.response != null && results.response.docs != null && results.response.docs.Count() > 0)
@@ -142,22 +184,36 @@ namespace Appleseed.Base.Alerts
 
                 //Header
                 sbHtmlContent.Append("<h1>" + MailHeaderText + "</h1>");
-                sbHtmlContent.Append("<br/><br/>");
+               
 
                 for (int i = 0; i < results.response.docs.Count(); i++)
                 {
-                    sbHtmlContent.Append("<br/><br/>");
+                    sbHtmlContent.Append("<br/><br/><br/>");
 
-                    sbHtmlContent.Append("<br/><h2>" + Helpers.UppercaseFirst(results.response.docs[i].item_type[0]) + " : " + results.response.docs[i].recall_number[0] + "</h2>");
-                    sbHtmlContent.Append("<strong>Status: </strong>" + results.response.docs[i].status[0] + "<br/>");
-                    sbHtmlContent.Append("<strong>Classification: </strong>" + results.response.docs[i].classification + "<br/>");
-                    sbHtmlContent.Append("<strong>Description: </strong>" + results.response.docs[i].product_description[0] + "<br/>");
-                    sbHtmlContent.Append("<strong>Code Info: </strong>" + results.response.docs[i].code_info[0] + "<br/>");
-                    sbHtmlContent.Append("<strong>Recall Reason: </strong> " + results.response.docs[i].reason_for_recall[0] + "<br/>");
-                    sbHtmlContent.Append("<strong>Voluntary Mandated: </strong> " + results.response.docs[i].voluntary_mandated[0] + "<br/>");
-                    sbHtmlContent.Append("<strong>Product Quantity: </strong> " + results.response.docs[i].reason_for_recall[0] + "<br/>");
-                    sbHtmlContent.Append("<strong>Recalling Firm: </strong> " + results.response.docs[i].recalling_firm + "<br/>");
-                    sbHtmlContent.Append("<strong>Recalling Firm Address: </strong> " + results.response.docs[i].address_1[0] + "<br/>");
+					if (!String.IsNullOrEmpty(results.response.docs[i].item_type))
+						sbHtmlContent.Append("<h2>" + Helpers.UppercaseFirst(results.response.docs[i].item_type)+ "</h2>");
+                   
+				    if (!String.IsNullOrEmpty(results.response.docs[i].recall_number))
+						sbHtmlContent.Append( "<h2>" + results.response.docs[i].recall_number  + "</h2>");
+
+                    if (!String.IsNullOrEmpty(results.response.docs[i].status))
+                        sbHtmlContent.Append("<strong>Status: </strong>" + results.response.docs[i].status  + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].classification))
+                        sbHtmlContent.Append("<strong>Classification: </strong>" + results.response.docs[i].classification + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].product_description))
+                        sbHtmlContent.Append("<strong>Description: </strong>" + results.response.docs[i].product_description  + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].code_info))
+                        sbHtmlContent.Append("<strong>Code Info: </strong>" + results.response.docs[i].code_info  + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].reason_for_recall))
+                        sbHtmlContent.Append("<strong>Recall Reason: </strong> " + results.response.docs[i].reason_for_recall  + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].voluntary_mandated))
+                        sbHtmlContent.Append("<strong>Voluntary Mandated: </strong> " + results.response.docs[i].voluntary_mandated + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].product_quantity))
+                        sbHtmlContent.Append("<strong>Product Quantity: </strong> " + results.response.docs[i].product_quantity + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].recalling_firm))
+                        sbHtmlContent.Append("<strong>Recalling Firm: </strong> " + results.response.docs[i].recalling_firm + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].address_1))
+                        sbHtmlContent.Append("<strong>Recalling Firm Address: </strong> " + results.response.docs[i].address_1  + "<br/>");
 
 
                     //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
@@ -169,7 +225,9 @@ namespace Appleseed.Base.Alerts
 
                 var htmlContent = sbHtmlContent.ToString();
                 var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-                var response = await client.SendEmailAsync(msg);
+                mailResponse = await client.SendEmailAsync(msg);
+                 
+               
             }
         }
 
