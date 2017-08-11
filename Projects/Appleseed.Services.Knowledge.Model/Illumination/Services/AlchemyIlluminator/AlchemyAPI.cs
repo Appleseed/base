@@ -5,6 +5,7 @@ namespace Appleseed.Services.Knowledge.Model.Illumination.Services.AlchemyIllumi
     using System.Net;
     using System.Text;
     using System.Xml;
+    using System.Configuration;
 
     public class AlchemyAPI
 {
@@ -13,7 +14,7 @@ namespace Appleseed.Services.Knowledge.Model.Illumination.Services.AlchemyIllumi
 
 	public AlchemyAPI()
 	{
-		this._requestUri = "http://access.alchemyapi.com/calls/";
+		this._requestUri = "https://gateway-a.watsonplatform.net/calls/info/GetAPIKeyInfo?apikey=";
 	}
 
 	public void SetAPIHost(string apiHost)
