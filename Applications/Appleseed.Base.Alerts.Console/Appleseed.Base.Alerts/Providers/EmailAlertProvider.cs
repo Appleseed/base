@@ -27,6 +27,10 @@ namespace Appleseed.Base.Alerts.Providers
             return Helpers.GetUserAlertSchedules(scheudle);
         }
 
+        public bool UpdateUserSendDate(Guid userID, DateTime date)
+        {
+            return Helpers.UpdateUserSendDate(userID, date);
+        }
         public RootSolrObject GetSearchAlertViaSolr(string query)
         {
             // perform split function
