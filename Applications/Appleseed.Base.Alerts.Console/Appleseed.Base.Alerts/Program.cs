@@ -231,7 +231,9 @@ namespace Appleseed.Base.Alerts
 
                     //IClassification
                     if (!String.IsNullOrEmpty(results.response.docs[i].district_decision))
-                        sbHtmlContent.Append("<strong>Distrcit Decision: </strong> " + results.response.docs[i].district_decision + "<br/>");
+                        sbHtmlContent.Append("<strong>District Decision: </strong> " + results.response.docs[i].district_decision + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].district))
+                        sbHtmlContent.Append("<strong>District: </strong> " + results.response.docs[i].district + "<br/>");
                     //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
                 }
 
