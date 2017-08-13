@@ -41,7 +41,7 @@ namespace Appleseed.Base.Alerts.Model
         public string program_area { get; set; }
         public string description_short { get; set; }
         public string description_long { get; set; }
-   
+        public DateTime end_date { get; set; }
 
 
     }
