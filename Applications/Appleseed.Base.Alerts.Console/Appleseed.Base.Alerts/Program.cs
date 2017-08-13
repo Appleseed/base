@@ -205,6 +205,12 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Product Code Description: </strong> " + results.response.docs[i].product_code_description + "<br/>");
                     if ( results.response.docs[i].refusal_date !=null && results.response.docs[i].refusal_date > DateTime.Now.AddYears(-75))
                         sbHtmlContent.Append("<strong>Refusal Date: </strong> " + results.response.docs[i].refusal_date + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].entry_number))
+                        sbHtmlContent.Append("<strong>Entry Number: </strong> " + results.response.docs[i].entry_number + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].rfrnc_doc_id))
+                        sbHtmlContent.Append("<strong>Entry Number: </strong> " + results.response.docs[i].rfrnc_doc_id + "<br/>");
+
+
 
                     //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
                 }
