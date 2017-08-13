@@ -213,6 +213,12 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Line Number: </strong> " + results.response.docs[i].line_number + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].line_sfx_id))
                         sbHtmlContent.Append("<strong>Line Suffix ID: </strong> " + results.response.docs[i].line_sfx_id + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].fda_sample_analysis))
+                        sbHtmlContent.Append("<strong>Line Suffix ID: </strong> " + results.response.docs[i].fda_sample_analysis + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].private_lab_analysis))
+                        sbHtmlContent.Append("<strong>Line Suffix ID: </strong> " + results.response.docs[i].private_lab_analysis + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].refusal_charges))
+                        sbHtmlContent.Append("<strong>Line Suffix ID: </strong> " + results.response.docs[i].refusal_charges + "<br/>");
 
 
 
