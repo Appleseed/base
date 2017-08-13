@@ -183,7 +183,7 @@ namespace Appleseed.Base.Alerts
                     if (!String.IsNullOrEmpty(results.response.docs[i].classification))
                         sbHtmlContent.Append("<strong>Classification: </strong>" + results.response.docs[i].classification + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].product_description))
-                        sbHtmlContent.Append("<strong>Description: </strong>" + results.response.docs[i].product_description  + "<br/>");
+                        sbHtmlContent.Append("<strong>Product Description: </strong>" + results.response.docs[i].product_description  + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].code_info))
                         sbHtmlContent.Append("<strong>Code Info: </strong>" + results.response.docs[i].code_info  + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].reason_for_recall))
@@ -227,7 +227,7 @@ namespace Appleseed.Base.Alerts
                     if (!String.IsNullOrEmpty(results.response.docs[i].description_short))
                         sbHtmlContent.Append("<strong>Short Description: </strong> " + results.response.docs[i].description_short + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].description_long))
-                        sbHtmlContent.Append("<strong>Short Description: </strong> " + results.response.docs[i].description_long + "<br/>");
+                        sbHtmlContent.Append("<strong>Description: </strong> " + results.response.docs[i].description_long + "<br/>");
                     if (results.response.docs[i].end_date != null && results.response.docs[i].end_date > DateTime.Now.AddYears(-75))
                         sbHtmlContent.Append("<strong>End Date: </strong> " + results.response.docs[i].end_date + "<br/>");
                     //IClassification
