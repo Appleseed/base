@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Appleseed.Base.Alerts.Model
 {
-    class Constants
+    public class Constants
     {
         #region App Config Values
         // Test Settings
