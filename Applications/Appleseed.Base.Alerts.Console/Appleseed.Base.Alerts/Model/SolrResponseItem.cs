@@ -59,5 +59,6 @@ namespace Appleseed.Base.Alerts.Model
         public string entry_number { get; set; }
         public string rfrnc_doc_id { get; set; }
         public string line_number { get; set; }
+        public string line_sfx_id { get; set; }
     }
 }
