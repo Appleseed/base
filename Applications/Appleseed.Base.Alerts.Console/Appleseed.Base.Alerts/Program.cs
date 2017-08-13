@@ -85,7 +85,7 @@ namespace Appleseed.Base.Alerts
                         try
                         {
                             // Need a better split function here q=
-                            RootSolrObject solrResponse = GetSearchAlertViaSolr(ua.source.Replace(SiteSearchLink, ""));
+                            RootSolrObject solrResponse = GetSearchAlertViaSolr(ua.source.Replace(Constants.SiteSearchLink, ""));
                             Response mailResponse = null;
 
                             if (solrResponse != null)
@@ -126,7 +126,7 @@ namespace Appleseed.Base.Alerts
         {
             // perform split function
 
-            string url = SolrURL + WebUtility.HtmlDecode(query) + WebUtility.HtmlDecode(RefreshQuery);
+            string url = Constants.SolrURL + WebUtility.HtmlDecode(query) + WebUtility.HtmlDecode(Constants.RefreshQuery);
             HttpWebRequest getRequest = (HttpWebRequest)WebRequest.Create(url);
             getRequest.Method = "GET";
 
@@ -159,9 +159,9 @@ namespace Appleseed.Base.Alerts
 
             if (results != null && results.response != null && results.response.docs != null && results.response.docs.Count() > 0)
             {
-                var client = new SendGridClient(APIKey);
-                var from = new EmailAddress(MailFrom, MailFromName);
-                var subject = MailSubject;
+                var client = new SendGridClient(Constants.APIKey);
+                var from = new EmailAddress(Constants.MailFrom, Constants.MailFromName);
+                var subject = Constants.MailSubject;
                 var to = new EmailAddress(email, null);
 
                 var plainTextContent = " ";
