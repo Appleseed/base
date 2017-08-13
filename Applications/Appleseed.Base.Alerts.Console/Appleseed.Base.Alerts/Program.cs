@@ -25,13 +25,14 @@ namespace Appleseed.Base.Alerts
     class Program
     {
         #region App Config Values
+        // Test Settings
         static string Mode = System.Configuration.ConfigurationManager.AppSettings["Mode"];
         static string TestEmail = System.Configuration.ConfigurationManager.AppSettings["TestEmail"];
         static string TestSearchQuery = System.Configuration.ConfigurationManager.AppSettings["TestSearchQuery"];
         static string TestSearchLink = System.Configuration.ConfigurationManager.AppSettings["TestSearchLink"];
 
         static string APIKey = System.Configuration.ConfigurationManager.AppSettings["SendGridAPIKey"];
-        static string SolrURL = System.Configuration.ConfigurationManager.AppSettings["SolrURL"];
+       
         
 
         static string MailFrom = System.Configuration.ConfigurationManager.AppSettings["MailFrom"];
@@ -41,8 +42,7 @@ namespace Appleseed.Base.Alerts
         static string MailSchedule = System.Configuration.ConfigurationManager.AppSettings["MailSchedule"];
 
         static string SiteSearchLink = System.Configuration.ConfigurationManager.AppSettings["SiteSearchLink"];
-        
-
+        static string SolrURL = System.Configuration.ConfigurationManager.AppSettings["SolrURL"];
         static string RefreshQuery = System.Configuration.ConfigurationManager.AppSettings["RefreshQuery"];
 
         static IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
