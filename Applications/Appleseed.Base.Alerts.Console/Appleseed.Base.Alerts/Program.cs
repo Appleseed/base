@@ -72,7 +72,7 @@ namespace Appleseed.Base.Alerts
                 // Run SQL to pull schedule
                 // Iterate through users and send emails
                 Console.WriteLine("INFO : Mode - Production");
-                var userAlerts = GetUserAlertSchedules(alert_schedule);
+                var userAlerts = Helpers.GetUserAlertSchedules(alert_schedule);
                 int userSentCount = 0;
                 bool error = false;
 
@@ -106,7 +106,7 @@ namespace Appleseed.Base.Alerts
                         if (!error)
                         {
                             userSentCount++;
-                            UpdateUserSendDate(ua.user_id, DateTime.Now);
+                            Helpers.UpdateUserSendDate(ua.user_id, DateTime.Now);
 
 
                         }
