@@ -18,13 +18,13 @@ namespace Appleseed.Base.Alerts.Model
         public static string TestSearchQuery = System.Configuration.ConfigurationManager.AppSettings["TestSearchQuery"];
         public static string TestSearchLink = System.Configuration.ConfigurationManager.AppSettings["TestSearchLink"];
         //SendGridAPI Key
-        static string APIKey = System.Configuration.ConfigurationManager.AppSettings["SendGridAPIKey"];
+        public static string APIKey = System.Configuration.ConfigurationManager.AppSettings["SendGridAPIKey"];
         //Mail Settings
-        static string MailFrom = System.Configuration.ConfigurationManager.AppSettings["MailFrom"];
-        static string MailFromName = System.Configuration.ConfigurationManager.AppSettings["MailFromName"];
-        static string MailSubject = System.Configuration.ConfigurationManager.AppSettings["MailSubject"];
-        static string MailHeaderText = System.Configuration.ConfigurationManager.AppSettings["MailHeaderText"];
-        static string MailSchedule = System.Configuration.ConfigurationManager.AppSettings["MailSchedule"];
+        public static string MailFrom = System.Configuration.ConfigurationManager.AppSettings["MailFrom"];
+        public static string MailFromName = System.Configuration.ConfigurationManager.AppSettings["MailFromName"];
+        public static string MailSubject = System.Configuration.ConfigurationManager.AppSettings["MailSubject"];
+        public static string MailHeaderText = System.Configuration.ConfigurationManager.AppSettings["MailHeaderText"];
+        public static string MailSchedule = System.Configuration.ConfigurationManager.AppSettings["MailSchedule"];
         //Search Settings
         static string SiteSearchLink = System.Configuration.ConfigurationManager.AppSettings["SiteSearchLink"];
         static string SolrURL = System.Configuration.ConfigurationManager.AppSettings["SolrURL"];
