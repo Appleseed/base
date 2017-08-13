@@ -199,6 +199,10 @@ namespace Appleseed.Base.Alerts
 
                     if (!String.IsNullOrEmpty(results.response.docs[i].fei_number))
                         sbHtmlContent.Append("<strong>Fei Number: </strong> " + results.response.docs[i].fei_number + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].product_code))
+                        sbHtmlContent.Append("<strong>Product Code: </strong> " + results.response.docs[i].product_code + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].product_code_description))
+                        sbHtmlContent.Append("<strong>Product Code Description: </strong> " + results.response.docs[i].product_code_description + "<br/>");
 
                     //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
                 }
