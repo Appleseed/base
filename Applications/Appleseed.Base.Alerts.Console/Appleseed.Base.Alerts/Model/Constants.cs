@@ -13,10 +13,10 @@ namespace Appleseed.Base.Alerts.Model
     {
         #region App Config Values
         // Test Settings
-        static string Mode = System.Configuration.ConfigurationManager.AppSettings["Mode"];
-        static string TestEmail = System.Configuration.ConfigurationManager.AppSettings["TestEmail"];
-        static string TestSearchQuery = System.Configuration.ConfigurationManager.AppSettings["TestSearchQuery"];
-        static string TestSearchLink = System.Configuration.ConfigurationManager.AppSettings["TestSearchLink"];
+        public static string Mode = System.Configuration.ConfigurationManager.AppSettings["Mode"];
+        public static string TestEmail = System.Configuration.ConfigurationManager.AppSettings["TestEmail"];
+        public static string TestSearchQuery = System.Configuration.ConfigurationManager.AppSettings["TestSearchQuery"];
+        public static string TestSearchLink = System.Configuration.ConfigurationManager.AppSettings["TestSearchLink"];
         //SendGridAPI Key
         static string APIKey = System.Configuration.ConfigurationManager.AppSettings["SendGridAPIKey"];
         //Mail Settings
