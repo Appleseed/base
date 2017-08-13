@@ -197,6 +197,8 @@ namespace Appleseed.Base.Alerts
                     if (!String.IsNullOrEmpty(results.response.docs[i].address_1))
                         sbHtmlContent.Append("<strong>Recalling Firm Address: </strong> " + results.response.docs[i].address_1  + "<br/>");
 
+                    if (!String.IsNullOrEmpty(results.response.docs[i].fei_number))
+                        sbHtmlContent.Append("<strong>Fei Number: </strong> " + results.response.docs[i].fei_number + "<br/>");
 
                     //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
                 }
