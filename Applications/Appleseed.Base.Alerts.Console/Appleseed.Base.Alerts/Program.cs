@@ -224,6 +224,10 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Act CFR: </strong> " + results.response.docs[i].act_cfr + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].program_area))
                         sbHtmlContent.Append("<strong>Program Area: </strong> " + results.response.docs[i].program_area + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].description_short))
+                        sbHtmlContent.Append("<strong>Short Description: </strong> " + results.response.docs[i].description_short + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].description_long))
+                        sbHtmlContent.Append("<strong>Short Description: </strong> " + results.response.docs[i].description_long + "<br/>");
 
                     //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
                 }
