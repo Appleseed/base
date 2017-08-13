@@ -120,7 +120,19 @@ namespace Appleseed.Base.Alerts
               var userAlerts = db.Query<UserAlert>("GetPortalUserAlerts", new { alert_schedule = scheudle },
               commandType: CommandType.StoredProcedure).ToList<UserAlert>();
 
+            
             return userAlerts;
+        }
+        static bool UpdateUserSendDate(Guid userID,DateTime date)
+        {
+            int rowsAffected = db.Execute("");
+
+            if (rowsAffected > 0)
+            {
+                return true;
+            }
+            return false;
+
         }
         static RootSolrObject GetSearchAlertViaSolr(string query)
         {
