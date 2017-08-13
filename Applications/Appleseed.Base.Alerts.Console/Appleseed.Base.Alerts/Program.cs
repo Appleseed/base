@@ -28,6 +28,7 @@ namespace Appleseed.Base.Alerts
         static string Mode = System.Configuration.ConfigurationManager.AppSettings["Mode"];
         static string TestEmail = System.Configuration.ConfigurationManager.AppSettings["TestEmail"];
         static string TestSearchQuery = System.Configuration.ConfigurationManager.AppSettings["TestSearchQuery"];
+        static string TestSearchLink = System.Configuration.ConfigurationManager.AppSettings["TestSearchLink"];
 
         static string SolrURL = System.Configuration.ConfigurationManager.AppSettings["SolrURL"];
         static string APIKey = System.Configuration.ConfigurationManager.AppSettings["SendGridAPIKey"];
@@ -39,7 +40,7 @@ namespace Appleseed.Base.Alerts
         static string MailSchedule = System.Configuration.ConfigurationManager.AppSettings["MailSchedule"];
 
         static string SiteSearchLink = System.Configuration.ConfigurationManager.AppSettings["SiteSearchLink"];
-        static string TestSearchLink = System.Configuration.ConfigurationManager.AppSettings["TestSearchLink"];
+        
 
         static string RefreshQuery = System.Configuration.ConfigurationManager.AppSettings["RefreshQuery"];
 
