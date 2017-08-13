@@ -234,6 +234,13 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>District Decision: </strong> " + results.response.docs[i].district_decision + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].district))
                         sbHtmlContent.Append("<strong>District: </strong> " + results.response.docs[i].district + "<br/>");
+
+                    if (!String.IsNullOrEmpty(results.response.docs[i].center))
+                        sbHtmlContent.Append("<strong>District: </strong> " + results.response.docs[i].center + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].project_area))
+                        sbHtmlContent.Append("<strong>District: </strong> " + results.response.docs[i].project_area + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].district))
+                        sbHtmlContent.Append("<strong>District: </strong> " + results.response.docs[i].district + "<br/>");
                     //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
                 }
 
