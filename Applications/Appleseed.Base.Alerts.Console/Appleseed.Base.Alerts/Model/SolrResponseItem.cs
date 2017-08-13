@@ -45,6 +45,7 @@ namespace Appleseed.Base.Alerts.Model
 
         //IClassification
         public string district_decision { get; set; }
+        public string district  { get; set; }
 
         //IRefusal
     }
