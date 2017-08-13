@@ -20,15 +20,7 @@ namespace Appleseed.Base.Alerts.Providers
     class EmailAlertProvider : IAlert
     {
         static IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-        static string SolrURL = System.Configuration.ConfigurationManager.AppSettings["SolrURL"];
-
-        static string MailSubject = System.Configuration.ConfigurationManager.AppSettings["MailSubject"];
-        static string MailHeaderText = System.Configuration.ConfigurationManager.AppSettings["MailHeaderText"];
-        static string MailFrom = System.Configuration.ConfigurationManager.AppSettings["MailFrom"];
-        static string MailFromName = System.Configuration.ConfigurationManager.AppSettings["MailFromName"];
-
-        static string APIKey = System.Configuration.ConfigurationManager.AppSettings["SendGridAPIKey"];
-        static string RefreshQuery = System.Configuration.ConfigurationManager.AppSettings["RefreshQuery"];
+   
 
         public List<UserAlert> GetUserAlertSchedules(string scheudle)
         {
