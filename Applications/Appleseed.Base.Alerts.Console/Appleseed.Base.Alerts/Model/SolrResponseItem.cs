@@ -48,6 +48,8 @@ namespace Appleseed.Base.Alerts.Model
         public string district  { get; set; }
         public DateTime inspection_end_date { get; set; }
         public string center { get; set; }
+        public string project_area { get; set; }
+        public string legal_name { get; set; }
 
         //IRefusal
     }
