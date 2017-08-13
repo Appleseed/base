@@ -32,9 +32,7 @@ namespace Appleseed.Base.Alerts
         static string TestSearchLink = System.Configuration.ConfigurationManager.AppSettings["TestSearchLink"];
 
         static string APIKey = System.Configuration.ConfigurationManager.AppSettings["SendGridAPIKey"];
-       
-        
-
+      
         static string MailFrom = System.Configuration.ConfigurationManager.AppSettings["MailFrom"];
         static string MailFromName = System.Configuration.ConfigurationManager.AppSettings["MailFromName"];
         static string MailSubject = System.Configuration.ConfigurationManager.AppSettings["MailSubject"];
