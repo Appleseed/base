@@ -34,7 +34,7 @@ namespace Appleseed.Base.Alerts.Providers
         {
             // perform split function
 
-            string url = SolrURL + WebUtility.HtmlDecode(query) + WebUtility.HtmlDecode(RefreshQuery);
+            string url = Constants.SolrURL + WebUtility.HtmlDecode(query) + WebUtility.HtmlDecode(Constants.RefreshQuery);
             HttpWebRequest getRequest = (HttpWebRequest)WebRequest.Create(url);
             getRequest.Method = "GET";
 
