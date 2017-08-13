@@ -28,6 +28,7 @@ namespace Appleseed.Base.Alerts.Providers
         static string MailFromName = System.Configuration.ConfigurationManager.AppSettings["MailFromName"];
 
         static string APIKey = System.Configuration.ConfigurationManager.AppSettings["SendGridAPIKey"];
+        static string RefreshQuery = System.Configuration.ConfigurationManager.AppSettings["RefreshQuery"];
 
         public List<UserAlert> GetUserAlertSchedules(string scheudle)
         {
