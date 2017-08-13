@@ -177,7 +177,7 @@ namespace Appleseed.Base.Alerts
                    
 				    if (!String.IsNullOrEmpty(results.response.docs[i].recall_number))
 						sbHtmlContent.Append( "<h2>" + results.response.docs[i].recall_number  + "</h2>");
-
+                    // Set 1
                     if (!String.IsNullOrEmpty(results.response.docs[i].status))
                         sbHtmlContent.Append("<strong>Status: </strong>" + results.response.docs[i].status  + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].classification))
@@ -196,7 +196,7 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Recalling Firm: </strong> " + results.response.docs[i].recalling_firm + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].address_1))
                         sbHtmlContent.Append("<strong>Recalling Firm Address: </strong> " + results.response.docs[i].address_1  + "<br/>");
-
+                    //IRefusal
                     if (!String.IsNullOrEmpty(results.response.docs[i].fei_number))
                         sbHtmlContent.Append("<strong>Fei Number: </strong> " + results.response.docs[i].fei_number + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].product_code))
@@ -219,7 +219,7 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Line Suffix ID: </strong> " + results.response.docs[i].private_lab_analysis + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].refusal_charges))
                         sbHtmlContent.Append("<strong>Line Suffix ID: </strong> " + results.response.docs[i].refusal_charges + "<br/>");
-
+                    //ICitation
 
 
                     //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
