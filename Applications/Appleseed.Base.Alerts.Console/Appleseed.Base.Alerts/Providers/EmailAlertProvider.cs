@@ -66,9 +66,9 @@ namespace Appleseed.Base.Alerts.Providers
 
             if (results != null && results.response != null && results.response.docs != null && results.response.docs.Count() > 0)
             {
-                var client = new SendGridClient(APIKey);
-                var from = new EmailAddress(MailFrom, MailFromName);
-                var subject = MailSubject;
+                var client = new SendGridClient(Constants.APIKey);
+                var from = new EmailAddress(Constants.MailFrom, Constants.MailFromName);
+                var subject = Constants.MailSubject;
                 var to = new EmailAddress(email, null);
                 
                 var plainTextContent = " ";
@@ -76,7 +76,7 @@ namespace Appleseed.Base.Alerts.Providers
                 StringBuilder sbHtmlContent = new StringBuilder();
 
                 //Header
-                sbHtmlContent.Append("<h1>" + MailHeaderText + "</h1>");
+                sbHtmlContent.Append("<h1>" + Constants.MailHeaderText + "</h1>");
                 sbHtmlContent.Append("<br/><br/>");
 
                 for (int i = 0; i < results.response.docs.Count(); i++)
