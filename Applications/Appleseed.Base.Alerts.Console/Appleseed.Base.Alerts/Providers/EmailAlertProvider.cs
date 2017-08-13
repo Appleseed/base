@@ -24,10 +24,7 @@ namespace Appleseed.Base.Alerts.Providers
 
         public List<UserAlert> GetUserAlertSchedules(string scheudle)
         {
-            var userAlerts = db.Query<UserAlert>("GetPortalUserAlerts", new { alert_schedule = scheudle },
-            commandType: CommandType.StoredProcedure).ToList<UserAlert>();
-
-            return userAlerts;
+            return Helpers.GetUserAlertSchedules(scheudle);
         }
 
         public RootSolrObject GetSearchAlertViaSolr(string query)
