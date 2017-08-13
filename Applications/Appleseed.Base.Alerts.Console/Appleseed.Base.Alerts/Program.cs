@@ -220,7 +220,8 @@ namespace Appleseed.Base.Alerts
                     if (!String.IsNullOrEmpty(results.response.docs[i].refusal_charges))
                         sbHtmlContent.Append("<strong>Refusal Charges: </strong> " + results.response.docs[i].refusal_charges + "<br/>");
                     //ICitation
-
+                    if (!String.IsNullOrEmpty(results.response.docs[i].act_cfr))
+                        sbHtmlContent.Append("<strong>Act CFR: </strong> " + results.response.docs[i].act_cfr + "<br/>");
 
                     //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
                 }
