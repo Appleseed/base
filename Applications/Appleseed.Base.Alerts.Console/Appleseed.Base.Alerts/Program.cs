@@ -106,7 +106,9 @@ namespace Appleseed.Base.Alerts
                         if (!error)
                         {
                             userSentCount++;
-                           
+                            UpdateUserSendDate(ua.user_id, DateTime.Now);
+
+
                         }
 
                     }
