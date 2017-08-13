@@ -53,5 +53,7 @@ namespace Appleseed.Base.Alerts.Model
 
         //IRefusal
         public string fei_number { get; set; }
+        public string product_code { get; set; }
+        public string product_code_description { get; set; }
     }
 }
