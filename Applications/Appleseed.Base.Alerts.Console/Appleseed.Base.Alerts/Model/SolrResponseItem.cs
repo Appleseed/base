@@ -47,6 +47,7 @@ namespace Appleseed.Base.Alerts.Model
         public string district_decision { get; set; }
         public string district  { get; set; }
         public DateTime inspection_end_date { get; set; }
+        public string center { get; set; }
 
         //IRefusal
     }
