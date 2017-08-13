@@ -142,7 +142,7 @@ namespace Appleseed.Base.Alerts
         {
             // perform split function
 
-            string url = SolrURL + WebUtility.HtmlDecode(query);
+            string url = SolrURL + WebUtility.HtmlDecode(query) + WebUtility.HtmlDecode(RefreshQuery);
             HttpWebRequest getRequest = (HttpWebRequest)WebRequest.Create(url);
             getRequest.Method = "GET";
 
