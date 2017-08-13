@@ -56,5 +56,7 @@ namespace Appleseed.Base.Alerts.Model
         public string product_code { get; set; }
         public string product_code_description { get; set; }
         public DateTime refusal_date { get; set; }
+        public string entry_number { get; set; }
+        public string rfrnc_doc_id { get; set; }
     }
 }
