@@ -46,6 +46,7 @@ namespace Appleseed.Base.Alerts.Model
         //IClassification
         public string district_decision { get; set; }
         public string district  { get; set; }
+        public DateTime inspection_end_date { get; set; }
 
         //IRefusal
     }
