@@ -228,7 +228,8 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Short Description: </strong> " + results.response.docs[i].description_short + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].description_long))
                         sbHtmlContent.Append("<strong>Short Description: </strong> " + results.response.docs[i].description_long + "<br/>");
-
+                    if (results.response.docs[i].end_date != null && results.response.docs[i].end_date > DateTime.Now.AddYears(-75))
+                        sbHtmlContent.Append("<strong>End Date: </strong> " + results.response.docs[i].end_date + "<br/>");
                     //IClassification
                     if (!String.IsNullOrEmpty(results.response.docs[i].district_decision))
                         sbHtmlContent.Append("<strong>District Decision: </strong> " + results.response.docs[i].district_decision + "<br/>");
