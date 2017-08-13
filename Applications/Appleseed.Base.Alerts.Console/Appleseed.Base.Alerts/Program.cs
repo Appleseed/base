@@ -209,6 +209,10 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Entry Number: </strong> " + results.response.docs[i].entry_number + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].rfrnc_doc_id))
                         sbHtmlContent.Append("<strong>Refrence Doc ID: </strong> " + results.response.docs[i].rfrnc_doc_id + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].line_number))
+                        sbHtmlContent.Append("<strong>Line Number: </strong> " + results.response.docs[i].line_number + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].line_sfx_id))
+                        sbHtmlContent.Append("<strong>Line Suffix ID: </strong> " + results.response.docs[i].line_sfx_id + "<br/>");
 
 
 
