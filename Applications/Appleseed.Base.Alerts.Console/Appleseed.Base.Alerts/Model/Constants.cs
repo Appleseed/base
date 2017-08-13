@@ -26,11 +26,10 @@ namespace Appleseed.Base.Alerts.Model
         public static string MailHeaderText = System.Configuration.ConfigurationManager.AppSettings["MailHeaderText"];
         public static string MailSchedule = System.Configuration.ConfigurationManager.AppSettings["MailSchedule"];
         //Search Settings
-        static string SiteSearchLink = System.Configuration.ConfigurationManager.AppSettings["SiteSearchLink"];
-        static string SolrURL = System.Configuration.ConfigurationManager.AppSettings["SolrURL"];
-        static string RefreshQuery = System.Configuration.ConfigurationManager.AppSettings["RefreshQuery"];
-        //Data Settings
-        static IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+        public static string SiteSearchLink = System.Configuration.ConfigurationManager.AppSettings["SiteSearchLink"];
+        public static string SolrURL = System.Configuration.ConfigurationManager.AppSettings["SolrURL"];
+        public static string RefreshQuery = System.Configuration.ConfigurationManager.AppSettings["RefreshQuery"];
+      
         #endregion
     }
 }
