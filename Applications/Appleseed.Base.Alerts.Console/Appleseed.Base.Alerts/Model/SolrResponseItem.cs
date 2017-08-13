@@ -52,5 +52,6 @@ namespace Appleseed.Base.Alerts.Model
         public string legal_name { get; set; }
 
         //IRefusal
+        public string fei_number { get; set; }
     }
 }
