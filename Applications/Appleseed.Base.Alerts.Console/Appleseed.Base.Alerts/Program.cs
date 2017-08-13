@@ -46,21 +46,21 @@ namespace Appleseed.Base.Alerts
 
 
             // Test Mode
-            if (String.Compare(Mode, "production", true) != 0)
+            if (String.Compare(Constants.Mode, "production", true) != 0)
             {
                 Console.WriteLine("INFO : Mode - Test");
-                RootSolrObject solrResponse = GetSearchAlertViaSolr(TestSearchQuery);
+                RootSolrObject solrResponse = GetSearchAlertViaSolr(Constants.TestSearchQuery);
                 Response mailResponse = null;
 
                 try
                 {
-                    Console.WriteLine("INFO : Attempting to send a test mail to " + TestEmail);
-                    SendAlert(TestEmail, TestSearchLink, solrResponse, mailResponse).Wait();
+                    Console.WriteLine("INFO : Attempting to send a test mail to " + Constants.TestEmail);
+                    SendAlert(Constants.TestEmail, Constants.TestSearchLink, solrResponse, mailResponse).Wait();
                 }
                 catch ( Exception ex)
                 {
                     // log exception
-                    Console.WriteLine("Error : An error occured sending an alert for Test user " + TestEmail);
+                    Console.WriteLine("Error : An error occured sending an alert for Test user " + Constants.TestEmail);
                     Console.WriteLine("\nError : Reason - " + ex.Message);
 
                 }
