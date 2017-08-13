@@ -41,6 +41,8 @@ namespace Appleseed.Base.Alerts
         static string SiteSearchLink = System.Configuration.ConfigurationManager.AppSettings["SiteSearchLink"];
         static string TestSearchLink = System.Configuration.ConfigurationManager.AppSettings["TestSearchLink"];
 
+        static string RefreshQuery = System.Configuration.ConfigurationManager.AppSettings["RefreshQuery"];
+
         static IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         #endregion
 
