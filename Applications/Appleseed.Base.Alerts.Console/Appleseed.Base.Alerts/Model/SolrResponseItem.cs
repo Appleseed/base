@@ -38,7 +38,7 @@ namespace Appleseed.Base.Alerts.Model
 
 
         public string act_cfr { get; set; }
-
+        public string program_area { get; set; }
 
 
     }
