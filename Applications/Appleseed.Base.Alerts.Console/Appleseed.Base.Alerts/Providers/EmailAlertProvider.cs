@@ -104,6 +104,77 @@ namespace Appleseed.Base.Alerts.Providers
         /// <returns></returns>
         public bool Run()
         {
+
+            // Test Mode
+            if (String.Compare(Constants.Mode, "production", true) != 0)
+            {
+                Console.WriteLine("INFO : Mode - Test");
+                JSONRootObject solrResponse = GetAlert(Constants.TestSearchQuery);
+                Response mailResponse = null;
+
+                try
+                {
+                    Console.WriteLine("INFO : Attempting to send a test mail to " + Constants.TestEmail);
+                    SendAlert(Constants.TestEmail, Constants.TestSearchLink, solrResponse, mailResponse).Wait();
+                }
+                catch (Exception ex)
+                {
+                    // log exception
+                    Console.WriteLine("Error : An error occured sending an alert for Test user " + Constants.TestEmail);
+                    Console.WriteLine("\nError : Reason - " + ex.Message);
+
+                }
+                Console.WriteLine("INFO : Test Alert Sent");
+            }
+            else
+            {
+                // perform production option
+                // Run SQL to pull schedule
+                // Iterate through users and send emails
+                Console.WriteLine("INFO : Mode - Production");
+                var userAlerts = Helpers.GetUserAlerts();
+                int userSentCount = 0;
+                bool error = false;
+
+                if (userAlerts != null && userAlerts.Count > 0)
+                {
+                    Console.WriteLine("INFO : Alerts need to be sent to  " + userAlerts.Count + " users.");
+                    foreach (UserAlert ua in userAlerts)
+                    {
+                        error = false;
+                        try
+                        {
+                            // Need a better split function here q=
+                            JSONRootObject solrResponse = GetAlert(ua.source.Replace(Constants.SiteSearchLink, ""));
+                            Response mailResponse = null;
+
+                            if (solrResponse != null)
+                            {
+                                SendAlert(ua.email, ua.source, solrResponse, mailResponse).Wait();
+                            }
+
+
+                        }
+                        catch (Exception ex)
+                        {
+                            // log exception
+                            Console.WriteLine("Error : An error occured sending an alert for user " + ua.email);
+                            Console.WriteLine("\nError : Reason - " + ex.Message);
+                            error = true;
+                        }
+
+                        if (!error)
+                        {
+                            userSentCount++;
+                            Helpers.UpdateUserSendDate(ua.user_id, DateTime.Now);
+
+
+                        }
+
+                    }
+                }
+                Console.WriteLine("INFO : Sent " + userSentCount + " alerts.");
+            }
             return true;
         }
     }
