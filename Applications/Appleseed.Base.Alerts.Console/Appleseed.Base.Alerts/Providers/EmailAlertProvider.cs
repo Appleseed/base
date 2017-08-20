@@ -104,6 +104,7 @@ namespace Appleseed.Base.Alerts.Providers
         /// <returns></returns>
         public bool Run()
         {
+            bool error = false;
 
             // Test Mode
             if (String.Compare(Constants.Mode, "production", true) != 0)
@@ -138,7 +139,7 @@ namespace Appleseed.Base.Alerts.Providers
                 Console.WriteLine("INFO : Mode - Production");
                 var userAlerts = Helpers.GetUserAlerts();
                 int userSentCount = 0;
-                bool error = false;
+               
 
                 if (userAlerts != null && userAlerts.Count > 0)
                 {
