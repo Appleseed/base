@@ -129,8 +129,12 @@ namespace Appleseed.Base.Alerts.Providers
                     error = true;
 
                 }
-                
-               
+                if (error)
+                {
+                    return false;
+                }
+
+
             }
             else
             {
