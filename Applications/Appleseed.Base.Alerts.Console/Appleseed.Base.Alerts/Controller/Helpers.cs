@@ -40,7 +40,7 @@ namespace Appleseed.Base.Alerts.Controller
         }
         public static bool UpdateUserSendDate(Guid userID, DateTime date)
         {
-            int rowsAffected = db.Execute("");
+            int rowsAffected = db.Execute(Constants.UpdateUserSendQuery);
 
             if (rowsAffected > 0)
             {
