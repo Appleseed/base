@@ -19,7 +19,7 @@ namespace Appleseed.Base.Alerts.Providers
 {
     class EmailAlertProvider : IAlert
     {
-        static IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+        
    
 
         public List<UserAlert> GetUserAlertSchedules()
