@@ -73,6 +73,7 @@ namespace Appleseed.Base.Alerts.Model
         public string consumer_age_unit { get; set; }
 
         public string path { get; set; }
+        public string name { get; set; }
 
     }
 }
