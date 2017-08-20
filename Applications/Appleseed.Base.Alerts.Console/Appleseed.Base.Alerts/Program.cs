@@ -15,6 +15,7 @@ using System.Configuration;
 using Dapper;
 using Appleseed.Base.Alerts.Model;
 using Appleseed.Base.Alerts.Controller;
+using Appleseed.Base.Alerts.Providers;
 
 namespace Appleseed.Base.Alerts
 {
@@ -40,7 +41,10 @@ namespace Appleseed.Base.Alerts
             Console.WriteLine("INFO : Ending Alert Engine.");
         }
 
-
+        static void CheckAlertsProvider()
+        {
+            IAlert aAlertProvider = new EmailAlertProvider();
+        }
         static void CheckAlerts( )
         {
 
