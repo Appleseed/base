@@ -180,7 +180,7 @@ namespace Appleseed.Base.Alerts
 
                     if (!String.IsNullOrEmpty(results.response.docs[i].recall_number))
 						sbHtmlContent.Append( "<h2>" + results.response.docs[i].recall_number  + "</h2>");
-                    // Set 1
+                    // IRE
                     if (!String.IsNullOrEmpty(results.response.docs[i].status))
                         sbHtmlContent.Append("<strong>Status: </strong>" + results.response.docs[i].status  + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].classification))
@@ -246,7 +246,7 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Project Area: </strong> " + results.response.docs[i].project_area + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].legal_name))
                         sbHtmlContent.Append("<strong>Legal Name: </strong> " + results.response.docs[i].legal_name + "<br/>");
-                    //sbHtmlContent.Append("Report Date : " + results.response.docs[i].report_date + "<br/>");
+                    
 
                      //IA Event
                      if (!String.IsNullOrEmpty(results.response.docs[i].report_number))

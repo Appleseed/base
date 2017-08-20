@@ -12,7 +12,8 @@ namespace Appleseed.Base.Alerts.Model
         public string id { get; set; }
         public DateTime date_last_indexed { get; set; }
         public DateTime date_page_last_updated { get; set; }
-
+        public DateTime date_published { get; set; }
+             
         public string item_type { get; set; }
 
         public string address_1 { get; set; }
