@@ -99,5 +99,14 @@ namespace Appleseed.Base.Alerts.Providers
                 mailResponse = await client.SendEmailAsync(msg);
             }
         }
+
+        /// <summary>
+        /// To Do : Define Run operation for standard provider
+        /// </summary>
+        /// <returns></returns>
+        public bool Run()
+        {
+            return true;
+        }
     }
 }
