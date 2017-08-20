@@ -119,7 +119,7 @@ namespace Appleseed.Base.Alerts.Providers
                     Console.WriteLine("INFO : Attempting to send a test mail to " + Constants.TestEmail);
                     SendAlert(Constants.TestEmail, Constants.TestSearchLink, solrResponse, mailResponse).Wait();
                     Console.WriteLine("INFO : Test Alert Sent");
-                    return true;
+                    error = true;
                 }
                 catch (Exception ex)
                 {
