@@ -261,6 +261,9 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Link: </strong> " + results.response.docs[i].path + "<br/>");
                     if (results.response.docs[i].end_date != null && results.response.docs[i].date_page_last_updated > DateTime.Now.AddYears(-15))
                         sbHtmlContent.Append("<strong>Last Updated: </strong> " + results.response.docs[i].date_page_last_updated + "<br/>");
+                    if (results.response.docs[i].date_published != null && results.response.docs[i].date_published > DateTime.Now.AddYears(-15))
+                        sbHtmlContent.Append("<strong>Publish Date: </strong> " + results.response.docs[i].date_published + "<br/>");
+
 
 
                 }
