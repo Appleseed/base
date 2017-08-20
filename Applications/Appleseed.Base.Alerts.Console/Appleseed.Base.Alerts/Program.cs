@@ -49,7 +49,7 @@ namespace Appleseed.Base.Alerts
             if (String.Compare(Constants.Mode, "production", true) != 0)
             {
                 Console.WriteLine("INFO : Mode - Test");
-                RootSolrObject solrResponse = GetSearchAlertViaSolr(Constants.TestSearchQuery);
+                SolrRootObject solrResponse = GetSearchAlertViaSolr(Constants.TestSearchQuery);
                 Response mailResponse = null;
 
                 try
@@ -85,7 +85,7 @@ namespace Appleseed.Base.Alerts
                         try
                         {
                             // Need a better split function here q=
-                            RootSolrObject solrResponse = GetSearchAlertViaSolr(ua.source.Replace(Constants.SiteSearchLink, ""));
+                            SolrRootObject solrResponse = GetSearchAlertViaSolr(ua.source.Replace(Constants.SiteSearchLink, ""));
                             Response mailResponse = null;
 
                             if (solrResponse != null)
@@ -118,7 +118,7 @@ namespace Appleseed.Base.Alerts
 
         }
      
-        static RootSolrObject GetSearchAlertViaSolr(string query)
+        static SolrRootObject GetSearchAlertViaSolr(string query)
         {
             // perform split function
 
@@ -135,7 +135,7 @@ namespace Appleseed.Base.Alerts
 
                     var result = sr.ReadToEnd();
 
-                    var searchResults = JsonConvert.DeserializeObject<RootSolrObject>(result);
+                    var searchResults = JsonConvert.DeserializeObject<SolrRootObject>(result);
 
                     return searchResults;
 
@@ -150,7 +150,7 @@ namespace Appleseed.Base.Alerts
 
         }
 
-        static async Task SendAlert(string email, string link, RootSolrObject results, Response mailResponse)
+        static async Task SendAlert(string email, string link, SolrRootObject results, Response mailResponse)
         {
 
             if (results != null && results.response != null && results.response.docs != null && results.response.docs.Count() > 0)

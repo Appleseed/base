@@ -10,8 +10,8 @@ namespace Appleseed.Base.Alerts.Model
     {
 
         List<UserAlert> GetUserAlertSchedules(string scheudle);
-        RootSolrObject GetSearchAlertViaSolr(string query);
-        Task SendAlert(string email, string link, RootSolrObject results, object mailResponse);
+        SolrRootObject GetSearchAlertViaSolr(string query);
+        Task SendAlert(string email, string link, SolrRootObject results, object mailResponse);
         bool UpdateUserSendDate(Guid userID, DateTime date);
     }
 }

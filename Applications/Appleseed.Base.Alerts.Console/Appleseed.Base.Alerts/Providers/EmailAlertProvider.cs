@@ -31,7 +31,7 @@ namespace Appleseed.Base.Alerts.Providers
         {
             return Helpers.UpdateUserSendDate(userID, date);
         }
-        public RootSolrObject GetSearchAlertViaSolr(string query)
+        public SolrRootObject GetSearchAlertViaSolr(string query)
         {
             // perform split function
 
@@ -48,7 +48,7 @@ namespace Appleseed.Base.Alerts.Providers
 
                     var result = sr.ReadToEnd();
 
-                    var searchResults = JsonConvert.DeserializeObject<RootSolrObject>(result);
+                    var searchResults = JsonConvert.DeserializeObject<SolrRootObject>(result);
 
                     return searchResults;
 
@@ -62,7 +62,7 @@ namespace Appleseed.Base.Alerts.Providers
 
         }
 
-        public async Task SendAlert(string email, string link, RootSolrObject results, object mailResponse)
+        public async Task SendAlert(string email, string link, SolrRootObject results, object mailResponse)
         {
 
             if (results != null && results.response != null && results.response.docs != null && results.response.docs.Count() > 0)
