@@ -174,8 +174,11 @@ namespace Appleseed.Base.Alerts
 
 					if (!String.IsNullOrEmpty(results.response.docs[i].item_type))
 						sbHtmlContent.Append("<h2>" + Helpers.UppercaseFirst(results.response.docs[i].item_type)+ "</h2>");
-                   
-				    if (!String.IsNullOrEmpty(results.response.docs[i].recall_number))
+
+                    if (!String.IsNullOrEmpty(results.response.docs[i].name))
+                        sbHtmlContent.Append("<h2>" + results.response.docs[i].name + "</h2>");
+
+                    if (!String.IsNullOrEmpty(results.response.docs[i].recall_number))
 						sbHtmlContent.Append( "<h2>" + results.response.docs[i].recall_number  + "</h2>");
                     // Set 1
                     if (!String.IsNullOrEmpty(results.response.docs[i].status))
