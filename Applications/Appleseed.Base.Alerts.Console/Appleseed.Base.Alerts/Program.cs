@@ -44,8 +44,9 @@ namespace Appleseed.Base.Alerts
         static void CheckAlertsProvider()
         {
             IAlert aAlertProvider = new EmailAlertProvider();
+            bool runSuccess = false;
 
-            aAlertProvider.Run();
+            runSuccess =  aAlertProvider.Run();
         }
         
      
