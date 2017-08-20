@@ -253,6 +253,9 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Consumer Gender: </strong> " + results.response.docs[i].consumer_gender + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].consumer_age))
                         sbHtmlContent.Append("<strong>Consumer Age: </strong> " + results.response.docs[i].consumer_age + "<br/>");
+                    // Links
+                    if (!String.IsNullOrEmpty(results.response.docs[i].path))
+                        sbHtmlContent.Append("<strong>Link: </strong> " + results.response.docs[i].path + "<br/>");
 
 
                 }
