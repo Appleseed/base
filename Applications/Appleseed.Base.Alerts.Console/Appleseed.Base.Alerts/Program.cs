@@ -35,13 +35,13 @@ namespace Appleseed.Base.Alerts
         {
             Console.WriteLine("INFO : Starting Alert Engine.");
 
-            CheckAlertSchedule(Constants.MailSchedule);
+            CheckAlertSchedule();
 
             Console.WriteLine("INFO : Ending Alert Engine.");
         }
 
 
-        static void CheckAlertSchedule(string alert_schedule)
+        static void CheckAlertSchedule( )
         {
 
 
