@@ -32,10 +32,10 @@ namespace Appleseed.Base.Alerts.Controller
 
         public static List<UserAlert> GetUserAlertSchedules(string scheudle)
         {
-            var userAlerts = db.Query<UserAlert>("GetPortalUserAlerts", new { alert_schedule = scheudle },
-            commandType: CommandType.StoredProcedure).ToList<UserAlert>();
+              var userAlerts = db.Query<UserAlert>(Constants.GetUserAlertQuery,
+              commandType: CommandType.Text).ToList<UserAlert>();
 
-
+             
             return userAlerts;
         }
         public static bool UpdateUserSendDate(Guid userID, DateTime date)
