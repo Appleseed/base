@@ -49,7 +49,7 @@ namespace Appleseed.Base.Alerts
             if (String.Compare(Constants.Mode, "production", true) != 0)
             {
                 Console.WriteLine("INFO : Mode - Test");
-                JSONRootObject solrResponse = GetSearchAlertViaSolr(Constants.TestSearchQuery);
+                JSONRootObject solrResponse = GetAlert(Constants.TestSearchQuery);
                 Response mailResponse = null;
 
                 try
@@ -85,7 +85,7 @@ namespace Appleseed.Base.Alerts
                         try
                         {
                             // Need a better split function here q=
-                            JSONRootObject solrResponse = GetSearchAlertViaSolr(ua.source.Replace(Constants.SiteSearchLink, ""));
+                            JSONRootObject solrResponse = GetAlert(ua.source.Replace(Constants.SiteSearchLink, ""));
                             Response mailResponse = null;
 
                             if (solrResponse != null)
@@ -118,7 +118,7 @@ namespace Appleseed.Base.Alerts
 
         }
      
-        static JSONRootObject GetSearchAlertViaSolr(string query)
+        static JSONRootObject GetAlert(string query)
         {
             // perform split function
 
