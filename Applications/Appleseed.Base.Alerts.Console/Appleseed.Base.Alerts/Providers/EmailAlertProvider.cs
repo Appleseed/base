@@ -31,7 +31,7 @@ namespace Appleseed.Base.Alerts.Providers
         {
             return Helpers.UpdateUserSendDate(userID, date);
         }
-        public JSONRootObject GetSearchAlert(string query)
+        public JSONRootObject GetAlert(string query)
         {
             // perform split function
 
