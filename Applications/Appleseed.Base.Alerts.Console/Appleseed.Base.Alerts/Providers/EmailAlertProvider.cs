@@ -186,7 +186,7 @@ namespace Appleseed.Base.Alerts.Providers
                 Console.WriteLine("INFO : Sent " + userSentCount + " alerts.");
                 return true;
             }
-            return true;
+             
         }
     }
 }
