@@ -20,7 +20,7 @@ namespace Appleseed.Base.Alerts.Providers
     class EmailAlertProvider : IAlert
     {
          
-        public List<UserAlert> GetUserAlertSchedules()
+        public List<UserAlert> GetUserAlerts()
         {
             return Helpers.GetUserAlerts();
         }
