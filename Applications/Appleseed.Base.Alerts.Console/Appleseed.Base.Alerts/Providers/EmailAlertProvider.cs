@@ -22,9 +22,9 @@ namespace Appleseed.Base.Alerts.Providers
         static IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
    
 
-        public List<UserAlert> GetUserAlertSchedules(string scheudle)
+        public List<UserAlert> GetUserAlertSchedules()
         {
-            return Helpers.GetUserAlertSchedules(scheudle);
+            return Helpers.GetUserAlertSchedules();
         }
 
         public bool UpdateUserSendDate(Guid userID, DateTime date)
