@@ -256,6 +256,8 @@ namespace Appleseed.Base.Alerts
                     // Links
                     if (!String.IsNullOrEmpty(results.response.docs[i].path))
                         sbHtmlContent.Append("<strong>Link: </strong> " + results.response.docs[i].path + "<br/>");
+                    if (results.response.docs[i].end_date != null && results.response.docs[i].date_page_last_updated > DateTime.Now.AddYears(-15))
+                        sbHtmlContent.Append("<strong>Last Updated: </strong> " + results.response.docs[i].date_page_last_updated + "<br/>");
 
 
                 }
