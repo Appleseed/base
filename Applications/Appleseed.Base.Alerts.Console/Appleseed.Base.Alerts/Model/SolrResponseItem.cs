@@ -68,6 +68,9 @@ namespace Appleseed.Base.Alerts.Model
         public string[] reactions { get; set; }
         public string report_number { get; set; }
         public string[] outcomes { get; set; }
+        public string consumer_gender { get; set; }
+        public string consumer_age { get; set; }
+        public string consumer_age_unit { get; set; }
 
     }
 }
