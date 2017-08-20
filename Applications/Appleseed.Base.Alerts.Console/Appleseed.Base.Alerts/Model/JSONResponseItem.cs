@@ -67,7 +67,7 @@ namespace Appleseed.Base.Alerts.Model
         public string project_area { get; set; }
         public string legal_name { get; set; }
 
-        //IAdvertise
+        //IA Event
         public string[] reactions { get; set; }
         public string report_number { get; set; }
         public string[] outcomes { get; set; }
