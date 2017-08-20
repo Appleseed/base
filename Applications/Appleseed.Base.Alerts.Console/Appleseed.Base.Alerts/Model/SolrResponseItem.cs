@@ -65,8 +65,8 @@ namespace Appleseed.Base.Alerts.Model
         public string legal_name { get; set; }
 
         //IAdvertise
+        public string[] reactions { get; set; }
 
 
-       
     }
 }
