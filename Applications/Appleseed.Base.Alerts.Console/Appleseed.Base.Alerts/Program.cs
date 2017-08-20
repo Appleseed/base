@@ -28,7 +28,7 @@ namespace Appleseed.Base.Alerts
         #region App Config Values
      
 
-        static IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+        
         #endregion
 
         
