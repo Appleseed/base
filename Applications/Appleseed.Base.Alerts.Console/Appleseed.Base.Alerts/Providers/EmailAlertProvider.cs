@@ -133,7 +133,7 @@ namespace Appleseed.Base.Alerts.Providers
                 {
                     return false;
                 }
-
+                return true;
 
             }
             else
