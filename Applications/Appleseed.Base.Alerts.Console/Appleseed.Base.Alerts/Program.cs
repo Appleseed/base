@@ -36,7 +36,7 @@ namespace Appleseed.Base.Alerts
         {
             Console.WriteLine("INFO : Starting Alert Engine.");
 
-            CheckAlerts();
+            CheckAlertsProvider();
 
             Console.WriteLine("INFO : Ending Alert Engine.");
         }
