@@ -30,7 +30,7 @@ namespace Appleseed.Base.Alerts.Controller
             return new string(a);
         }
 
-        public static List<UserAlert> GetUserAlertSchedules(string scheudle)
+        public static List<UserAlert> GetUserAlertSchedules()
         {
               var userAlerts = db.Query<UserAlert>(Constants.GetUserAlertQuery,
               commandType: CommandType.Text).ToList<UserAlert>();
