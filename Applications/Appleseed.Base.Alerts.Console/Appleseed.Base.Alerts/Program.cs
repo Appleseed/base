@@ -206,7 +206,7 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Product Code: </strong> " + results.response.docs[i].product_code + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].product_code_description))
                         sbHtmlContent.Append("<strong>Product Code Description: </strong> " + results.response.docs[i].product_code_description + "<br/>");
-                    if ( results.response.docs[i].refusal_date !=null && results.response.docs[i].refusal_date > DateTime.Now.AddYears(-75))
+                    if ( results.response.docs[i].refusal_date !=null && results.response.docs[i].refusal_date > DateTime.Now.AddYears(-15))
                         sbHtmlContent.Append("<strong>Refusal Date: </strong> " + results.response.docs[i].refusal_date + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].entry_number))
                         sbHtmlContent.Append("<strong>Entry Number: </strong> " + results.response.docs[i].entry_number + "<br/>");
@@ -231,7 +231,7 @@ namespace Appleseed.Base.Alerts
                         sbHtmlContent.Append("<strong>Short Description: </strong> " + results.response.docs[i].description_short + "<br/>");
                     if (!String.IsNullOrEmpty(results.response.docs[i].description_long))
                         sbHtmlContent.Append("<strong>Description: </strong> " + results.response.docs[i].description_long + "<br/>");
-                    if (results.response.docs[i].end_date != null && results.response.docs[i].end_date > DateTime.Now.AddYears(-75))
+                    if (results.response.docs[i].end_date != null && results.response.docs[i].end_date > DateTime.Now.AddYears(-15))
                         sbHtmlContent.Append("<strong>End Date: </strong> " + results.response.docs[i].end_date + "<br/>");
                     //IClassification
                     if (!String.IsNullOrEmpty(results.response.docs[i].district_decision))
