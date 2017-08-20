@@ -183,8 +183,12 @@ namespace Appleseed.Base.Alerts.Providers
 
                     }
                 }
-                Console.WriteLine("INFO : Sent " + userSentCount + " alerts.");
-                return true;
+                if (userSentCount > 0)
+                {
+                    Console.WriteLine("INFO : Sent " + userSentCount + " alerts.");
+                    return true;
+                }
+                return false;
             }
              
         }
