@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Appleseed.Base.Alerts.Model
 {
-    class SolrRootObject
+    class JSONRootObject
     {
         public JSONResponse response { get; set; }
     }

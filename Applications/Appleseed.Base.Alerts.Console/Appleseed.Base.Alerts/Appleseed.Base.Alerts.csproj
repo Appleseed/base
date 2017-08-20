@@ -61,7 +61,7 @@
     <Compile Include="Controller\Helpers.cs" />
     <Compile Include="Model\Constants.cs" />
     <Compile Include="Model\IAlert.cs" />
-    <Compile Include="Model\SolrRootObject.cs" />
+    <Compile Include="Model\JSONRootObject.cs" />
     <Compile Include="Model\JSONResponse.cs" />
     <Compile Include="Model\JSONResponseItem.cs" />
     <Compile Include="Model\UserAlert.cs" />
