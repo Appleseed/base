@@ -27,7 +27,8 @@ namespace Appleseed.Base.Alerts.Model
         public static string MailHeaderText = System.Configuration.ConfigurationManager.AppSettings["MailHeaderText"];
         public static string MailSchedule = System.Configuration.ConfigurationManager.AppSettings["MailSchedule"];
         public static string GetUserAlertQuery = System.Configuration.ConfigurationManager.AppSettings["GetUserAlertQuery"];
-   
+        public static string UpdateUserSendQuery = System.Configuration.ConfigurationManager.AppSettings["UpdateUserSendQuery"];
+        
 
         //Search Settings
         public static string SiteSearchLink = System.Configuration.ConfigurationManager.AppSettings["SiteSearchLink"];
