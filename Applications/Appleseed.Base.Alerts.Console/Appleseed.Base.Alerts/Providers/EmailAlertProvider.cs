@@ -112,10 +112,12 @@ namespace Appleseed.Base.Alerts.Providers
                 JSONRootObject solrResponse = GetAlert(Constants.TestSearchQuery);
                 Response mailResponse = null;
 
+
                 try
                 {
                     Console.WriteLine("INFO : Attempting to send a test mail to " + Constants.TestEmail);
                     SendAlert(Constants.TestEmail, Constants.TestSearchLink, solrResponse, mailResponse).Wait();
+                    Console.WriteLine("INFO : Test Alert Sent");
                 }
                 catch (Exception ex)
                 {
@@ -125,7 +127,7 @@ namespace Appleseed.Base.Alerts.Providers
                     return false;
 
                 }
-                Console.WriteLine("INFO : Test Alert Sent");
+               
             }
             else
             {
