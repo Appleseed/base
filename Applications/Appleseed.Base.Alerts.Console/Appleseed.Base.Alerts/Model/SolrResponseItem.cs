@@ -8,7 +8,10 @@ namespace Appleseed.Base.Alerts.Model
 {
     class SolrResponseItem
     {
+        //Internal Fields
         public string id { get; set; }
+        public DateTime date_last_indexed { get; set; }
+
         public string item_type { get; set; }
 
         public string address_1 { get; set; }
@@ -34,7 +37,6 @@ namespace Appleseed.Base.Alerts.Model
         public DateTime report_date { get; set; }
         public string status { get; set; }
 		
-		public DateTime date_last_indexed { get; set; }
 
         //IRefusal
         public string fei_number { get; set; }
@@ -75,6 +77,8 @@ namespace Appleseed.Base.Alerts.Model
         public string path { get; set; }
         public string name { get; set; }
         public string content { get; set; }
+
+       
 
     }
 }
