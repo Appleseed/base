@@ -122,6 +122,7 @@ namespace Appleseed.Base.Alerts.Providers
                     // log exception
                     Console.WriteLine("Error : An error occured sending an alert for Test user " + Constants.TestEmail);
                     Console.WriteLine("\nError : Reason - " + ex.Message);
+                    return false;
 
                 }
                 Console.WriteLine("INFO : Test Alert Sent");
@@ -174,6 +175,7 @@ namespace Appleseed.Base.Alerts.Providers
                     }
                 }
                 Console.WriteLine("INFO : Sent " + userSentCount + " alerts.");
+                return true;
             }
             return true;
         }
