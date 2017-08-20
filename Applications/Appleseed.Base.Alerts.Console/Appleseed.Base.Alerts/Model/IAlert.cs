@@ -9,7 +9,7 @@ namespace Appleseed.Base.Alerts.Model
     interface IAlert
     {
 
-        List<UserAlert> GetUserAlertSchedules(string scheudle);
+        List<UserAlert> GetUserAlertSchedules();
         JSONRootObject GetAlert(string query);
         Task SendAlert(string email, string link, JSONRootObject results, object mailResponse);
         bool UpdateUserSendDate(Guid userID, DateTime date);
