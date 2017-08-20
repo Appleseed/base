@@ -17,6 +17,7 @@ namespace Appleseed.Base.Alerts.Model
         public static string TestEmail = System.Configuration.ConfigurationManager.AppSettings["TestEmail"];
         public static string TestSearchQuery = System.Configuration.ConfigurationManager.AppSettings["TestSearchQuery"];
         public static string TestSearchLink = System.Configuration.ConfigurationManager.AppSettings["TestSearchLink"];
+        public static string StringLimit = System.Configuration.ConfigurationManager.AppSettings["StringLimit"];
         //SendGridAPI Key
         public static string APIKey = System.Configuration.ConfigurationManager.AppSettings["SendGridAPIKey"];
         //Mail Settings
