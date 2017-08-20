@@ -258,8 +258,8 @@ namespace Appleseed.Base.Alerts
                     if (!String.IsNullOrEmpty(results.response.docs[i].consumer_age))
                         sbHtmlContent.Append("<strong>Consumer Age: </strong> " + results.response.docs[i].consumer_age + "<br/>");
                     // Content
-                    if (!String.IsNullOrEmpty(results.response.docs[i].content)  && results.response.docs[i].content.Length >= Int32.Parse(Constants.StringLimit))
-                        sbHtmlContent.Append("<strong>Main Content: </strong> " + results.response.docs[i].content.Substring(0,Int32.Parse(Constants.StringLimit)) + "<br/>");
+                    if (!String.IsNullOrEmpty(results.response.docs[i].content)  && results.response.docs[i].content.Length >= stringLimit)
+                        sbHtmlContent.Append("<strong>Main Content: </strong> " + results.response.docs[i].content.Substring(0, stringLimit) + "<br/>");
                     // Links
                     if (!String.IsNullOrEmpty(results.response.docs[i].path))
                         sbHtmlContent.Append("<strong>Link: </strong> " + results.response.docs[i].path + "<br/>");
