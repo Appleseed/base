@@ -22,7 +22,7 @@ namespace Appleseed.Base.Alerts.Providers
          
         public List<UserAlert> GetUserAlertSchedules()
         {
-            return Helpers.GetUserAlertSchedules();
+            return Helpers.GetUserAlerts();
         }
 
         public bool UpdateUserSendDate(Guid userID, DateTime date)
