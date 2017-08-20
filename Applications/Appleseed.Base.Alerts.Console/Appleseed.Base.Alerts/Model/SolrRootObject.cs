@@ -8,6 +8,6 @@ namespace Appleseed.Base.Alerts.Model
 {
     class SolrRootObject
     {
-        public SolrResponse response { get; set; }
+        public JSONResponse response { get; set; }
     }
 }
