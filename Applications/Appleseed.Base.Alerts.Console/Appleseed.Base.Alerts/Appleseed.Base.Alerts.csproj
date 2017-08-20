@@ -63,7 +63,7 @@
     <Compile Include="Model\IAlert.cs" />
     <Compile Include="Model\SolrRootObject.cs" />
     <Compile Include="Model\JSONResponse.cs" />
-    <Compile Include="Model\SolrResponseItem.cs" />
+    <Compile Include="Model\JSONResponseItem.cs" />
     <Compile Include="Model\UserAlert.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
