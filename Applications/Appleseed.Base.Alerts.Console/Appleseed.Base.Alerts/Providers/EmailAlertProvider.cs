@@ -73,6 +73,9 @@ namespace Appleseed.Base.Alerts.Providers
                 var plainTextContent = " ";
                 var stringLimit = Int32.Parse(Constants.StringLimit);
 
+                if (!String.IsNullOrEmpty(ua.name))
+                    subject = subject + " - " + ua.name;
+
                 StringBuilder sbHtmlContent = new StringBuilder();
 
                 //Header
