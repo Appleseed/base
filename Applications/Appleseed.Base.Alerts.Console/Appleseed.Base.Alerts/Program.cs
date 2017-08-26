@@ -50,7 +50,7 @@ namespace Appleseed.Base.Alerts
 
             if (runSuccess)
             {
-                Console.WriteLine("INFO : All Alerts sent successfully.");
+                Console.WriteLine("INFO : All Alerts sent successfully." + "\n");
             }
 
             else
