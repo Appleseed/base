@@ -60,7 +60,7 @@ namespace Appleseed.Base.Alerts.Providers
 
         }
 
-        public async Task SendAlert(string email, string link, JSONRootObject results, object mailResponse)
+        public async Task SendAlert(UserAlert ua, string link, JSONRootObject results, object mailResponse)
         {
 
             if (results != null && results.response != null && results.response.docs != null && results.response.docs.Count() > 0)
