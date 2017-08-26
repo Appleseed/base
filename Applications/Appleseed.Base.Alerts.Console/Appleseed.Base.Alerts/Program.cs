@@ -38,7 +38,7 @@ namespace Appleseed.Base.Alerts
 
             CheckAlertsProvider();
 
-            Console.WriteLine("INFO : Ending Alert Engine.");
+            Console.WriteLine("INFO : Ending Alert Engine." + "\n");
         }
 
         static void CheckAlertsProvider()
@@ -55,7 +55,7 @@ namespace Appleseed.Base.Alerts
 
             else
             {
-                Console.WriteLine("INFO : There were error(s) during the Alert Engine run.");
+                Console.WriteLine("INFO : There were error(s) during the Alert Engine run." + "\n");
             }
         }
         
