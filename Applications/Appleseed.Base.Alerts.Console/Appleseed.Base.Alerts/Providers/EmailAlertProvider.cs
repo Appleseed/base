@@ -284,7 +284,7 @@ namespace Appleseed.Base.Alerts.Providers
                         catch (Exception ex)
                         {
                             // log exception
-                            Console.WriteLine("Error : An error occured sending an alert for user " + ua.email);
+                            Console.WriteLine("Error : An error occured sending an alert for user " + ua.email +"\n");
                             Console.WriteLine("\nError : Reason - " + ex.Message);
                             error = true;
                         }
