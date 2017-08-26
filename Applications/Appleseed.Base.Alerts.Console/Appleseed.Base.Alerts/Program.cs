@@ -49,11 +49,13 @@ namespace Appleseed.Base.Alerts
             runSuccess =  aAlertProvider.Run();
 
             if (runSuccess)
-            { }
+            {
+                Console.WriteLine("INFO : Alerts sent successfully.");
+            }
 
             else
             {
-
+                
             }
         }
         
