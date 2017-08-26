@@ -165,7 +165,11 @@ namespace Appleseed.Base.Alerts.Providers
                     {
                         sbHtmlContent.Append("<strong>Reactions: </strong> " + string.Join(",", results.response.docs[i].reactions) + "<br/>");
                     }
-                       
+                    if (results.response.docs[i].outcomes != null && results.response.docs[i].outcomes.Count() > 0)
+                    {
+                        
+                    }
+
 
                     if (!String.IsNullOrEmpty(results.response.docs[i].report_number))
                         sbHtmlContent.Append("<strong>Report Number: </strong> " + results.response.docs[i].report_number + "<br/>");
