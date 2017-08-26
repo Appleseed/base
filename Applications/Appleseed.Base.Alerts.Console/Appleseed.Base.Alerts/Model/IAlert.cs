@@ -11,7 +11,7 @@ namespace Appleseed.Base.Alerts.Model
 
         List<UserAlert> GetUserAlerts();
         JSONRootObject GetAlert(string query);
-        Task SendAlert(string email, string link, JSONRootObject results, object mailResponse);
+        Task SendAlert(UserAlert uAlert, string link, JSONRootObject results, object mailResponse);
         bool UpdateUserSendDate(Guid userID, DateTime date);
         bool Run();
     }
