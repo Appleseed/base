@@ -47,6 +47,14 @@ namespace Appleseed.Base.Alerts
             bool runSuccess = false;
 
             runSuccess =  aAlertProvider.Run();
+
+            if (runSuccess)
+            { }
+
+            else
+            {
+
+            }
         }
         
      
