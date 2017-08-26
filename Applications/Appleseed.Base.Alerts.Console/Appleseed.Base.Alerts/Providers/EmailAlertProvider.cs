@@ -167,7 +167,7 @@ namespace Appleseed.Base.Alerts.Providers
                     }
                     if (results.response.docs[i].outcomes != null && results.response.docs[i].outcomes.Count() > 0)
                     {
-                        
+                        sbHtmlContent.Append("<strong>Outcomes: </strong> " + string.Join(",", results.response.docs[i].outcomes) + "<br/>");
                     }
 
 
