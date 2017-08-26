@@ -264,7 +264,7 @@ namespace Appleseed.Base.Alerts.Providers
 
                 if (userAlerts != null && userAlerts.Count > 0)
                 {
-                    Console.WriteLine("INFO : Alerts need to be sent to  " + userAlerts.Count + " users.");
+                    Console.WriteLine("INFO : Alerts need to be sent to  " + userAlerts.Count + " users." + "\n");
                     foreach (UserAlert ua in userAlerts)
                     {
                         error = false;
