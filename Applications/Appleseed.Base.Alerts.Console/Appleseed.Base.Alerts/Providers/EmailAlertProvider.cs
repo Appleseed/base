@@ -160,6 +160,13 @@ namespace Appleseed.Base.Alerts.Providers
 
 
                     //IA Event
+
+                    if ( results.response.docs[i].reactions!=null && results.response.docs[i].reactions.Count()>0)
+                    { 
+                       
+                    }
+                       
+
                     if (!String.IsNullOrEmpty(results.response.docs[i].report_number))
                         sbHtmlContent.Append("<strong>Report Number: </strong> " + results.response.docs[i].report_number + "<br/>");
 
