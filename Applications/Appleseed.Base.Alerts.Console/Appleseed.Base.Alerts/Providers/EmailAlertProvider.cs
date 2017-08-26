@@ -271,7 +271,7 @@ namespace Appleseed.Base.Alerts.Providers
 
                             if (solrResponse != null)
                             {
-                                SendAlert(ua.email, ua.source, solrResponse, mailResponse).Wait();
+                                SendAlert(ua, ua.source, solrResponse, mailResponse).Wait();
                             }
 
 
