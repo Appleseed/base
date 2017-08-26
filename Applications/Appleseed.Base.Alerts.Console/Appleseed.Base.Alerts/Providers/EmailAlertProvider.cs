@@ -220,7 +220,7 @@ namespace Appleseed.Base.Alerts.Providers
             // Test Mode
             if (String.Compare(Constants.Mode, "production", true) != 0)
             {
-                Console.WriteLine("INFO : Mode - Test");
+                Console.WriteLine("INFO : Mode - Test" + "\n");
                 JSONRootObject solrResponse = GetAlert(Constants.TestSearchQuery);
                 Response mailResponse = null;
 
