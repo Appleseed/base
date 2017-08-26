@@ -55,7 +55,7 @@ namespace Appleseed.Base.Alerts
 
             else
             {
-                
+                Console.WriteLine("INFO : There were error(s) during the Alert Engine rune.");
             }
         }
         
