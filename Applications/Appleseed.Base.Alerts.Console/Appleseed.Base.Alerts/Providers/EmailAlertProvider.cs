@@ -54,7 +54,7 @@ namespace Appleseed.Base.Alerts.Providers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error : Reason - " + ex.Message);
+                Console.WriteLine("Error : Reason - " + ex.Message + "\n");
                 return null;
             }
 
