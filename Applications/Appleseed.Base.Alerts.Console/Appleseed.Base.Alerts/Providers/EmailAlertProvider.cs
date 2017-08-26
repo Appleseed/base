@@ -301,7 +301,7 @@ namespace Appleseed.Base.Alerts.Providers
                 }
                 if (userSentCount > 0)
                 {
-                    Console.WriteLine("INFO : Sent " + userSentCount + " alerts.");
+                    Console.WriteLine("INFO : Sent " + userSentCount + " alerts." + "\n");
                     return true;
                 }
                 return false;
