@@ -68,7 +68,7 @@ namespace Appleseed.Base.Alerts.Providers
                 var client = new SendGridClient(Constants.APIKey);
                 var from = new EmailAddress(Constants.MailFrom, Constants.MailFromName);
                 var subject = Constants.MailSubject;
-                var to = new EmailAddress(email, null);
+                var to = new EmailAddress(ua.email, null);
 
                 var plainTextContent = " ";
                 var stringLimit = Int32.Parse(Constants.StringLimit);
