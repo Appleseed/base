@@ -162,8 +162,8 @@ namespace Appleseed.Base.Alerts.Providers
                     //IA Event
 
                     if ( results.response.docs[i].reactions!=null && results.response.docs[i].reactions.Count()>0)
-                    { 
-                       
+                    {
+                        sbHtmlContent.Append("<strong>Reactions: </strong> " + string.Join(",", results.response.docs[i].reactions) + "<br/>");
                     }
                        
 
