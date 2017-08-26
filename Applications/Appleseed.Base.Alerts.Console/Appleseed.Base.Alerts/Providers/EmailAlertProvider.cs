@@ -231,7 +231,7 @@ namespace Appleseed.Base.Alerts.Providers
                     ua.email = Constants.TestEmail;
 
                     Console.WriteLine("INFO : Attempting to send a test mail to " + Constants.TestEmail);
-                    SendAlert(Constants.TestEmail, Constants.TestSearchLink, solrResponse, mailResponse).Wait();
+                    SendAlert(ua, Constants.TestSearchLink, solrResponse, mailResponse).Wait();
                     Console.WriteLine("INFO : Test Alert Sent");
                     error = false;
                 }
