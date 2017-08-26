@@ -234,14 +234,14 @@ namespace Appleseed.Base.Alerts.Providers
 
                     Console.WriteLine("INFO : Attempting to send a test mail to " + Constants.TestEmail + "\n");
                     SendAlert(ua, Constants.TestSearchLink, solrResponse, mailResponse).Wait();
-                    Console.WriteLine("INFO : Test Alert Sent");
+                    Console.WriteLine("INFO : Test Alert Sent" + "\n");
                     error = false;
                 }
                 catch (Exception ex)
                 {
                     // log exception
                     Console.WriteLine("Error : An error occured sending an alert for Test user " + Constants.TestEmail + "\n");
-                    Console.WriteLine("\nError : Reason - " + ex.Message);
+                    Console.WriteLine("\nError : Reason - " + ex.Message + "\n");
                     error = true;
 
                 }
