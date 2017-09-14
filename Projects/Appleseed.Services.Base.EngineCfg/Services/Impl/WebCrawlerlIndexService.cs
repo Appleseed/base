@@ -64,7 +64,7 @@
             var aggregator = new WebCrawlerAggregator(this.logger, 0, this.queueConnectionString, this.queueTableName, this.siteUrl);
             var collector = new FileContentCollector(this.logger, this.queueConnectionString, this.queueTableName);
             var extractor = new WebContentExtractor(this.logger);
-            var organizer = new AppleseedModuleItemIndexOrganizer(this.logger, this.sourceName);
+            var organizer = new AppleseedModuleItemIndexOrganizer(this.logger, this.sourceName, this.engine);
             var indexer = new GeneralIndexer(this.logger, this.indexPath, this.engine);
             var engine = this.engine;
 

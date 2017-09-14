@@ -64,7 +64,7 @@
             var aggregator = new WebContentAggregator();
             var collector = new RssContentCollector(this.logger,  new XmlExtractor(), this.rssUrl);
             var extractor = new WebContentExtractor(this.logger);
-            var organizer = new AppleseedModuleItemIndexOrganizer(this.logger, this.sourceName);
+            var organizer = new AppleseedModuleItemIndexOrganizer(this.logger, this.sourceName, this.engine);
             var indexer = new GeneralIndexer(this.logger, this.indexPath, this.engine);
             var engine = this.engine;
 
