@@ -5,8 +5,8 @@ namespace Appleseed.Services.Tagger
 {
     using Common.Logging;
     using Core.Helpers;
-    //using Knowledge.Model.Illumination.Models;
-    //using Knowledge.Model.Illumination.Services.OpenCalaisIlluminator;
+    using Knowledge.Model.Illumination.Models;
+    using Knowledge.Model.Illumination.Services.OpenCalaisIlluminator;
     using System;
     using System.Collections.Generic;
     using System.Data;
@@ -83,10 +83,10 @@ namespace Appleseed.Services.Tagger
                 throw new ArgumentNullException("baseUrl", "No valid base url was provided to the Site Tagging Service.");
             }
 
-            //if (portalId <= 0)
-            //{
-            //    throw new ArgumentNullException("portalId", "No portal ID was provided to the Site Tagging Service.");
-            //}
+            if (portalId < 0)
+            {
+                throw new ArgumentNullException("portalId", "No portal ID was provided to the Site Tagging Service.");
+            }
 
             var pageIds = this.GetPageIds(portalId);
             this.logger.Info(string.Format("Tagging {0} Pages", pageIds.Count()));
@@ -99,10 +99,10 @@ namespace Appleseed.Services.Tagger
                 if (extractedPage != null && !string.IsNullOrEmpty(extractedPage.Content))
                 {
                     this.logger.Info(i + ": Enlightening page content.");
-                    //var enlightenedResults =  this.IlluminatePageContent(extractedPage.Content);
-                    //var tags = (from o in enlightenedResults select o.Value).ToList();
-                    //this.logger.Info(i + ": Updating database");
-                    //this.UpdatePageTags(pageId, string.Join(",", tags));
+                    var enlightenedResults =  this.IlluminatePageContent(extractedPage.Content);
+                    var tags = (from o in enlightenedResults select o.Value).ToList();
+                    this.logger.Info(i + ": Updating database");
+                    this.UpdatePageTags(pageId, string.Join(",", tags));
                 }
 
                 i++;
@@ -164,12 +164,12 @@ namespace Appleseed.Services.Tagger
         }
 
         // run opencalais on data
-        //private IEnumerable<IlluminationResult> IlluminatePageContent(string content)
-        //{
-        //    var illuminator = new CalaisIlluminationService();
-        //    var result = illuminator.Illuminate(content);
-        //    return result;
-        //}
+        private IEnumerable<IlluminationResult> IlluminatePageContent(string content)
+        {
+            var illuminator = new CalaisIlluminationService();
+            var result = illuminator.Illuminate(content);
+            return result;
+        }
 
         private void UpdatePageTags(int pageId, string newTags)
         {

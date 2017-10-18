@@ -33,7 +33,7 @@ namespace Appleseed.Services.Knowledge.Model.Illumination.Services.OpenCalaisIll
     
         /// <remarks/>
         public IlluminationServiceProxy() {
-            this.Url = "http://api.opencalais.com/enlighten/calais.asmx";
+            this.Url = "https://api.thomsonreuters.com/permid/calais";
         }
     
         /// <remarks/>
