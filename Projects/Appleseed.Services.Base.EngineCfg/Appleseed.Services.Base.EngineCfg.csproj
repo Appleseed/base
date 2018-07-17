@@ -49,10 +49,6 @@
       <HintPath>..\..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="BoboBrowse.Net, Version=2.0.0.0, Culture=neutral, PublicKeyToken=080dc64b6ee374ea, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>External\BoboBrowse.Net.dll</HintPath>
-    </Reference>
     <Reference Include="C5, Version=2.2.4822.42600, Culture=neutral, PublicKeyToken=282361b99ded7e8e, processorArchitecture=MSIL">
       <HintPath>..\..\packages\C5.2.2.4822.42600\lib\portable-win+net40+sl40+wp+Xbox40\C5.dll</HintPath>
       <Private>True</Private>
@@ -60,8 +56,8 @@
     <Reference Include="Cassandra">
       <HintPath>..\..\packages\CassandraCSharpDriver.3.0.0\lib\net40\Cassandra.dll</HintPath>
     </Reference>
-    <Reference Include="CfgNet, Version=0.7.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Cfg-NET.0.7.4\lib\CfgNet.dll</HintPath>
+    <Reference Include="CfgNet, Version=0.10.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Cfg-NET.0.10.3\lib\net40\CfgNet.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Common.Logging, Version=3.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
@@ -373,12 +369,12 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TikaOnDotNet, Version=1.14.2.0, Culture=neutral, PublicKeyToken=fd70f0f601f583f3, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\TikaOnDotnet.TextExtractor.1.14.2\lib\TikaOnDotNet.dll</HintPath>
+    <Reference Include="TikaOnDotNet, Version=1.17.1.0, Culture=neutral, PublicKeyToken=fd70f0f601f583f3, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TikaOnDotnet.TextExtractor.1.17.1\lib\TikaOnDotNet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TikaOnDotNet.TextExtraction, Version=1.14.2.0, Culture=neutral, PublicKeyToken=fd70f0f601f583f3, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\TikaOnDotnet.TextExtractor.1.14.2\lib\TikaOnDotNet.TextExtraction.dll</HintPath>
+    <Reference Include="TikaOnDotNet.TextExtraction, Version=1.17.1.0, Culture=neutral, PublicKeyToken=fd70f0f601f583f3, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TikaOnDotnet.TextExtractor.1.17.1\lib\TikaOnDotNet.TextExtraction.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -440,7 +436,6 @@
     <Compile Include="Services\Impl\RssContentIndexService.cs" />
     <Compile Include="Services\Impl\WebCrawlerlIndexService.cs" />
     <Compile Include="Services\Impl\WebContentIndexService.cs" />
-    <Compile Include="Services\Impl\LuceneIndexSearchService.cs" />
     <Compile Include="Services\Impl\IndexService.cs" />
     <Compile Include="Processors\IOrganizeThings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

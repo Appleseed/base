@@ -88,7 +88,9 @@
     <Compile Include="Illumination\Services\OpenCalaisIlluminator\Helpers\StringLibrary.cs" />
     <Compile Include="Illumination\Services\OpenCalaisIlluminator\Interfaces\ICalaisDocument.cs" />
     <Compile Include="Illumination\Services\OpenCalaisIlluminator\Interfaces\ICalaisRdfEntity.cs" />
-    <Compile Include="Illumination\Services\OpenCalaisIlluminator\WebService\IlluminationServiceProxy.cs" />
+    <Compile Include="Illumination\Services\OpenCalaisIlluminator\WebService\IlluminationServiceProxy.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Illumination\Services\OpenCalaisIlluminator\WebService\IlluminationWebServiceException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
