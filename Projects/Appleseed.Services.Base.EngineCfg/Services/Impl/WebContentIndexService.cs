@@ -58,7 +58,7 @@
             var aggregator = new WebContentAggregator();
             var collector = new SiteMapCollector(this.logger, this.siteMapUrl, new XmlExtractor());
             var extractor = new WebContentExtractor(this.logger);
-            var organizer = new AppleseedModuleItemIndexOrganizer(this.logger,this.sourceName);
+            var organizer = new AppleseedModuleItemIndexOrganizer(this.logger,this.sourceName,this.engine);
             var indexer = new GeneralIndexer(this.logger, this.indexPath, this.engine);
             var engine = this.engine;
 

@@ -41,7 +41,7 @@
 
             this.IlluminateService = new HashSet<string>();
 
-            var illuminatorsConfig = ConfigurationManager.GetSection("illuminators") as IlluminatorsSection;
+            var illuminatorsConfig = ConfigurationManager.GetSection("IlluminatorsSection") as IlluminatorsSection;
 
             //DONE: if no illumination, set illuminate to false : by RXS - 10/5/16 
             if (illuminatorsConfig == null)
@@ -49,6 +49,56 @@
                 illuminate = false;
                 return;
             } else
+            {
+                illuminate = true;
+            }
+
+            foreach (IlluminatorsElement illuminator in illuminatorsConfig.illuminators)
+            {
+                if (illuminator.Type == "Alchemy")
+                {
+                    var _apiKey = illuminator.ApiKey;
+                    this.AppleseedAlchemyApi = new AlchemyAPI();
+                    this.AppleseedAlchemyApi.SetAPIKey(_apiKey);
+                    this.IlluminateService.Add("A");
+                }
+
+                if (illuminator.Type == "OpenCalais")
+                {
+                    var apiKey = illuminator.ApiKey;
+                    this.AppleseedCalaisApi = new CalaisIlluminationService(apiKey);
+                    this.IlluminateService.Add("O");
+                }
+            }
+
+        }
+
+        public AppleseedModuleItemIndexOrganizer(ILog logger, string sourceName, Engine engine)
+        {
+            if (logger == null)
+            {
+                throw new ArgumentNullException("logger");
+            }
+
+            if (string.IsNullOrEmpty(sourceName))
+            {
+                throw new ArgumentNullException("sourceName");
+            }
+
+            this.logger = logger;
+            this.sourceName = sourceName;
+
+            this.IlluminateService = new HashSet<string>();
+
+            var illuminatorsConfig = engine.IlluminatorsSection != null ? engine.IlluminatorsSection[0] : null;
+
+            //DONE: if no illumination, set illuminate to false : by RXS - 10/5/16 
+            if (illuminatorsConfig == null)
+            {
+                illuminate = false;
+                return;
+            }
+            else
             {
                 illuminate = true;
             }
@@ -82,7 +132,7 @@
         public void Organize(List<AppleseedModuleItemIndex> itemsToOrganize)
         {
             //DONE: if no illumination, just skip : by RXS - 10/5/16 
-            if (illuminate)
+            if (illuminate == false)
             {
                 return;
             } else  {

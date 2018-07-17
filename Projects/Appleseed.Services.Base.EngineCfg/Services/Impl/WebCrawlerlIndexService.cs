@@ -19,7 +19,9 @@
 
         private readonly ILog logger;
 
-        public WebCrawlerIndexService(ILog logger, WebCrawlToIndexElement source)
+        private readonly Engine engine;
+
+        public WebCrawlerIndexService(ILog logger, WebCrawlToIndexElement source, Engine engine)
         {
             if (logger == null)
             {
@@ -53,6 +55,8 @@
             this.siteUrl = source.SiteMapUrl;
             this.queueConnectionString = source.ConnectionString;
             this.queueTableName = source.TableName;
+            this.engine = engine;
+
         }
 
         public bool Run()
@@ -60,8 +64,9 @@
             var aggregator = new WebCrawlerAggregator(this.logger, 0, this.queueConnectionString, this.queueTableName, this.siteUrl);
             var collector = new FileContentCollector(this.logger, this.queueConnectionString, this.queueTableName);
             var extractor = new WebContentExtractor(this.logger);
-            var organizer = new AppleseedModuleItemIndexOrganizer(this.logger, this.sourceName);
-            var indexer = new GeneralIndexer(this.logger, this.indexPath);
+            var organizer = new AppleseedModuleItemIndexOrganizer(this.logger, this.sourceName, this.engine);
+            var indexer = new GeneralIndexer(this.logger, this.indexPath, this.engine);
+            var engine = this.engine;
 
             var indexService = new IndexService(collector, aggregator, extractor, organizer, indexer);
 

@@ -144,7 +144,7 @@ namespace Appleseed.Services.Search.Console
                 {
                     Logger.Info("SITE: " + source.Name);
 
-                    var indexService = new WebCrawlerIndexService(Logger, source);
+                    var indexService = new WebCrawlerIndexService(Logger, source, engine);
                     try
                     {
                         indexService.Run();
