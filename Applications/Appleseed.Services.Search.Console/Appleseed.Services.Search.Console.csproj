@@ -384,10 +384,10 @@
     <Link Include=".\bin\Release\*.exe" />
     <Link Include=".\bin\Release\*.dll" />
   </ItemGroup>
-  <Target Name="AfterBuild" Condition="'$(Configuration)' == 'Release'">
+  <!--<Target Name="AfterBuild" Condition="'$(Configuration)' == 'Release'">
     <PropertyGroup>
       <ReleasePath>bin</ReleasePath>
     </PropertyGroup>
     <Zip Files="@(content);@(Link)" WorkingDirectory="$(ReleasePath)" ZipFileName=".\bin\$(AssemblyName).zip" ZipLevel="9" />
-  </Target>
+  </Target>-->
 </Project>

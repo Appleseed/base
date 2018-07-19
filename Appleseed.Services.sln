@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Knowledge.Examples", "Projects\Appleseed.Services.Knowledge.Examples\Appleseed.Services.Knowledge.Examples.csproj", "{8EF39966-2BD1-452E-A6ED-7E4305225019}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Knowledge.Model", "Projects\Appleseed.Services.Knowledge.Model\Appleseed.Services.Knowledge.Model.csproj", "{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appleseed.Services.Base.Jobs", "Projects\Testing\Appleseed.Services.Base.Jobs\Appleseed.Services.Base.Jobs.csproj", "{E19A1727-8203-4134-AEF9-5981B4676C38}"
@@ -52,28 +50,17 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8EF39966-2BD1-452E-A6ED-7E4305225019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8EF39966-2BD1-452E-A6ED-7E4305225019}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8EF39966-2BD1-452E-A6ED-7E4305225019}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{8EF39966-2BD1-452E-A6ED-7E4305225019}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{8EF39966-2BD1-452E-A6ED-7E4305225019}.Debug|x86.ActiveCfg = Debug|x86
-		{8EF39966-2BD1-452E-A6ED-7E4305225019}.Debug|x86.Build.0 = Debug|x86
-		{8EF39966-2BD1-452E-A6ED-7E4305225019}.Release|Any CPU.ActiveCfg = Release|x86
-		{8EF39966-2BD1-452E-A6ED-7E4305225019}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{8EF39966-2BD1-452E-A6ED-7E4305225019}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{8EF39966-2BD1-452E-A6ED-7E4305225019}.Release|x86.ActiveCfg = Release|x86
-		{8EF39966-2BD1-452E-A6ED-7E4305225019}.Release|x86.Build.0 = Release|x86
 		{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}.Debug|x86.ActiveCfg = Debug|x86
 		{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}.Debug|x86.Build.0 = Debug|x86
-		{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}.Release|Any CPU.ActiveCfg = Release|x86
+		{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}.Release|x86.ActiveCfg = Release|x86
-		{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}.Release|x86.Build.0 = Release|x86
+		{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}.Release|x86.ActiveCfg = Release|Any CPU
+		{3D122A01-2059-4E30-A3B1-FBD6D0C31C28}.Release|x86.Build.0 = Release|Any CPU
 		{E19A1727-8203-4134-AEF9-5981B4676C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E19A1727-8203-4134-AEF9-5981B4676C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E19A1727-8203-4134-AEF9-5981B4676C38}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -143,8 +130,8 @@ Global
 		{C2882AA4-E489-4614-A2F3-927923F80383}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C2882AA4-E489-4614-A2F3-927923F80383}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C2882AA4-E489-4614-A2F3-927923F80383}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{C2882AA4-E489-4614-A2F3-927923F80383}.Release|x86.ActiveCfg = Release|x86
-		{C2882AA4-E489-4614-A2F3-927923F80383}.Release|x86.Build.0 = Release|x86
+		{C2882AA4-E489-4614-A2F3-927923F80383}.Release|x86.ActiveCfg = Release|Any CPU
+		{C2882AA4-E489-4614-A2F3-927923F80383}.Release|x86.Build.0 = Release|Any CPU
 		{D5E78361-25B0-4C70-92C8-B49B718C8B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D5E78361-25B0-4C70-92C8-B49B718C8B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5E78361-25B0-4C70-92C8-B49B718C8B77}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -203,7 +190,6 @@ Global
 		{DA298FAB-1CDD-44EB-B055-ED6CE0E9DD6A} = {C980E463-0984-4940-98BE-10942242B1EB}
 		{56EDBF5D-AED3-4512-B240-463FD59B29BF} = {C980E463-0984-4940-98BE-10942242B1EB}
 		{99434AFE-01A5-4BD4-BAE9-55810389EFB1} = {C980E463-0984-4940-98BE-10942242B1EB}
-		{8EF39966-2BD1-452E-A6ED-7E4305225019} = {C980E463-0984-4940-98BE-10942242B1EB}
 		{032BD5C7-760C-438F-B964-88F61E6AC164} = {C980E463-0984-4940-98BE-10942242B1EB}
 		{A1B5778E-96B3-45AA-BB63-099624DB9B0B} = {043FD603-48C3-4484-AC37-3051CF313A4A}
 		{E19A1727-8203-4134-AEF9-5981B4676C38} = {043FD603-48C3-4484-AC37-3051CF313A4A}
