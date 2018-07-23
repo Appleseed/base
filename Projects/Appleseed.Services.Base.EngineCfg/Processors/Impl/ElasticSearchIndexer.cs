@@ -45,7 +45,8 @@
             string indexName = indexPath.Substring(indexSep);
 
             var node = new Uri(elasticUri);
-            var settings = new ConnectionSettings(node, defaultIndex: indexName);
+//            var settings = new ConnectionSettings(node,defaultIndex: indexName);
+            var settings = new ConnectionSettings(node);
             var client = new ElasticClient(settings);
 
                 var indexItemTasks = new List<Task>();
@@ -76,7 +77,7 @@
                             if (!string.IsNullOrEmpty(data.SmartKeywords)) indexItem.SmartItemKeywords = data.SmartKeywords;
                             if (!string.IsNullOrEmpty(data.Source)) indexItem.ItemSource = data.Source;
 
-                            client.Index(indexItem);
+                            client.IndexDocument<ElasticSearchItem>(indexItem);
                         }
                     },
                         TaskCreationOptions.LongRunning).ContinueWith(t =>
